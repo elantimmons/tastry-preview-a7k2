@@ -187,9 +187,21 @@
     .hf-peak, .hf-accent-node { animation: none; }
   }
 
-  /* hero stage becomes two-column with the figure on the right */
-  @media (min-width: 901px) {
-    .hero-stage.with-figure { grid-template-columns: 1fr 0.92fr !important; align-items: center !important; gap: 64px; }
+  /* Hero top: headline copy on the left, signature graphic on the right (above the fold) */
+  .hero-top {
+    display: grid;
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero-top .hero-figure { margin: 0; }
+  .hero-copy .hero-eyebrow { margin-bottom: 28px; }
+  .hero-copy .hero-title { font-size: clamp(40px, 6.6vw, 108px); }
+  .hero-copy .hero-sub { max-width: 46ch; }
+  @media (max-width: 980px) {
+    .hero-top { grid-template-columns: 1fr; gap: 40px; }
+    .hero-copy .hero-title { font-size: clamp(48px, 12vw, 96px); }
+    .hero-top .hero-figure { max-width: 520px; }
   }
 </style>
 </head>
@@ -216,38 +228,31 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="container">
-    <div class="hero-eyebrow eyebrow">Predictive AI infrastructure for consumer product development</div>
-    <h1 class="hero-title">
-      We taught AI<br />
-      <span class="italic">how to taste.</span>
-    </h1>
-    <p class="hero-sub">
-      Tastry is the first-principles model for human taste, smell, and texture preference.
-      We translate the chemistry inside a product into the preference it will create,
-      before a single batch is ever made.
-    </p>
-    <div class="hero-actions">
-      <a class="btn btn-primary btn-arrow" href="platform.html">See what it does</a>
-      <a class="btn btn-ghost" href="science.html">Read the science</a>
-    </div>
-
-    <button class="video-trigger" type="button" data-video="https://play.vidyard.com/zKGHfvuaSdNB8kpycR3hzN.html" aria-haspopup="dialog" aria-label="Play video: Watch how we started in wine">
-      <span class="vt-play" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><polygon points="9,7 18,12 9,17"/></svg>
-      </span>
-      <span class="vt-label">
-        <span class="vt-title">Watch how we started in wine</span>
-        <span class="vt-sub">Play video &middot; 2 min</span>
-      </span>
-    </button>
-
-    <div class="hero-stage with-figure" style="grid-template-columns: 1fr; align-items: start;">
-      <div>
-        <div class="pill"><span class="dot"></span>Origins in wine. Now scaling into ready-to-drink, carbonated soft drinks, energy drinks, spirits, and more.</div>
-        <p class="lead" style="margin-top:28px; max-width: 48ch;">
-          Consumer companies have spent decades guessing what people want.
-          We built the model that knows. From chemistry, not from words.
+    <div class="hero-top">
+      <div class="hero-copy">
+        <div class="hero-eyebrow eyebrow">Predictive AI infrastructure for consumer product development</div>
+        <h1 class="hero-title">
+          We taught AI<br />
+          <span class="italic">how to taste.</span>
+        </h1>
+        <p class="hero-sub">
+          Tastry is the first-principles model for human taste, smell, and texture preference.
+          We translate the chemistry inside a product into the preference it will create,
+          before a single batch is ever made.
         </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-arrow" href="platform.html">See what it does</a>
+          <a class="btn btn-ghost" href="science.html">Read the science</a>
+        </div>
+
+        <button class="video-trigger" type="button" data-video="https://play.vidyard.com/zKGHfvuaSdNB8kpycR3hzN.html" aria-haspopup="dialog" aria-label="Play video: Watch how we started in wine">
+          <span class="vt-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polygon points="9,7 18,12 9,17"/></svg>
+          </span>
+          <span class="vt-label">
+            <span class="vt-title">Watch how we started in wine</span>
+          </span>
+        </button>
       </div>
 
       <!-- SIGNATURE HERO GRAPHIC: chemistry resolves into predicted preference -->
@@ -353,6 +358,16 @@
         </svg>
         <figcaption>Fig. 01 &middot; From chemistry to predicted preference</figcaption>
       </figure>
+    </div>
+
+    <div class="hero-stage" style="grid-template-columns: 1fr; align-items: start; margin-top: 56px;">
+      <div>
+        <div class="pill"><span class="dot"></span>Origins in wine. Now scaling into ready-to-drink, carbonated soft drinks, energy drinks, spirits, and more.</div>
+        <p class="lead" style="margin-top:28px; max-width: 64ch;">
+          Consumer companies have spent decades guessing what people want.
+          We built the model that knows. From chemistry, not from words.
+        </p>
+      </div>
     </div>
   </div>
 </section>
