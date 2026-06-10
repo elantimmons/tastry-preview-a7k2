@@ -519,6 +519,41 @@ em.italic-serif {
   opacity: 0.7;
 }
 
+/* -------- Logo wall (client logos) -------- */
+.logo-wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.logo-wall .cell {
+  flex: 1 1 180px;
+  min-height: 116px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 22px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  transition: border-color 0.25s var(--ease);
+}
+.logo-wall .cell:hover { border-color: rgba(14,14,16,0.25); }
+.logo-wall .cell img {
+  max-height: 46px;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+}
+.logo-wall .name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
 /* -------- Reveal animation -------- */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
 .reveal.in { opacity: 1; transform: translateY(0); }

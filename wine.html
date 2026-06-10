@@ -92,7 +92,7 @@
       <a class="nav-link" href="index.html">Index</a>
       <a class="nav-link" href="science.html">Science</a>
       <a class="nav-link" href="platform.html">Platform</a>
-      <a class="nav-link active" href="wine.html">Wine</a>
+      <a class="nav-link active" href="wine.html">Wine Origin</a>
       <a class="nav-link nav-hide-mobile" href="company.html">Company</a>
       <a class="btn btn-accent btn-arrow" href="company.html#contact">Get in touch</a>
     </nav>
@@ -445,13 +445,19 @@
       <span class="eyebrow" style="justify-content:center;">In good company</span>
       <h2 style="margin-top:24px;">Used by winemakers,<br/>distributors, and retailers<br/>who chose the model.</h2>
     </div>
-    <div class="reveal logo-strip">
-      <span class="item italic-serif">Patz &amp; Hall</span>
-      <span class="item italic-serif">Ste. Michelle</span>
-      <span class="item italic-serif">O'Neill</span>
-      <span class="item italic-serif">Phase 2 Cellars</span>
-      <span class="item italic-serif">RNDC</span>
-      <span class="item italic-serif">Republic National</span>
+    <!--
+      LOGO WALL. To use the real approved logo artwork, drop each client's file into
+      site/assets/logos/ (SVG preferred, or transparent PNG) and replace the
+      <span class="name">…</span> inside a cell with, e.g.:
+        <img src="assets/logos/patz-hall.svg" alt="Patz & Hall" />
+      Suggested filenames are noted on each cell below.
+    -->
+    <div class="reveal logo-wall">
+      <div class="cell"><!-- assets/logos/patz-hall.svg --><span class="name">Patz &amp; Hall</span></div>
+      <div class="cell"><!-- assets/logos/ste-michelle.svg --><span class="name">Chateau Ste.&nbsp;Michelle</span></div>
+      <div class="cell"><!-- assets/logos/oneill.svg --><span class="name">O'Neill Vintners</span></div>
+      <div class="cell"><!-- assets/logos/phase-2-cellars.svg --><span class="name">Phase&nbsp;2 Cellars</span></div>
+      <div class="cell"><!-- assets/logos/rndc.svg --><span class="name">RNDC</span></div>
     </div>
   </div>
 </section>
@@ -512,7 +518,7 @@
 
     <div class="footer-bottom">
       <div class="footer-meta">&copy; <span id="year"></span> &middot; Tastry, Inc. &middot; All rights reserved</div>
-      <div class="footer-mega-mark" aria-hidden="true"></div>
+      
     </div>
   </div>
 </footer>
