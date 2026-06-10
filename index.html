@@ -203,6 +203,29 @@
     .hero-copy .hero-title { font-size: clamp(48px, 12vw, 96px); }
     .hero-top .hero-figure { max-width: 520px; }
   }
+
+  /* Hero actions: one primary CTA paired with the video link */
+  .hero-actions { gap: 26px; align-items: center; }
+  .hero-actions .video-trigger { margin-top: 0; }
+
+  /* Statement band below the fold-top: pill + lead + secondary action */
+  .hero-statement {
+    margin-top: clamp(48px, 6vw, 72px);
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+  }
+  .hero-statement-row {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 48px;
+  }
+  .hero-statement-row .lead { margin: 0; max-width: 60ch; }
+  .hero-statement-row .btn { flex-shrink: 0; }
+  @media (max-width: 760px) {
+    .hero-statement-row { flex-direction: column; align-items: flex-start; gap: 28px; }
+  }
 </style>
 </head>
 <body>
@@ -242,17 +265,15 @@
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary btn-arrow" href="platform.html">See what it does</a>
-          <a class="btn btn-ghost" href="science.html">Read the science</a>
+          <button class="video-trigger" type="button" data-video="https://play.vidyard.com/zKGHfvuaSdNB8kpycR3hzN.html" aria-haspopup="dialog" aria-label="Play video: Watch how we started in wine">
+            <span class="vt-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="9,7 18,12 9,17"/></svg>
+            </span>
+            <span class="vt-label">
+              <span class="vt-title">Watch how we started in wine</span>
+            </span>
+          </button>
         </div>
-
-        <button class="video-trigger" type="button" data-video="https://play.vidyard.com/zKGHfvuaSdNB8kpycR3hzN.html" aria-haspopup="dialog" aria-label="Play video: Watch how we started in wine">
-          <span class="vt-play" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><polygon points="9,7 18,12 9,17"/></svg>
-          </span>
-          <span class="vt-label">
-            <span class="vt-title">Watch how we started in wine</span>
-          </span>
-        </button>
       </div>
 
       <!-- SIGNATURE HERO GRAPHIC: chemistry resolves into predicted preference -->
@@ -360,13 +381,14 @@
       </figure>
     </div>
 
-    <div class="hero-stage" style="grid-template-columns: 1fr; align-items: start; margin-top: 56px;">
-      <div>
-        <div class="pill"><span class="dot"></span>Origins in wine. Now scaling into ready-to-drink, carbonated soft drinks, energy drinks, spirits, and more.</div>
-        <p class="lead" style="margin-top:28px; max-width: 64ch;">
+    <div class="hero-statement">
+      <div class="pill"><span class="dot"></span>Origins in wine. Now scaling into ready-to-drink, carbonated soft drinks, energy drinks, spirits, and more.</div>
+      <div class="hero-statement-row">
+        <p class="lead">
           Consumer companies have spent decades guessing what people want.
           We built the model that knows. From chemistry, not from words.
         </p>
+        <a class="btn btn-ghost btn-arrow" href="science.html">Read the science</a>
       </div>
     </div>
   </div>
