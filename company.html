@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Company. Tastry.</title>
+<meta name="description" content="Tastry is an interdisciplinary team bridging chemistry, machine learning, and consumer science." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,350;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" />
+<link rel="icon" type="image/svg+xml" href="assets/tastry-icon.svg" />
+
+<style>
+  .team {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--ink);
+  }
+  .person {
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 32px;
+    display: flex; flex-direction: column; gap: 14px;
+    min-height: 280px;
+  }
+  .person:nth-child(3n) { border-right: 0; }
+  .person .role {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .person h3 {
+    font-family: var(--font-display);
+    font-weight: 350;
+    font-size: clamp(22px, 2.2vw, 28px);
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+  }
+  .person p { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+  .person .avatar {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    display: grid; place-items: center;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  @media (max-width: 900px) {
+    .team { grid-template-columns: repeat(2, 1fr); }
+    .person:nth-child(3n) { border-right: 1px solid var(--line); }
+    .person:nth-child(2n) { border-right: 0; }
+  }
+  @media (max-width: 560px) {
+    .team { grid-template-columns: 1fr; }
+    .person, .person:nth-child(3n), .person:nth-child(2n) { border-right: 0; }
+  }
+
+  .mission {
+    border: 1px solid var(--ink);
+    border-radius: var(--r-lg);
+    padding: 56px;
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .mission h2 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(32px, 4.2vw, 56px);
+    letter-spacing: -0.025em;
+    line-height: 1.04;
+  }
+  .mission h2 em { font-style: italic; color: var(--accent-bright); font-weight: 350; }
+  .mission p { color: rgba(244,240,234,0.78); margin-top: 18px; max-width: 60ch; font-size: 17px; line-height: 1.55; }
+  @media (max-width: 760px) { .mission { padding: 36px; } }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="Tastry home">
+      <span class="t-logo-mark" aria-hidden="true"></span>
+      <span class="t-logo-wordmark" aria-hidden="true"></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="index.html">Index</a>
+      <a class="nav-link" href="science.html">Science</a>
+      <a class="nav-link" href="platform.html">Platform</a>
+      <a class="nav-link" href="wine.html">Wine</a>
+      <a class="nav-link active nav-hide-mobile" href="company.html">Company</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:28px;">Company</div>
+    <h1 class="hero-title">
+      We are <em class="italic">teaching</em><br/>
+      machines what<br/>
+      humans love.
+    </h1>
+    <p class="hero-sub">
+      Tastry is an interdisciplinary team of chemists, machine-learning researchers,
+      and consumer scientists. We are building the infrastructure layer for predictive
+      product development. One category at a time, starting with the chemistry
+      that nobody else has captured.
+    </p>
+  </div>
+</section>
+
+<!-- ============ MISSION ============ -->
+<section class="section-sm">
+  <div class="container">
+    <div class="reveal mission">
+      <span class="eyebrow" style="color: rgba(244,240,234,0.6);">Mission</span>
+      <h2 style="margin-top:16px;">
+        Product development should be <em>predictive,</em> not reactive.
+      </h2>
+      <p>
+        For a century the consumer industry has launched products and waited for the market to tell it
+        whether the launch was right. Tastry is the model that answers the question before the launch,
+        from the molecule up, so brands can stop guessing what people want, and start knowing.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="meta"><span class="eyebrow">Leadership</span></div>
+      <div>
+        <h2>The team behind<br/>the model.</h2>
+        <p class="lead" style="margin-top:24px;">
+          Chemistry. Machine learning. Enterprise software. Consumer behavior.
+          The disciplines this required don't usually share a building.
+        </p>
+      </div>
+    </div>
+
+    <div class="reveal team">
+      <div class="person">
+        <div class="avatar">KA</div>
+        <div class="role">CEO &amp; Founder</div>
+        <h3>Katerina Axelsson</h3>
+        <p>Chemist turned inventor. International patent holder on the chemistry-to-preference method. Started the work in 2015.</p>
+      </div>
+      <div class="person">
+        <div class="avatar">CS</div>
+        <div class="role">Chief Business Officer</div>
+        <h3>Charles Slocum</h3>
+        <p>25 years of enterprise business experience. Three-time founder. Runs commercial strategy and enterprise expansion.</p>
+      </div>
+      <div class="person">
+        <div class="avatar">JC</div>
+        <div class="role">VP of Growth</div>
+        <h3>Jeff Campbell</h3>
+        <p>Former CCO at Sales Predict (acquired by eBay), CRO at Get Satisfaction (acquired by Sprinklr), VP Global Sales at SugarCRM (acquired by Accel-KKR).</p>
+      </div>
+      <div class="person">
+        <div class="avatar">ET</div>
+        <div class="role">Chief Product Officer</div>
+        <h3>Elan Timmons</h3>
+        <p>Four-time founder with a prior exit.</p>
+      </div>
+      <div class="person">
+        <div class="avatar">AD</div>
+        <div class="role">VP of AI &amp; ML</div>
+        <h3>Alex Dekhtyar</h3>
+        <p>PhD in Computer Science. 18 publications. Co-inventor on the core patent. Leads the ML research and modeling team.</p>
+      </div>
+      <div class="person" style="background: var(--paper-2); justify-content: space-between;">
+        <div>
+          <div class="role" style="color: var(--accent);">Open roles</div>
+          <h3 style="margin-top:14px;">We're hiring.</h3>
+          <p style="margin-top:8px;">Chemistry, ML, enterprise GTM, and customer engineering. If you're great at one of these, send a note.</p>
+        </div>
+        <a class="btn btn-ghost btn-arrow" href="mailto:hello@tastry.com">hello@tastry.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NUMBERS / SHAPE OF THE COMPANY ============ -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="reveal data-row">
+      <div class="cell"><span class="v">2015</span><span class="l">Founded</span></div>
+      <div class="cell"><span class="v">SLO</span><span class="l">Headquartered &middot; California Central Coast</span></div>
+      <div class="cell"><span class="v">4 &nbsp;</span><span class="l">Patents issued (US, China, Japan, Canada)</span></div>
+      <div class="cell"><span class="v">12+</span><span class="l">Global CPG enterprises in active engagement</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE MARKET ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="meta"><span class="eyebrow">The market</span></div>
+      <div>
+        <h2>The category we are<br/>building <em class="italic-serif">into.</em></h2>
+        <p class="lead" style="margin-top:24px;">
+          Tastry sits at the intersection of consumer packaged goods, predictive AI infrastructure,
+          and analytical chemistry. The categories we touch first are beverages and personal care.
+          The category we are ultimately building into is every CPG product on a shelf.
+        </p>
+      </div>
+    </div>
+
+    <div class="reveal market-grid" style="border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink);">
+      <style>
+        .market-grid > div { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+        @media (max-width: 900px) {
+          .market-grid > div { grid-template-columns: repeat(2, 1fr) !important; }
+          .market-grid > div > div:nth-child(2) { border-right: 0 !important; }
+          .market-grid > div > div:nth-child(1), .market-grid > div > div:nth-child(2) { border-bottom: 1px solid var(--line) !important; }
+        }
+        @media (max-width: 560px) {
+          .market-grid > div { grid-template-columns: 1fr !important; }
+          .market-grid > div > div { border-right: 0 !important; border-bottom: 1px solid var(--line) !important; }
+          .market-grid > div > div:last-child { border-bottom: 0 !important; }
+        }
+      </style>
+      <div>
+        <div style="padding: 36px 28px; border-right: 1px solid var(--line); display:flex; flex-direction:column; gap:12px; min-height: 200px;">
+          <span class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color: var(--muted);">Global CPG</span>
+          <div style="font-family: var(--font-display); font-weight: 300; font-size: clamp(40px, 4.6vw, 64px); letter-spacing: -0.03em; line-height: 1;">$13.7T</div>
+          <p style="font-size:13px; color: var(--ink-2); margin: 0;">Total consumer packaged goods spend, worldwide.</p>
+        </div>
+        <div style="padding: 36px 28px; border-right: 1px solid var(--line); display:flex; flex-direction:column; gap:12px; min-height: 200px;">
+          <span class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color: var(--muted);">Sectors of focus</span>
+          <div style="font-family: var(--font-display); font-weight: 300; font-size: clamp(40px, 4.6vw, 64px); letter-spacing: -0.03em; line-height: 1;">$7T</div>
+          <p style="font-size:13px; color: var(--ink-2); margin: 0;">Beverage, beauty, and personal care. Where chemistry decides preference.</p>
+        </div>
+        <div style="padding: 36px 28px; border-right: 1px solid var(--line); display:flex; flex-direction:column; gap:12px; min-height: 200px;">
+          <span class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color: var(--muted);">Ingredient providers</span>
+          <div style="font-family: var(--font-display); font-weight: 300; font-size: clamp(40px, 4.6vw, 64px); letter-spacing: -0.03em; line-height: 1;">$60.6B</div>
+          <p style="font-size:13px; color: var(--ink-2); margin: 0;">The flavor and ingredient houses we replace one workflow at a time.</p>
+        </div>
+        <div style="padding: 36px 28px; display:flex; flex-direction:column; gap:12px; min-height: 200px;">
+          <span class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color: var(--accent);">Beverage R&amp;D TAM</span>
+          <div style="font-family: var(--font-display); font-weight: 300; font-size: clamp(40px, 4.6vw, 64px); letter-spacing: -0.03em; line-height: 1; color: var(--accent);">$52.5B</div>
+          <p style="font-size:13px; color: var(--ink-2); margin: 0;">The slice of R&amp;D spend Tastry is positioned to take in beverage alone.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:36px;">
+      <p class="page-label">Beverage is the wedge. Beauty, personal care, fragrance, nutraceuticals, and the rest of CPG follow.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="section" style="background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); scroll-margin-top: 80px;">
+  <div class="container">
+    <div class="reveal contact-grid">
+      <div>
+        <span class="eyebrow">Get in touch</span>
+        <h2 style="margin-top:24px;">Tell us<br/>what you're<br/><em class="italic-serif">building.</em></h2>
+        <p class="prose" style="margin-top:24px; font-size:16px; color: var(--ink-2); max-width: 38ch;">
+          R&amp;D lead, brand owner, retailer, supply-chain operator, investor, future colleague.
+          Whatever brings you here, a real person on the team will read it and write back.
+        </p>
+        <div style="margin-top:32px;">
+          <p class="page-label">Direct</p>
+          <p style="margin-top:6px;"><a href="mailto:hello@tastry.com" style="border-bottom:1px solid var(--line); padding-bottom:2px;">hello@tastry.com</a></p>
+        </div>
+        <div style="margin-top:24px;">
+          <p class="page-label">Office</p>
+          <p style="margin-top:6px; color: var(--ink-2);">3592 Broad Street, Suite 102<br/>San Luis Obispo, CA 93401</p>
+        </div>
+      </div>
+
+      <form class="form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks. We will be in touch.'; this.querySelector('button').disabled = true;">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="company">Company</label>
+          <input id="company" type="text" autocomplete="organization" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="role">You are</label>
+          <select id="role">
+            <option>R&amp;D / Innovation</option>
+            <option>Brand / Marketing</option>
+            <option>Operations / Supply chain</option>
+            <option>Retail / Distribution</option>
+            <option>Investor / Strategic</option>
+            <option>Press</option>
+            <option>Future colleague</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field field-full">
+          <label for="message">What brings you here</label>
+          <textarea id="message" rows="4" placeholder="A few sentences is plenty."></textarea>
+        </div>
+        <div class="field field-full" style="flex-direction:row; justify-content:flex-end; align-items:center; gap:18px; margin-top:8px;">
+          <span class="page-label">Real responses, usually within two business days.</span>
+          <button class="btn btn-primary btn-arrow" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="section">
+  <div class="container container-narrow">
+    <div class="reveal">
+      <span class="eyebrow">One more thing</span>
+      <h2 style="margin-top:24px; font-size: clamp(36px, 5vw, 64px);">
+        We're not building a tool. We're building<br/>
+        <em class="italic-serif">the infrastructure layer</em><br/>
+        for predictive product development.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" aria-label="Tastry">
+          <span class="t-logo-mark" aria-hidden="true"></span>
+          <span class="t-logo-wordmark" aria-hidden="true"></span>
+        </a>
+        <p style="margin-top:16px; max-width: 38ch; color: var(--muted); font-size:14px;">
+          The first-principles AI platform for human taste, smell, and texture preference.
+        </p>
+      </div>
+      <div>
+        <h5>Read</h5>
+        <ul>
+          <li><a href="science.html">Science</a></li>
+          <li><a href="platform.html">Platform</a></li>
+          <li><a href="wine.html">Wine origin</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="company.html">Team &amp; mission</a></li>
+          <li><a href="company.html#contact">Contact</a></li>
+          <li><a href="https://www.linkedin.com/company/tastry" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Talk</h5>
+        <ul>
+          <li><a href="mailto:hello@tastry.com">hello@tastry.com</a></li>
+          <li><span style="color:var(--muted);">3592 Broad Street<br/>San Luis Obispo, CA 93401</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-meta">&copy; <span id="year"></span> &middot; Tastry, Inc. &middot; All rights reserved</div>
+      <div class="footer-mega-mark" aria-hidden="true"></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

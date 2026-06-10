@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Platform. Tastry.</title>
+<meta name="description" content="Strategic intelligence, product development, timeline compression, assortment planning, and consumer targeting. One model, every stage of the product cycle." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,350;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" />
+<link rel="icon" type="image/svg+xml" href="assets/tastry-icon.svg" />
+
+<style>
+  .uc {
+    padding-top: clamp(80px, 9vw, 140px);
+    padding-bottom: clamp(80px, 9vw, 140px);
+    border-bottom: 1px solid var(--line);
+    scroll-margin-top: 80px;
+  }
+  .uc.alt { background: var(--paper-2); }
+  .uc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .uc-grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+  .uc-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .uc-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(38px, 5.4vw, 76px);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin-top: 20px;
+    max-width: 14ch;
+  }
+  .uc-title em { font-style: italic; font-weight: 350; }
+  .uc-lede {
+    margin-top: 28px;
+    font-size: clamp(17px, 1.4vw, 19px);
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 52ch;
+  }
+  .uc-visual {
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background: var(--surface);
+    padding: 28px;
+    aspect-ratio: 5 / 4;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .uc-visual.dark { background: var(--ink); color: var(--paper); }
+  .uc-caption {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 14px;
+  }
+  .uc-bullets { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .uc-bullets li {
+    list-style: none;
+    padding-left: 32px;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 48ch;
+  }
+  .uc-bullets li::before {
+    content: ""; position: absolute; left: 0; top: 12px;
+    width: 16px; height: 1px; background: var(--accent);
+  }
+  .uc-bullets li strong { font-weight: 600; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; display: block; color: var(--ink); margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="Tastry home">
+      <span class="t-logo-mark" aria-hidden="true"></span>
+      <span class="t-logo-wordmark" aria-hidden="true"></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="index.html">Index</a>
+      <a class="nav-link" href="science.html">Science</a>
+      <a class="nav-link active" href="platform.html">Platform</a>
+      <a class="nav-link" href="wine.html">Wine</a>
+      <a class="nav-link nav-hide-mobile" href="company.html">Company</a>
+      <a class="btn btn-ghost" href="company.html#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" style="padding-bottom: clamp(40px, 6vw, 80px);">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:28px;">Platform &middot; every stage of the product cycle</div>
+    <h1 class="hero-title">
+      Five ways<br/>
+      <span class="italic">to find the answer</span><br/>
+      before the market does.
+    </h1>
+    <p class="hero-sub">
+      Tastry replaces the trial-and-error inside every stage of consumer product
+      development. From forecasting demand to engineering the formulation to
+      targeting the audience that is most likely to love it.
+    </p>
+  </div>
+
+  <div class="container" style="margin-top:80px;">
+    <div class="data-row reveal">
+      <div class="cell"><span class="v">01</span><span class="l">Strategic intelligence</span></div>
+      <div class="cell"><span class="v">02</span><span class="l">Assortment planning</span></div>
+      <div class="cell"><span class="v">03</span><span class="l">Product development</span></div>
+      <div class="cell"><span class="v">04</span><span class="l">Consumer targeting</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 STRATEGIC INTELLIGENCE ============ -->
+<section id="strategic-intelligence" class="uc">
+  <div class="container">
+    <div class="uc-grid">
+      <div class="reveal">
+        <div class="uc-num">01 &middot; Strategic intelligence</div>
+        <h2 class="uc-title">See the <em>market</em><br/>before you brief it.</h2>
+        <p class="uc-lede">
+          Most product portfolios start as a hunch and get refined by the time
+          the hunch is too expensive to walk back. Tastry inverts that.
+          We forecast opportunity at the store, region, and demographic level
+          using real chemistry-to-preference signal, before a brief
+          is written, a recipe is drafted, or a single panelist is booked.
+        </p>
+        <ul class="uc-bullets">
+          <li><strong>Demand forecasting</strong>Project category-level demand by SKU and geography, grounded in preference signal rather than sell-through.</li>
+          <li><strong>Whitespace detection</strong>Surface unmet pockets of preference that no current product addresses.</li>
+          <li><strong>Portfolio simulation</strong>Stress-test what happens if you launch, kill, or reformulate a SKU before you actually do.</li>
+        </ul>
+      </div>
+
+      <div class="reveal uc-visual">
+        <!-- Geographic forecast visualization (matches deck slide 9 "forecast store, local, regional, nationwide opportunity") -->
+        <svg viewBox="0 0 460 380" aria-hidden="true" style="width:100%; height:auto;">
+          <text x="0" y="14" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4" fill="#6B6258">FORECAST &middot; STORE &middot; LOCAL &middot; REGIONAL &middot; NATIONWIDE</text>
+
+          <!-- stylized US silhouette -->
+          <g transform="translate(20,40)" fill="none" stroke="#0E0E10" stroke-width="1" opacity="0.4">
+            <path d="
+              M 10 60
+              L 60 50 L 100 40 L 140 36 L 180 36 L 220 40 L 260 36
+              L 300 40 L 340 50 L 380 60 L 410 80
+              L 420 110 L 414 140 L 400 168 L 386 192 L 376 214
+              L 360 232 L 340 242 L 320 250 L 296 252 L 274 252
+              L 256 248 L 230 250 L 210 252 L 184 246 L 158 240
+              L 132 234 L 108 224 L 90 212 L 70 196 L 58 178 L 48 158
+              L 38 140 L 28 120 L 18 96 L 12 78 Z
+            "/>
+            <!-- internal latitude / state-divider lines -->
+            <line x1="80"  y1="80"  x2="380" y2="80"  stroke-dasharray="2 5"/>
+            <line x1="60"  y1="140" x2="400" y2="140" stroke-dasharray="2 5"/>
+            <line x1="80"  y1="200" x2="370" y2="200" stroke-dasharray="2 5"/>
+            <line x1="160" y1="40"  x2="160" y2="240" stroke-dasharray="2 5"/>
+            <line x1="280" y1="40"  x2="280" y2="240" stroke-dasharray="2 5"/>
+          </g>
+
+          <!-- demand hotspots -->
+          <g>
+            <!-- west coast major -->
+            <circle cx="60"  cy="130" r="16" fill="#7A2E1F" opacity="0.25"/>
+            <circle cx="60"  cy="130" r="9"  fill="#7A2E1F" opacity="0.5"/>
+            <circle cx="60"  cy="130" r="4"  fill="#7A2E1F"/>
+            <!-- pacific NW -->
+            <circle cx="80"  cy="80"  r="10" fill="#7A2E1F" opacity="0.32"/>
+            <circle cx="80"  cy="80"  r="3"  fill="#7A2E1F"/>
+            <!-- southwest -->
+            <circle cx="140" cy="180" r="13" fill="#7A2E1F" opacity="0.3"/>
+            <circle cx="140" cy="180" r="6"  fill="#7A2E1F" opacity="0.5"/>
+            <circle cx="140" cy="180" r="3"  fill="#7A2E1F"/>
+            <!-- midwest -->
+            <circle cx="240" cy="120" r="9"  fill="#7A2E1F" opacity="0.3"/>
+            <circle cx="240" cy="120" r="3"  fill="#7A2E1F"/>
+            <!-- texas -->
+            <circle cx="220" cy="210" r="15" fill="#7A2E1F" opacity="0.35"/>
+            <circle cx="220" cy="210" r="8"  fill="#7A2E1F" opacity="0.55"/>
+            <circle cx="220" cy="210" r="4"  fill="#7A2E1F"/>
+            <!-- southeast -->
+            <circle cx="310" cy="220" r="11" fill="#7A2E1F" opacity="0.32"/>
+            <circle cx="310" cy="220" r="5"  fill="#7A2E1F" opacity="0.5"/>
+            <circle cx="310" cy="220" r="3"  fill="#7A2E1F"/>
+            <!-- northeast -->
+            <circle cx="380" cy="110" r="17" fill="#7A2E1F" opacity="0.4"/>
+            <circle cx="380" cy="110" r="9"  fill="#7A2E1F" opacity="0.6"/>
+            <circle cx="380" cy="110" r="4"  fill="#7A2E1F"/>
+            <!-- mid-atlantic -->
+            <circle cx="360" cy="150" r="8"  fill="#7A2E1F" opacity="0.3"/>
+            <circle cx="360" cy="150" r="3"  fill="#7A2E1F"/>
+            <!-- midwest secondary -->
+            <circle cx="280" cy="160" r="10" fill="#7A2E1F" opacity="0.32"/>
+            <circle cx="280" cy="160" r="3"  fill="#7A2E1F"/>
+            <!-- north plains -->
+            <circle cx="200" cy="90"  r="8"  fill="#7A2E1F" opacity="0.28"/>
+            <circle cx="200" cy="90"  r="3"  fill="#7A2E1F"/>
+          </g>
+
+          <!-- callout: a high-confidence hotspot -->
+          <g transform="translate(380,110)">
+            <line x1="20" y1="-4" x2="50" y2="-30" stroke="#0E0E10" opacity="0.6"/>
+            <text x="56" y="-32" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#0E0E10">+24% lift</text>
+            <text x="56" y="-18" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#6B6258">PREDICTED</text>
+          </g>
+
+          <!-- legend -->
+          <g transform="translate(0,310)">
+            <text x="0" y="0" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4" fill="#6B6258">LEGEND</text>
+            <g transform="translate(0,14)">
+              <circle cx="6" cy="14" r="3" fill="#7A2E1F"/>
+              <text x="18" y="18" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1" fill="#6B6258">CONFIRMED HOTSPOT</text>
+
+              <circle cx="200" cy="14" r="10" fill="#7A2E1F" opacity="0.32"/>
+              <text x="218" y="18" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1" fill="#6B6258">FORECAST DEMAND</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 ASSORTMENT PLANNING ============ -->
+<section id="assortment-planning" class="uc alt">
+  <div class="container">
+    <div class="uc-grid" style="grid-template-columns: 1.05fr 1fr;">
+      <div class="reveal uc-visual">
+        <!-- Two overlapping audience clouds w/ opportunity gap -->
+        <svg viewBox="0 0 460 380" aria-hidden="true" style="width:100%; height:auto;">
+          <g font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4" fill="#6B6258">
+            <text x="0" y="14">PORTFOLIO COVERAGE &middot; PREFERENCE SPACE</text>
+          </g>
+          <g transform="translate(40,40)">
+            <!-- product A coverage -->
+            <ellipse cx="120" cy="160" rx="120" ry="80" fill="#0E0E10" opacity="0.12"/>
+            <text x="80" y="120" font-family="Fraunces, serif" font-size="16" fill="#0E0E10">Product A</text>
+            <!-- product B coverage -->
+            <ellipse cx="260" cy="200" rx="100" ry="70" fill="#0E0E10" opacity="0.12"/>
+            <text x="280" y="220" font-family="Fraunces, serif" font-size="16" fill="#0E0E10">Product B</text>
+            <!-- overlap -->
+            <ellipse cx="200" cy="180" rx="35" ry="20" fill="#0E0E10" opacity="0.22"/>
+            <text x="200" y="184" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#0E0E10" letter-spacing="1">OVERLAP</text>
+            <!-- opportunity -->
+            <circle cx="345" cy="80" r="34" fill="none" stroke="#7A2E1F" stroke-width="1.4" stroke-dasharray="4 3"/>
+            <text x="345" y="74" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#7A2E1F">opportunity</text>
+            <text x="345" y="92" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#7A2E1F" letter-spacing="1">UNADDRESSED</text>
+            <!-- annotation -->
+            <line x1="345" y1="114" x2="345" y2="170" stroke="#7A2E1F" stroke-width="1"/>
+            <text x="345" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#7A2E1F" letter-spacing="1">12% OF AUDIENCE</text>
+            <text x="345" y="205" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#7A2E1F" letter-spacing="1">NO STRONG MATCH</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="reveal">
+        <div class="uc-num">02 &middot; Assortment planning</div>
+        <h2 class="uc-title">Find the gap.<br/>Design <em>for</em> it.</h2>
+        <p class="uc-lede">
+          Every portfolio overlaps with itself somewhere and misses preference space
+          somewhere else. Tastry maps where your products actually compete,
+          and where they leave audience on the table for a competitor to take.
+        </p>
+        <ul class="uc-bullets">
+          <li><strong>Overlap analysis</strong>Quantify cannibalization between SKUs by preference, not by category code.</li>
+          <li><strong>Gap discovery</strong>Surface pockets of unaddressed preference inside an addressable audience.</li>
+          <li><strong>Brief generation</strong>Translate a gap directly into a chemistry-grounded target profile for R&amp;D.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 PRODUCT DEVELOPMENT ============ -->
+<section id="product-development" class="uc alt">
+  <div class="container">
+    <div class="uc-grid" style="grid-template-columns: 1.05fr 1fr;">
+      <div class="reveal uc-visual dark">
+        <!-- digital formulation visual -->
+        <svg viewBox="0 0 460 380" aria-hidden="true" style="width:100%; height:auto;">
+          <g font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4" fill="rgba(244,240,234,0.7)">
+            <text x="0" y="14">IN-MODEL &middot; FORMULATION CANDIDATES</text>
+          </g>
+
+          <!-- 5 candidate molecules side by side, then 1 winner -->
+          <g transform="translate(0,40)" stroke="rgba(244,240,234,0.55)" stroke-width="1" fill="none">
+            <!-- candidate 1 -->
+            <g transform="translate(0,0)">
+              <line x1="20" y1="20" x2="50" y2="6"/>
+              <line x1="50" y1="6" x2="80" y2="20"/>
+              <line x1="20" y1="20" x2="30" y2="60"/>
+              <line x1="80" y1="20" x2="70" y2="60"/>
+              <line x1="30" y1="60" x2="70" y2="60"/>
+              <line x1="50" y1="6" x2="50" y2="40"/>
+              <line x1="50" y1="40" x2="30" y2="60"/>
+              <line x1="50" y1="40" x2="70" y2="60"/>
+              <g fill="rgba(244,240,234,0.85)">
+                <circle cx="20" cy="20" r="2.5"/><circle cx="50" cy="6" r="2.5"/><circle cx="80" cy="20" r="2.5"/>
+                <circle cx="30" cy="60" r="2.5"/><circle cx="70" cy="60" r="2.5"/><circle cx="50" cy="40" r="2.5"/>
+              </g>
+            </g>
+            <text x="50" y="92" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(244,240,234,0.55)">v.01 &middot; 6.2</text>
+
+            <g transform="translate(95,0)">
+              <line x1="20" y1="20" x2="50" y2="6"/>
+              <line x1="50" y1="6" x2="80" y2="20"/>
+              <line x1="20" y1="20" x2="30" y2="60"/>
+              <line x1="80" y1="20" x2="70" y2="60"/>
+              <line x1="30" y1="60" x2="70" y2="60"/>
+              <line x1="50" y1="6" x2="50" y2="40"/>
+              <line x1="50" y1="40" x2="30" y2="60"/>
+              <g fill="rgba(244,240,234,0.85)">
+                <circle cx="20" cy="20" r="2.5"/><circle cx="50" cy="6" r="2.5"/><circle cx="80" cy="20" r="2.5"/>
+                <circle cx="30" cy="60" r="2.5"/><circle cx="70" cy="60" r="2.5"/><circle cx="50" cy="40" r="2.5"/>
+              </g>
+            </g>
+            <text x="145" y="92" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(244,240,234,0.55)">v.02 &middot; 5.8</text>
+
+            <g transform="translate(190,0)">
+              <line x1="20" y1="20" x2="50" y2="6"/>
+              <line x1="50" y1="6" x2="80" y2="20"/>
+              <line x1="80" y1="20" x2="70" y2="60"/>
+              <line x1="30" y1="60" x2="70" y2="60"/>
+              <line x1="50" y1="6" x2="50" y2="40"/>
+              <line x1="50" y1="40" x2="30" y2="60"/>
+              <line x1="50" y1="40" x2="70" y2="60"/>
+              <g fill="rgba(244,240,234,0.85)">
+                <circle cx="20" cy="20" r="2.5"/><circle cx="50" cy="6" r="2.5"/><circle cx="80" cy="20" r="2.5"/>
+                <circle cx="30" cy="60" r="2.5"/><circle cx="70" cy="60" r="2.5"/><circle cx="50" cy="40" r="2.5"/>
+              </g>
+            </g>
+            <text x="240" y="92" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(244,240,234,0.55)">v.03 &middot; 7.1</text>
+
+            <g transform="translate(285,0)" stroke="#F4F0EA" stroke-width="1.4">
+              <line x1="20" y1="20" x2="50" y2="6"/>
+              <line x1="50" y1="6" x2="80" y2="20"/>
+              <line x1="20" y1="20" x2="30" y2="60"/>
+              <line x1="80" y1="20" x2="70" y2="60"/>
+              <line x1="30" y1="60" x2="70" y2="60"/>
+              <line x1="50" y1="6" x2="50" y2="40"/>
+              <line x1="50" y1="40" x2="30" y2="60"/>
+              <line x1="50" y1="40" x2="70" y2="60"/>
+              <line x1="50" y1="40" x2="20" y2="20"/>
+              <line x1="50" y1="40" x2="80" y2="20"/>
+              <g fill="#F4F0EA">
+                <circle cx="20" cy="20" r="3"/><circle cx="50" cy="6" r="3"/><circle cx="80" cy="20" r="3"/>
+                <circle cx="30" cy="60" r="3"/><circle cx="70" cy="60" r="3"/><circle cx="50" cy="40" r="3.4"/>
+              </g>
+            </g>
+            <text x="335" y="92" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#F4F0EA">v.04 &middot; 8.8</text>
+            <text x="335" y="108" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(244,240,234,0.55)" letter-spacing="1">WINNER</text>
+          </g>
+
+          <!-- preference scores below -->
+          <g transform="translate(0,170)">
+            <text x="0" y="0" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4" fill="rgba(244,240,234,0.7)">PREDICTED PREFERENCE &middot; TARGET AUDIENCE</text>
+            <g transform="translate(0,20)">
+              <rect x="0"  y="50" width="60" height="40" fill="rgba(244,240,234,0.3)"/>
+              <rect x="80"  y="60" width="60" height="30" fill="rgba(244,240,234,0.25)"/>
+              <rect x="160"  y="30" width="60" height="60" fill="rgba(244,240,234,0.45)"/>
+              <rect x="240" y="6" width="60" height="84" fill="#F4F0EA"/>
+              <line x1="0" y1="90" x2="320" y2="90" stroke="rgba(244,240,234,0.4)" stroke-width="1"/>
+              <g font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(244,240,234,0.6)" letter-spacing="1">
+                <text x="30" y="108" text-anchor="middle">v.01</text>
+                <text x="110" y="108" text-anchor="middle">v.02</text>
+                <text x="190" y="108" text-anchor="middle">v.03</text>
+                <text x="270" y="108" text-anchor="middle">v.04</text>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="reveal">
+        <div class="uc-num">03 &middot; Product development</div>
+        <h2 class="uc-title">Design the recipe<br/><em>in the model.</em></h2>
+        <p class="uc-lede">
+          Iterate on a digital twin of the product against a digital twin of the consumer.
+          Run millions of candidate formulations in minutes. Find the one with the highest
+          density of love inside your target audience. Build only that one in a lab.
+        </p>
+        <ul class="uc-bullets">
+          <li><strong>Predictive formulation</strong>Generate and score candidate recipes against a chemistry-trained preference model.</li>
+          <li><strong>Reformulation under constraint</strong>Substitute sugar, alcohol, allergens, or cost-driven ingredients without losing the consumer.</li>
+          <li><strong>Reverse engineering</strong>Match a target flavor profile from a competitor or a target ingredient list. In days, not years.</li>
+        </ul>
+        <p class="page-label" style="margin-top:36px;">A global flavor house spent 18 months and 9 attempts to match a customer's target. We matched it on the first try in 2 weeks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 CONSUMER TARGETING ============ -->
+<section id="consumer-targeting" class="uc">
+  <div class="container">
+    <div class="uc-grid">
+      <div class="reveal">
+        <div class="uc-num">04 &middot; Consumer targeting</div>
+        <h2 class="uc-title">Match the brand<br/>to the <em>right humans.</em></h2>
+        <p class="uc-lede">
+          Demographics are a weak proxy for preference. Two thirty-something women in
+          the same zip code can have radically different chemistry-level palates.
+          Tastry targets at the level where preference actually lives, so brands stop
+          marketing to the population and start marketing to the people who will love them.
+        </p>
+        <ul class="uc-bullets">
+          <li><strong>Preference-graded audiences</strong>Segment by predicted depth of preference, not by lifestyle clusters.</li>
+          <li><strong>Channel-aware activation</strong>Match shelf, region, and channel to the audience most likely to convert.</li>
+          <li><strong>Lift forecasting</strong>Predict the expected lift of a campaign before media is bought.</li>
+        </ul>
+      </div>
+
+      <div class="reveal uc-visual">
+        <!-- distribution showing target match -->
+        <svg viewBox="0 0 460 380" aria-hidden="true" style="width:100%; height:auto;">
+          <g font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4" fill="#6B6258">
+            <text x="0" y="14">AUDIENCE &middot; PREDICTED PREFERENCE DENSITY</text>
+          </g>
+          <!-- broad audience bell -->
+          <g transform="translate(0,40)">
+            <path d="M 0 240 C 60 230, 110 220, 160 180 S 250 60, 300 60 S 400 200, 460 240" fill="#0E0E10" opacity="0.08"/>
+            <path d="M 0 240 C 60 230, 110 220, 160 180 S 250 60, 300 60 S 400 200, 460 240" fill="none" stroke="#0E0E10" stroke-width="1" stroke-dasharray="3 4" opacity="0.55"/>
+
+            <!-- target audience overlay -->
+            <path d="M 200 240 C 220 230, 240 200, 260 150 S 300 70, 320 70 S 360 180, 380 240 Z" fill="#7A2E1F" opacity="0.35"/>
+            <path d="M 200 240 C 220 230, 240 200, 260 150 S 300 70, 320 70 S 360 180, 380 240" fill="none" stroke="#7A2E1F" stroke-width="1.6"/>
+
+            <line x1="0" y1="240" x2="460" y2="240" stroke="#0E0E10" opacity="0.4"/>
+            <g font-family="JetBrains Mono, monospace" font-size="9" fill="#6B6258" letter-spacing="1">
+              <text x="0" y="260">AVERSE</text>
+              <text x="460" y="260" text-anchor="end">DEVOTED</text>
+            </g>
+            <text x="290" y="50" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#7A2E1F">your audience</text>
+            <text x="290" y="66" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#7A2E1F" letter-spacing="1">DENSITY OF LOVE</text>
+            <text x="80" y="180" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B6258" letter-spacing="1">BROAD MARKET</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
+<section class="section">
+  <div class="container container-narrow">
+    <div class="reveal">
+      <span class="eyebrow">In one model</span>
+      <h2 style="margin-top:24px; font-size: clamp(36px, 5vw, 64px);">
+        One platform.<br/>Every stage of the cycle.<br/>
+        <em class="italic-serif">Predict, then build, then sell.</em>
+      </h2>
+      <div style="margin-top:48px; display:flex; gap:14px; flex-wrap:wrap;">
+        <a class="btn btn-primary btn-arrow" href="company.html#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="science.html">Read the science</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" aria-label="Tastry">
+          <span class="t-logo-mark" aria-hidden="true"></span>
+          <span class="t-logo-wordmark" aria-hidden="true"></span>
+        </a>
+        <p style="margin-top:16px; max-width: 38ch; color: var(--muted); font-size:14px;">
+          The first-principles AI platform for human taste, smell, and texture preference.
+        </p>
+      </div>
+      <div>
+        <h5>Read</h5>
+        <ul>
+          <li><a href="science.html">Science</a></li>
+          <li><a href="platform.html">Platform</a></li>
+          <li><a href="wine.html">Wine origin</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="company.html">Team &amp; mission</a></li>
+          <li><a href="company.html#contact">Contact</a></li>
+          <li><a href="https://www.linkedin.com/company/tastry" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Talk</h5>
+        <ul>
+          <li><a href="mailto:hello@tastry.com">hello@tastry.com</a></li>
+          <li><span style="color:var(--muted);">3592 Broad Street<br/>San Luis Obispo, CA 93401</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-meta">&copy; <span id="year"></span> &middot; Tastry, Inc. &middot; All rights reserved</div>
+      <div class="footer-mega-mark" aria-hidden="true"></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
