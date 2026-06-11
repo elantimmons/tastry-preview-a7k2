@@ -219,7 +219,7 @@
         <div class="role" style="color: var(--accent);">Open roles</div>
         <h3>We're hiring.</h3>
         <p>Chemistry, ML, enterprise GTM, and customer engineering. If you're great at one of these, send a note.</p>
-        <a class="btn btn-ghost btn-arrow" style="margin-top:6px; align-self:flex-start;" href="mailto:hello@tastry.com">hello@tastry.com</a>
+        <a class="btn btn-ghost btn-arrow" style="margin-top:6px; align-self:flex-start;" href="mailto:careers@tastry.com">careers@tastry.com</a>
       </div>
     </div>
   </div>
@@ -228,11 +228,10 @@
 <!-- ============ NUMBERS / SHAPE OF THE COMPANY ============ -->
 <section class="section" style="padding-top:0;">
   <div class="container">
-    <div class="reveal data-row">
+    <div class="reveal data-row" style="grid-template-columns: repeat(3, 1fr);">
       <div class="cell"><span class="v">2015</span><span class="l">Founded</span></div>
       <div class="cell"><span class="v">SLO</span><span class="l">Headquartered &middot; California Central Coast</span></div>
       <div class="cell"><span class="v">4 &nbsp;</span><span class="l">Patents issued (US, China, Japan, Canada)</span></div>
-      <div class="cell"><span class="v">12+</span><span class="l">Global CPG enterprises in active engagement</span></div>
     </div>
   </div>
 </section>
@@ -252,46 +251,22 @@
       </div>
     </div>
 
-    <div class="reveal market-grid" style="border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink);">
-      <style>
-        .market-grid > div { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
-        @media (max-width: 900px) {
-          .market-grid > div { grid-template-columns: repeat(2, 1fr) !important; }
-          .market-grid > div > div:nth-child(2) { border-right: 0 !important; }
-          .market-grid > div > div:nth-child(1), .market-grid > div > div:nth-child(2) { border-bottom: 1px solid var(--line) !important; }
-        }
-        @media (max-width: 560px) {
-          .market-grid > div { grid-template-columns: 1fr !important; }
-          .market-grid > div > div { border-right: 0 !important; border-bottom: 1px solid var(--line) !important; }
-          .market-grid > div > div:last-child { border-bottom: 0 !important; }
-        }
-      </style>
-      <div>
-        <div style="padding: 36px 28px; border-right: 1px solid var(--line); display:flex; flex-direction:column; gap:12px; min-height: 200px;">
-          <span class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color: var(--muted);">Global CPG</span>
-          <div style="font-family: var(--font-display); font-weight: 300; font-size: clamp(40px, 4.6vw, 64px); letter-spacing: -0.03em; line-height: 1;">$13.7T</div>
-          <p style="font-size:13px; color: var(--ink-2); margin: 0;">Total consumer packaged goods spend, worldwide.</p>
-        </div>
-        <div style="padding: 36px 28px; border-right: 1px solid var(--line); display:flex; flex-direction:column; gap:12px; min-height: 200px;">
-          <span class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color: var(--muted);">Sectors of focus</span>
-          <div style="font-family: var(--font-display); font-weight: 300; font-size: clamp(40px, 4.6vw, 64px); letter-spacing: -0.03em; line-height: 1;">$7T</div>
-          <p style="font-size:13px; color: var(--ink-2); margin: 0;">Beverage, beauty, and personal care. Where chemistry decides preference.</p>
-        </div>
-        <div style="padding: 36px 28px; border-right: 1px solid var(--line); display:flex; flex-direction:column; gap:12px; min-height: 200px;">
-          <span class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color: var(--muted);">Ingredient providers</span>
-          <div style="font-family: var(--font-display); font-weight: 300; font-size: clamp(40px, 4.6vw, 64px); letter-spacing: -0.03em; line-height: 1;">$60.6B</div>
-          <p style="font-size:13px; color: var(--ink-2); margin: 0;">The flavor and ingredient houses we replace one workflow at a time.</p>
-        </div>
-        <div style="padding: 36px 28px; display:flex; flex-direction:column; gap:12px; min-height: 200px;">
-          <span class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color: var(--accent);">Beverage R&amp;D TAM</span>
-          <div style="font-family: var(--font-display); font-weight: 300; font-size: clamp(40px, 4.6vw, 64px); letter-spacing: -0.03em; line-height: 1; color: var(--accent);">$52.5B</div>
-          <p style="font-size:13px; color: var(--ink-2); margin: 0;">The slice of R&amp;D spend Tastry is positioned to take in beverage alone.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="reveal" style="margin-top:36px;">
+    <div class="reveal" style="margin-top:8px;">
       <p class="page-label">Beverage is the wedge. Beauty, personal care, fragrance, nutraceuticals, and the rest of CPG follow.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE BIGGER PICTURE ============ -->
+<section class="section" style="padding-top:0;">
+  <div class="container container-narrow">
+    <div class="reveal">
+      <span class="eyebrow">The bigger picture</span>
+      <h2 style="margin-top:24px; font-size: clamp(36px, 5vw, 64px);">
+        We're not building a tool. We're building<br/>
+        <em class="italic-serif">the infrastructure layer</em><br/>
+        for predictive product development.
+      </h2>
     </div>
   </div>
 </section>
@@ -352,20 +327,6 @@
           <button class="btn btn-primary btn-arrow" type="submit">Send</button>
         </div>
       </form>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CLOSING ============ -->
-<section class="section">
-  <div class="container container-narrow">
-    <div class="reveal">
-      <span class="eyebrow">One more thing</span>
-      <h2 style="margin-top:24px; font-size: clamp(36px, 5vw, 64px);">
-        We're not building a tool. We're building<br/>
-        <em class="italic-serif">the infrastructure layer</em><br/>
-        for predictive product development.
-      </h2>
     </div>
   </div>
 </section>
