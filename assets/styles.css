@@ -345,18 +345,22 @@ em.italic-serif {
   .statstrip .item:last-child { border-bottom: 0; }
 }
 
-/* -------- Section header -------- */
+/* -------- Section header --------
+   Left-aligned stack: eyebrow kicker, then title, then lead.
+   Aligns to the container's left edge so it reads intentionally
+   (rather than floating in a right-hand column). */
 .section-head {
-  display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 48px;
-  align-items: start;
-  margin-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+  margin-bottom: 60px;
 }
 .section-head .meta { display: flex; flex-direction: column; gap: 12px; }
-.section-head h2 { max-width: 18ch; }
+.section-head h2 { max-width: 30ch; }
+.section-head .lead { max-width: 60ch; }
 @media (max-width: 900px) {
-  .section-head { grid-template-columns: 1fr; gap: 16px; }
+  .section-head { gap: 18px; margin-bottom: 44px; }
 }
 
 /* -------- Cards -------- */
