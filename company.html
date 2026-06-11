@@ -42,9 +42,8 @@
   }
   .person p { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
   .person .photo {
-    width: 100%;
-    max-width: 220px;
-    aspect-ratio: 1 / 1;
+    width: 210px;
+    height: 210px;
     object-fit: cover;
     object-position: center 28%;
     border-radius: 50%;
@@ -60,14 +59,16 @@
     justify-content: center;
   }
   .person.hiring .photo-placeholder {
-    width: 100%;
-    max-width: 220px;
-    aspect-ratio: 1 / 1;
+    width: 210px;
+    height: 210px;
     border-radius: 50%;
     border: 1px dashed var(--line);
     display: grid; place-items: center;
     margin-bottom: 18px;
     color: var(--muted);
+  }
+  @media (max-width: 480px) {
+    .person .photo, .person.hiring .photo-placeholder { width: 180px; height: 180px; }
   }
   @media (max-width: 900px) {
     .team { grid-template-columns: repeat(2, 1fr); }
@@ -179,31 +180,31 @@
 
     <div class="reveal team">
       <div class="person">
-        <img class="photo" src="assets/team/kat.jpg" alt="Katerina Axelsson" width="600" height="600" loading="lazy"/>
+        <img class="photo" src="assets/team/kat.jpg" alt="Katerina Axelsson" width="600" height="600"/>
         <div class="role">CEO &amp; Founder</div>
         <h3>Katerina Axelsson</h3>
         <p>Chemist turned inventor. International patent holder on the chemistry-to-preference method. Started the work in 2015.</p>
       </div>
       <div class="person">
-        <img class="photo" src="assets/team/charles.jpg" alt="Charles Slocum" width="600" height="600" loading="lazy"/>
+        <img class="photo" src="assets/team/charles.jpg" alt="Charles Slocum" width="600" height="600"/>
         <div class="role">Chief Business Officer</div>
         <h3>Charles Slocum</h3>
         <p>25 years of enterprise business experience. Three-time founder. Runs commercial strategy and enterprise expansion.</p>
       </div>
       <div class="person">
-        <img class="photo" src="assets/team/jeff.jpg" alt="Jeff Campbell" width="600" height="600" loading="lazy"/>
+        <img class="photo" src="assets/team/jeff.jpg" alt="Jeff Campbell" width="600" height="600"/>
         <div class="role">VP of Growth</div>
         <h3>Jeff Campbell</h3>
         <p>Former CCO at Sales Predict (acquired by eBay), CRO at Get Satisfaction (acquired by Sprinklr), VP Global Sales at SugarCRM (acquired by Accel-KKR).</p>
       </div>
       <div class="person">
-        <img class="photo" src="assets/team/elan.jpg" alt="Elan Timmons" width="600" height="600" loading="lazy"/>
+        <img class="photo" src="assets/team/elan.jpg" alt="Elan Timmons" width="600" height="600"/>
         <div class="role">Chief Product Officer</div>
         <h3>Elan Timmons</h3>
         <p>Four-time founder with a prior exit.</p>
       </div>
       <div class="person">
-        <img class="photo" src="assets/team/alex.jpg" alt="Alex Dekhtyar" width="600" height="600" loading="lazy"/>
+        <img class="photo" src="assets/team/alex.jpg" alt="Alex Dekhtyar" width="600" height="600"/>
         <div class="role">VP of AI &amp; ML</div>
         <h3>Alex Dekhtyar</h3>
         <p>PhD in Computer Science. 18 publications. Co-inventor on the core patent. Leads the ML research and modeling team.</p>
