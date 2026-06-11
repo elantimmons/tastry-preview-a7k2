@@ -94,7 +94,7 @@
     letter-spacing: -0.015em;
     line-height: 1.12;
   }
-  .recipe-story .step .visual { margin-top: auto; padding-top: 22px; border-top: 1px solid var(--line); }
+  .recipe-story .step .visual { margin-bottom: 18px; }
   .recipe-story .step:last-child .visual { border-top-color: rgba(244,240,234,0.18); }
   .recipe-story .step .visual svg { width: 48px; height: 48px; display: block; }
   .recipe-story .step p { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
@@ -139,7 +139,7 @@
   .pillar .num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; }
   .pillar h3 { font-family: var(--font-display); font-weight: 350; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.015em; line-height: 1.12; }
   .pillar p { font-size: 15px; color: var(--ink-2); line-height: 1.55; }
-  .pillar .icon { margin-top: auto; opacity: 0.92; }
+  .pillar .icon { margin-bottom: 18px; opacity: 0.92; }
   @media (max-width: 900px) {
     .pillars { grid-template-columns: 1fr; }
     .pillar { border-right: 0; border-bottom: 1px solid var(--line); }
@@ -253,7 +253,7 @@
       <span class="t-logo-wordmark" aria-hidden="true"></span>
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a class="nav-link active" href="index.html">Index</a>
+      <a class="nav-link active" href="index.html">Home</a>
       <a class="nav-link" href="science.html">Science</a>
       <a class="nav-link" href="platform.html">Platform</a>
       <a class="nav-link" href="wine.html">Wine Origin</a>
@@ -457,92 +457,9 @@
       </div>
     </div>
 
-    <!-- FIGURE: faithful recreation of pitch slide 3 — the trial-and-error cycle -->
-    <div class="reveal diagram-wrap" style="padding:44px 40px;">
-      <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="width:100%;height:auto;">
-        <defs>
-          <marker id="cyc-ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#6B6258"/>
-          </marker>
-          <marker id="cyc-ar-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#7A2E1F"/>
-          </marker>
-        </defs>
-
-        <!-- ===== top trial-and-error arcs (between 2-3 and 3-4) ===== -->
-        <g stroke="#7A2E1F" stroke-width="1.2" fill="none" opacity="0.8">
-          <path d="M 330 78 C 370 34, 520 34, 560 78" marker-end="url(#cyc-ar-a)"/>
-          <path d="M 560 78 C 600 34, 750 34, 790 78" marker-end="url(#cyc-ar-a)"/>
-        </g>
-        <g font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4" fill="#7A2E1F" text-anchor="middle">
-          <text x="445" y="30">TRIAL AND ERROR</text>
-          <text x="675" y="30">TRIAL AND ERROR</text>
-        </g>
-
-        <!-- ===== main row: numbered nodes ===== -->
-        <!-- numbered square badges -->
-        <g fill="none" stroke="#0E0E10" stroke-width="1.4">
-          <rect x="96"  y="92" width="28" height="28" rx="5"/>
-          <rect x="316" y="92" width="28" height="28" rx="5"/>
-          <rect x="546" y="92" width="28" height="28" rx="5"/>
-          <rect x="776" y="92" width="28" height="28" rx="5"/>
-          <rect x="1046" y="92" width="28" height="28" rx="5"/>
-        </g>
-        <g font-family="Fraunces, serif" font-size="16" fill="#0E0E10" text-anchor="middle">
-          <text x="110"  y="112">1</text>
-          <text x="330"  y="112">2</text>
-          <text x="560"  y="112">3</text>
-          <text x="790"  y="112">4</text>
-          <text x="1060" y="112">6</text>
-        </g>
-        <!-- node names -->
-        <g font-family="Fraunces, serif" font-size="17" fill="#0E0E10" text-anchor="middle">
-          <text x="110"  y="156">Brand</text>
-          <text x="110"  y="176">Concept Team</text>
-          <text x="330"  y="166">R&amp;D Team</text>
-          <text x="560"  y="156">Prototype</text>
-          <text x="560"  y="176">Iterations</text>
-          <text x="790"  y="156">Consumer</text>
-          <text x="790"  y="176">Testing</text>
-          <text x="1060" y="156">Product</text>
-          <text x="1060" y="176">Launch</text>
-        </g>
-
-        <!-- baseline arrows connecting the row 1 -> 2 -> 3 -> 4 -> 6 -->
-        <g stroke="#0E0E10" stroke-width="1.2" fill="none" opacity="0.55">
-          <line x1="150" y1="210" x2="290" y2="210" marker-end="url(#cyc-ar)"/>
-          <line x1="370" y1="210" x2="520" y2="210" marker-end="url(#cyc-ar)"/>
-          <line x1="600" y1="210" x2="750" y2="210" marker-end="url(#cyc-ar)"/>
-          <line x1="830" y1="210" x2="1020" y2="210" marker-end="url(#cyc-ar)"/>
-        </g>
-        <g fill="#0E0E10">
-          <circle cx="110"  cy="210" r="4.5"/>
-          <circle cx="330"  cy="210" r="4.5"/>
-          <circle cx="560"  cy="210" r="4.5"/>
-          <circle cx="790"  cy="210" r="4.5"/>
-          <circle cx="1060" cy="210" r="4.5"/>
-        </g>
-
-        <!-- ===== bottom trial-and-error arcs (mirror of top: 2-3 and 3-4) ===== -->
-        <g stroke="#7A2E1F" stroke-width="1.2" fill="none" opacity="0.8">
-          <path d="M 330 210 C 370 256, 520 256, 560 210" marker-end="url(#cyc-ar-a)"/>
-          <path d="M 560 210 C 600 256, 750 256, 790 210" marker-end="url(#cyc-ar-a)"/>
-        </g>
-        <g font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4" fill="#7A2E1F" text-anchor="middle">
-          <text x="445" y="280">TRIAL AND ERROR</text>
-          <text x="675" y="280">TRIAL AND ERROR</text>
-        </g>
-
-        <!-- ingredient suppliers (under node 2, no number in source) -->
-        <text x="330" y="316" text-anchor="middle" font-family="Fraunces, serif" font-size="16" fill="#0E0E10">Ingredient</text>
-        <text x="330" y="336" text-anchor="middle" font-family="Fraunces, serif" font-size="16" fill="#0E0E10">Suppliers</text>
-
-        <!-- reformulation node [5] (between 3-4) -->
-        <rect x="661" y="304" width="28" height="28" rx="5" fill="none" stroke="#0E0E10" stroke-width="1.4"/>
-        <text x="675" y="324" text-anchor="middle" font-family="Fraunces, serif" font-size="16" fill="#0E0E10">5</text>
-        <text x="675" y="356" text-anchor="middle" font-family="Fraunces, serif" font-size="16" fill="#0E0E10">Reformulation</text>
-      </svg>
-      <div class="diagram-caption">Conventional CPG product development. 18 to 24 months from brief to shelf.</div>
+    <!-- The problem — finalized graphic -->
+    <div class="reveal" style="margin-top: 8px;">
+      <img src="assets/graphics/problem.png" alt="Conventional CPG product development: an 18 to 24 month cycle of brand concept, R&amp;D, prototype iterations, consumer testing, reformulation, and launch, each stage trial and error." style="width:100%; height:auto; display:block;"/>
     </div>
 
     <!-- The cost of the problem, in three numbers -->
@@ -599,47 +516,9 @@
         </p>
       </div>
 
-      <!-- DIAGRAM: cherry / marzipan / nutty → benzaldehyde (science deck slide 3) -->
-      <div class="reveal diagram-wrap">
-        <svg viewBox="0 0 540 420" class="wm-diagram" aria-hidden="true">
-          <!-- three descriptor words at top -->
-          <g font-family="Fraunces, serif" font-style="italic" font-size="26" fill="#0E0E10">
-            <text x="80"  y="52">cherry</text>
-            <text x="240" y="52">marzipan</text>
-            <text x="420" y="52">nutty</text>
-          </g>
-          <!-- curved arrows from words down to the molecule -->
-          <defs>
-            <marker id="ar-cb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill="#6B6258"/>
-            </marker>
-          </defs>
-          <g stroke="#6B6258" stroke-width="1" fill="none" opacity="0.6">
-            <path d="M 100 70 Q 180 130 250 180" marker-end="url(#ar-cb)"/>
-            <path d="M 280 70 Q 280 130 280 180" marker-end="url(#ar-cb)"/>
-            <path d="M 440 70 Q 360 130 310 180" marker-end="url(#ar-cb)"/>
-          </g>
-
-          <!-- molecule (benzaldehyde) in the middle -->
-          <g transform="translate(200,180)">
-            <!-- ring -->
-            <polygon points="40,0 75,20 75,60 40,80 5,60 5,20" fill="none" stroke="#0E0E10" stroke-width="1.2"/>
-            <!-- alternating double-bond hint -->
-            <polygon points="40,8 67,24 67,56 40,72 13,56 13,24" fill="none" stroke="#0E0E10" stroke-width="0.6" opacity="0.55"/>
-            <!-- substituent -->
-            <line x1="75" y1="40" x2="115" y2="40" stroke="#0E0E10" stroke-width="1.2"/>
-            <text x="135" y="46" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="#0E0E10">CHO</text>
-            <text x="40" y="116" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="1.2" fill="#6B6258">BENZALDEHYDE</text>
-          </g>
-
-          <!-- bottom big question -->
-          <g transform="translate(0,330)">
-            <line x1="40" y1="0" x2="500" y2="0" stroke="#0E0E10" opacity="0.18"/>
-            <text x="40" y="38" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4" fill="#6B6258">ONE MOLECULE</text>
-            <text x="500" y="38" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4" fill="#7A2E1F">THREE DESCRIPTORS</text>
-          </g>
-        </svg>
-        <div class="diagram-caption">One molecule, three descriptors. Language is a poor proxy for preference.</div>
+      <!-- First principles — finalized graphic -->
+      <div class="reveal">
+        <img src="assets/graphics/first-principles.png" alt="One molecule, three descriptors: benzaldehyde reads as cherry, marzipan, or nutty. Language is a poor proxy for preference." style="width:100%; height:auto; display:block;"/>
       </div>
     </div>
 
@@ -679,9 +558,6 @@
 
     <div class="reveal pillars">
       <div class="pillar">
-        <div class="num">PILLAR 01</div>
-        <h3>Proprietary chemistry dataset</h3>
-        <p>Every product captured as the full symphony of chemistry, not a sampled summary. The dataset is built category by category, geography by geography, and owned by Tastry.</p>
         <svg class="icon" viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="#0E0E10" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="24" y1="24" x2="13" y2="14"/>
           <line x1="24" y1="24" x2="36" y2="15"/>
@@ -693,27 +569,30 @@
           <circle cx="38" cy="33" r="3" stroke="#7A2E1F"/>
           <circle cx="24" cy="24" r="3.6" fill="#0E0E10" stroke="none"/>
         </svg>
+        <div class="num">PILLAR 01</div>
+        <h3>Proprietary chemistry dataset</h3>
+        <p>Every product captured as the full symphony of chemistry, not a sampled summary. The dataset is built category by category, geography by geography, and owned by Tastry.</p>
       </div>
       <div class="pillar">
-        <div class="num">PILLAR 02</div>
-        <h3>Consumer digital twins</h3>
-        <p>Real human preference, modeled. Each twin learns from sensory and behavioral signal so we can predict what a population will feel about a product that does not exist yet.</p>
         <svg class="icon" viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="#0E0E10" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="19" cy="17" r="6"/>
           <path d="M9 37 v-2 a10 10 0 0 1 20 0 v2"/>
           <circle cx="30" cy="21" r="6" stroke="#7A2E1F"/>
           <path d="M20 41 v-2 a10 10 0 0 1 20 0 v2" stroke="#7A2E1F"/>
         </svg>
+        <div class="num">PILLAR 02</div>
+        <h3>Consumer digital twins</h3>
+        <p>Real human preference, modeled. Each twin learns from sensory and behavioral signal so we can predict what a population will feel about a product that does not exist yet.</p>
       </div>
       <div class="pillar">
-        <div class="num">PILLAR 03</div>
-        <h3>Future-proofed formulations</h3>
-        <p>Reformulate against cost, regulatory pressure, or supply changes without losing the consumer. The model knows which substitutions preserve preference and which destroy it.</p>
         <svg class="icon" viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="#0E0E10" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="24" cy="20" r="12"/>
           <path d="M15 33 h18 l-3 5 h-12 z"/>
           <path d="M18 16 a7 7 0 0 1 6 -4" stroke="#7A2E1F"/>
         </svg>
+        <div class="num">PILLAR 03</div>
+        <h3>Future-proofed formulations</h3>
+        <p>Reformulate against cost, regulatory pressure, or supply changes without losing the consumer. The model knows which substitutions preserve preference and which destroy it.</p>
       </div>
     </div>
 
@@ -824,125 +703,9 @@
     </div>
 
     <div class="split">
-      <!-- 93% CHART: line graph, actual vs predicted consumer score -->
-      <div class="reveal chart-frame">
-        <div class="chart-meta">
-          <span class="page-label">U.S. consumer score</span>
-          <div class="chart-legend">
-            <span class="item"><span class="swatch" style="background:var(--ink);"></span>Actual user score</span>
-            <span class="item"><span class="swatch" style="background:var(--accent);"></span>Tastry predicted score</span>
-          </div>
-        </div>
-
-        <div style="display:grid; grid-template-columns: 1fr 88px; gap: 20px; align-items: start;">
-          <!-- the chart itself: horizontal line graph, wines on x-axis, score on y-axis -->
-          <svg id="accuracy-chart" viewBox="0 0 480 360" aria-hidden="true">
-            <!-- y-axis -->
-            <line x1="50" y1="20" x2="50" y2="300" stroke="#0E0E10" opacity="0.4"/>
-            <!-- x-axis -->
-            <line x1="50" y1="300" x2="468" y2="300" stroke="#0E0E10" opacity="0.4"/>
-
-            <!-- horizontal grid lines (subtle) -->
-            <line x1="50" y1="58"  x2="468" y2="58"  stroke="#0E0E10" opacity="0.07" stroke-dasharray="2 4"/>
-            <line x1="50" y1="105" x2="468" y2="105" stroke="#0E0E10" opacity="0.07" stroke-dasharray="2 4"/>
-            <line x1="50" y1="160" x2="468" y2="160" stroke="#0E0E10" opacity="0.07" stroke-dasharray="2 4"/>
-            <line x1="50" y1="216" x2="468" y2="216" stroke="#0E0E10" opacity="0.07" stroke-dasharray="2 4"/>
-            <line x1="50" y1="264" x2="468" y2="264" stroke="#0E0E10" opacity="0.07" stroke-dasharray="2 4"/>
-
-            <!-- y-axis labels: 0, 2, 4, 6, 8, 10 -->
-            <g font-family="JetBrains Mono, monospace" font-size="9" fill="#6B6258" letter-spacing="1">
-              <text x="44" y="304" text-anchor="end">0</text>
-              <text x="44" y="268" text-anchor="end">2</text>
-              <text x="44" y="220" text-anchor="end">4</text>
-              <text x="44" y="164" text-anchor="end">6</text>
-              <text x="44" y="108" text-anchor="end">8</text>
-              <text x="44" y="24"  text-anchor="end">10</text>
-            </g>
-
-            <!-- x-axis labels -->
-            <g font-family="JetBrains Mono, monospace" font-size="9" fill="#6B6258" letter-spacing="1">
-              <text x="60"  y="320">BT 1</text>
-              <text x="259" y="320" text-anchor="middle">WINES TESTED BY TASTRY</text>
-              <text x="468" y="320" text-anchor="end">BT 54</text>
-            </g>
-
-            <!-- y-axis title -->
-            <text x="14" y="160" text-anchor="middle" transform="rotate(-90,14,160)" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B6258" letter-spacing="1.3">CONSUMER SCORE</text>
-            <!-- two lines are appended procedurally below -->
-          </svg>
-
-          <!-- 93% callout -->
-          <div style="border: 1px solid var(--ink); padding: 18px 14px; text-align: center; border-radius: 8px; background: var(--paper);">
-            <div style="font-family: var(--font-display); font-weight: 300; font-size: 48px; letter-spacing: -0.03em; line-height: 1;">93<span style="font-size:28px;">%</span></div>
-            <div class="mono" style="font-size: 10px; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; margin-top: 8px;">Accuracy</div>
-          </div>
-        </div>
-
-        <p class="diagram-caption" style="margin-top: 22px;">
-          Tastry AI predicts how consumers will score a wine before it is launched.
-        </p>
-
-        <script>
-          // Plot two close-tracking lines: actual vs Tastry-predicted consumer score, 54 wines.
-          (function () {
-            const svg = document.getElementById('accuracy-chart');
-            if (!svg) return;
-            const NS = 'http://www.w3.org/2000/svg';
-            const N = 54;
-            const xStart = 60, xEnd = 460;
-            const yTop = 24, yBottom = 296;
-            const stepX = (xEnd - xStart) / (N - 1);
-            const yScale = (yBottom - yTop) / 10;
-            const seed = (i) => Math.sin(i * 12.9898) * 43758.5453 % 1;
-
-            let actualPath = '';
-            let predPath = '';
-            const actualPts = [];
-            const predPts = [];
-
-            for (let i = 0; i < N; i++) {
-              const base = 5 + 3 * Math.sin(i * 0.42) + 0.6 * Math.cos(i * 1.1);
-              const actual = Math.max(1.6, Math.min(9.4, base + (seed(i) - 0.5) * 0.6));
-              const pred   = Math.max(1.6, Math.min(9.4, actual + (seed(i + 1) - 0.5) * 0.7));
-              const x = xStart + i * stepX;
-              const yActual = yBottom - actual * yScale;
-              const yPred   = yBottom - pred   * yScale;
-              actualPath += (i === 0 ? 'M ' : 'L ') + x.toFixed(1) + ' ' + yActual.toFixed(1) + ' ';
-              predPath   += (i === 0 ? 'M ' : 'L ') + x.toFixed(1) + ' ' + yPred.toFixed(1) + ' ';
-              actualPts.push({ x, y: yActual });
-              predPts.push({ x, y: yPred });
-            }
-
-            const predLine = document.createElementNS(NS, 'path');
-            predLine.setAttribute('d', predPath);
-            predLine.setAttribute('fill', 'none');
-            predLine.setAttribute('stroke', '#7A2E1F');
-            predLine.setAttribute('stroke-width', '1.6');
-            predLine.setAttribute('stroke-linejoin', 'round');
-            predLine.setAttribute('stroke-linecap', 'round');
-            predLine.setAttribute('stroke-dasharray', '4 3');
-            svg.appendChild(predLine);
-
-            const actualLine = document.createElementNS(NS, 'path');
-            actualLine.setAttribute('d', actualPath);
-            actualLine.setAttribute('fill', 'none');
-            actualLine.setAttribute('stroke', '#0E0E10');
-            actualLine.setAttribute('stroke-width', '1.4');
-            actualLine.setAttribute('stroke-linejoin', 'round');
-            actualLine.setAttribute('stroke-linecap', 'round');
-            svg.appendChild(actualLine);
-
-            for (let i = 0; i < N; i += 6) {
-              const a = actualPts[i], p = predPts[i];
-              const dotA = document.createElementNS(NS, 'circle');
-              dotA.setAttribute('cx', a.x); dotA.setAttribute('cy', a.y); dotA.setAttribute('r', 2.2); dotA.setAttribute('fill', '#0E0E10');
-              svg.appendChild(dotA);
-              const dotP = document.createElementNS(NS, 'circle');
-              dotP.setAttribute('cx', p.x); dotP.setAttribute('cy', p.y); dotP.setAttribute('r', 2.2); dotP.setAttribute('fill', '#7A2E1F');
-              svg.appendChild(dotP);
-            }
-          })();
-        </script>
+      <!-- The proof — finalized graphic -->
+      <div class="reveal">
+        <img src="assets/graphics/proof.png" alt="Tastry AI predicts how consumers will score a wine before it is launched: predicted and actual scores track at 93% accuracy across all wines tested." style="width:100%; height:auto; display:block;"/>
       </div>
 
       <div class="reveal">
@@ -967,9 +730,6 @@
 
       <div class="recipe-story">
         <div class="step">
-          <span class="stepnum">01. The brief</span>
-          <h3>A global CPG customer's target flavor.</h3>
-          <p>A single, specific flavor profile. The brief sent to the best flavor houses in the world.</p>
           <div class="visual">
             <!-- the target -->
             <svg viewBox="0 0 48 48" fill="none" stroke="#0E0E10" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -978,12 +738,12 @@
               <circle cx="24" cy="24" r="3" stroke="#7A2E1F"/>
             </svg>
           </div>
+          <span class="stepnum">01. The brief</span>
+          <h3>A global CPG customer's target flavor.</h3>
+          <p>A single, specific flavor profile. The brief sent to the best flavor houses in the world.</p>
         </div>
 
         <div class="step">
-          <span class="stepnum">02. 18 months. 9 attempts.</span>
-          <h3>The global flavor houses missed every single time.</h3>
-          <p>Three of the largest flavor houses on earth. Nine attempts over eighteen months. None succeeded.</p>
           <div class="visual">
             <!-- nine attempts, none on target -->
             <svg viewBox="0 0 48 48" fill="none" stroke="#0E0E10" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1002,12 +762,12 @@
               </g>
             </svg>
           </div>
+          <span class="stepnum">02. 18 months. 9 attempts.</span>
+          <h3>The global flavor houses missed every single time.</h3>
+          <p>Three of the largest flavor houses on earth. Nine attempts over eighteen months. None succeeded.</p>
         </div>
 
         <div class="step">
-          <span class="stepnum">03. Tastry. 2 weeks.</span>
-          <h3>Matched the target on the first try.</h3>
-          <p>One pass through the model. From chemistry alone, with no language descriptors involved. Two weeks from brief to match.</p>
           <div class="visual">
             <!-- bullseye: matched, first try (on dark) -->
             <svg viewBox="0 0 48 48" fill="none" stroke="#F4F0EA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1016,6 +776,9 @@
               <circle cx="24" cy="24" r="4" fill="#D9714F" stroke="none"/>
             </svg>
           </div>
+          <span class="stepnum">03. Tastry. 2 weeks.</span>
+          <h3>Matched the target on the first try.</h3>
+          <p>One pass through the model. From chemistry alone, with no language descriptors involved. Two weeks from brief to match.</p>
         </div>
       </div>
     </div>
