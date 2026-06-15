@@ -282,35 +282,82 @@
 
     <div class="split">
       <div class="reveal diagram-wrap">
-        <svg class="pvd" viewBox="0 0 540 420" aria-hidden="true">
-          <!-- axes -->
-          <line x1="60" y1="40" x2="60" y2="380" stroke="#0E0E10" opacity="0.5"/>
-          <line x1="60" y1="380" x2="500" y2="380" stroke="#0E0E10" opacity="0.5"/>
-          <g font-family="JetBrains Mono, monospace" font-size="10" fill="#6B6258" letter-spacing="1">
-            <text x="56" y="44" text-anchor="end">HIGH</text>
-            <text x="56" y="384" text-anchor="end">LOW</text>
-            <text x="60" y="404">DISTINCTIVE</text>
-            <text x="500" y="404" text-anchor="end">POPULAR</text>
-            <text x="36" y="210" text-anchor="middle" transform="rotate(-90,36,210)">PREFERENCE STRENGTH</text>
+        <svg class="pvd" viewBox="0 0 600 450" role="img" aria-label="A chart with two trend lines fit to scattered data. Predicted preference peaks among distinctive products and declines as products become broadly popular; market popularity rises toward the mainstream. The most-loved products sit apart from the bland, popular middle.">
+          <defs>
+            <linearGradient id="pvd-area" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#7A2E1F" stop-opacity="0.14"/>
+              <stop offset="100%" stop-color="#7A2E1F" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- horizontal gridlines -->
+          <g stroke="#0E0E10" stroke-width="1" opacity="0.06">
+            <line x1="68" y1="291" x2="568" y2="291"/>
+            <line x1="68" y1="210" x2="568" y2="210"/>
+            <line x1="68" y1="129" x2="568" y2="129"/>
           </g>
-          <!-- popularity curve (bell, peaks low) -->
-          <path d="M 60 360 C 120 340, 180 320, 240 290 S 360 220, 460 230" fill="none" stroke="#6B6258" stroke-width="1.5" stroke-dasharray="4 4"/>
-          <text x="245" y="280" font-family="JetBrains Mono, monospace" font-size="10" fill="#6B6258" letter-spacing="1">POPULARITY</text>
-          <!-- preference curve (peaks higher, further left) -->
-          <path d="M 60 320 C 120 230, 200 100, 260 90 S 400 200, 480 290" fill="none" stroke="#7A2E1F" stroke-width="2"/>
-          <text x="245" y="80" font-family="JetBrains Mono, monospace" font-size="10" fill="#7A2E1F" letter-spacing="1">PREFERENCE</text>
 
-          <!-- sweet spot annotation -->
-          <circle cx="260" cy="90" r="6" fill="#7A2E1F"/>
-          <line x1="266" y1="90" x2="350" y2="90" stroke="#7A2E1F" stroke-width="1"/>
-          <text x="360" y="86" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#0E0E10">where the lovers live</text>
-          <text x="360" y="102" font-family="JetBrains Mono, monospace" font-size="10" fill="#6B6258" letter-spacing="1">SMALLER AUDIENCE, DEEPER LIFT</text>
+          <!-- shaded area under the predicted-preference curve -->
+          <path d="M 68 304 C 116 252, 176 110, 238 100 C 304 90, 360 168, 414 232 C 470 298, 520 332, 568 340 L 568 372 L 68 372 Z" fill="url(#pvd-area)"/>
 
-          <!-- bland middle annotation -->
-          <circle cx="360" cy="225" r="5" fill="#0E0E10" opacity="0.7"/>
-          <line x1="365" y1="225" x2="420" y2="225" stroke="#0E0E10" opacity="0.4"/>
-          <text x="428" y="221" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#0E0E10">the bland middle</text>
-          <text x="428" y="237" font-family="JetBrains Mono, monospace" font-size="10" fill="#6B6258" letter-spacing="1">EVERYONE TOLERATES, NO ONE LOVES</text>
+          <!-- axes -->
+          <g stroke="#0E0E10" opacity="0.4" stroke-width="1">
+            <line x1="68" y1="48" x2="68" y2="372"/>
+            <line x1="68" y1="372" x2="568" y2="372"/>
+          </g>
+          <!-- tick marks -->
+          <g stroke="#0E0E10" opacity="0.3" stroke-width="1">
+            <line x1="63" y1="129" x2="68" y2="129"/>
+            <line x1="63" y1="210" x2="68" y2="210"/>
+            <line x1="63" y1="291" x2="68" y2="291"/>
+            <line x1="193" y1="372" x2="193" y2="377"/>
+            <line x1="318" y1="372" x2="318" y2="377"/>
+            <line x1="443" y1="372" x2="443" y2="377"/>
+          </g>
+
+          <!-- popularity data points -->
+          <g fill="#6B6258" opacity="0.32">
+            <circle cx="112" cy="348" r="2.3"/><circle cx="180" cy="330" r="2.3"/><circle cx="250" cy="312" r="2.3"/><circle cx="320" cy="294" r="2.3"/><circle cx="390" cy="278" r="2.3"/><circle cx="458" cy="264" r="2.3"/><circle cx="520" cy="256" r="2.3"/><circle cx="556" cy="253" r="2.3"/>
+          </g>
+          <!-- preference data points -->
+          <g fill="#7A2E1F" opacity="0.5">
+            <circle cx="96" cy="290" r="2.6"/><circle cx="138" cy="214" r="2.6"/><circle cx="180" cy="150" r="2.6"/><circle cx="220" cy="112" r="2.6"/><circle cx="258" cy="104" r="2.6"/><circle cx="298" cy="120" r="2.6"/><circle cx="338" cy="156" r="2.6"/><circle cx="380" cy="198" r="2.6"/><circle cx="420" cy="240" r="2.6"/><circle cx="462" cy="282" r="2.6"/><circle cx="506" cy="312" r="2.6"/><circle cx="548" cy="334" r="2.6"/>
+          </g>
+
+          <!-- popularity trend (dashed) -->
+          <path d="M 68 356 C 158 340, 240 314, 322 294 C 404 274, 474 260, 568 254" fill="none" stroke="#6B6258" stroke-width="1.6" stroke-dasharray="5 5" stroke-linecap="round"/>
+          <!-- preference trend (solid) -->
+          <path d="M 68 304 C 116 252, 176 110, 238 100 C 304 90, 360 168, 414 232 C 470 298, 520 332, 568 340" fill="none" stroke="#7A2E1F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <!-- legend -->
+          <g font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.6" fill="#6B6258">
+            <line x1="80" y1="62" x2="112" y2="62" stroke="#7A2E1F" stroke-width="2.6" stroke-linecap="round"/>
+            <text x="120" y="65.5">PREDICTED PREFERENCE</text>
+            <line x1="80" y1="82" x2="112" y2="82" stroke="#6B6258" stroke-width="1.6" stroke-dasharray="5 5" stroke-linecap="round"/>
+            <text x="120" y="85.5">MARKET POPULARITY</text>
+          </g>
+
+          <!-- "where the lovers live" callout (preference peak) -->
+          <circle cx="238" cy="100" r="9" fill="none" stroke="#7A2E1F" stroke-width="1" opacity="0.4"/>
+          <circle cx="238" cy="100" r="5" fill="#7A2E1F"/>
+          <line x1="247" y1="98" x2="292" y2="92" stroke="#7A2E1F" stroke-width="1" opacity="0.7"/>
+          <text x="298" y="90" font-family="Fraunces, serif" font-style="italic" font-size="15" fill="#0E0E10">Where the lovers live</text>
+          <text x="298" y="107" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="0.8" fill="#6B6258">DEEP, NARROW APPEAL</text>
+
+          <!-- "the bland middle" callout -->
+          <circle cx="470" cy="259" r="5" fill="#0E0E10" opacity="0.6"/>
+          <line x1="470" y1="254" x2="486" y2="178" stroke="#0E0E10" stroke-width="1" opacity="0.35"/>
+          <text x="436" y="156" font-family="Fraunces, serif" font-style="italic" font-size="15" fill="#0E0E10">The bland middle</text>
+          <text x="436" y="173" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="0.8" fill="#6B6258">WIDE BUT SHALLOW</text>
+
+          <!-- axis labels -->
+          <g font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.8" fill="#6B6258">
+            <text x="60" y="52" text-anchor="end">HIGH</text>
+            <text x="60" y="375" text-anchor="end">LOW</text>
+            <text x="68" y="394">DISTINCTIVE</text>
+            <text x="568" y="394" text-anchor="end">POPULAR</text>
+          </g>
+          <text x="26" y="210" text-anchor="middle" transform="rotate(-90,26,210)" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="1.2" fill="#6B6258">PREFERENCE STRENGTH</text>
         </svg>
         <div class="diagram-caption">Popularity and preference are two different curves. Most products land on the wrong one.</div>
       </div>
