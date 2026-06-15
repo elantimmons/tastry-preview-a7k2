@@ -150,10 +150,20 @@
   .hero-figure {
     position: relative;
     width: 100%;
-    border-radius: var(--r-lg);
-    overflow: hidden;
   }
-  .hero-figure img { width: 100%; height: auto; display: block; }
+  /* soft warm halo so the illustration reads as intentional, not floating */
+  .hero-figure::before {
+    content: "";
+    position: absolute;
+    inset: -8% -6% -4% -10%;
+    z-index: 0;
+    background: radial-gradient(56% 52% at 47% 40%,
+      rgba(217,113,79,0.18),
+      rgba(122,46,31,0.06) 46%,
+      transparent 72%);
+    pointer-events: none;
+  }
+  .hero-figure img { position: relative; z-index: 1; width: 100%; height: auto; display: block; }
   .hero-figure svg { width: 100%; height: 100%; display: block; }
   .hero-figure figcaption {
     position: absolute; left: 24px; bottom: 18px;
@@ -201,11 +211,11 @@
   /* Hero top: headline copy on the left, signature graphic on the right (above the fold) */
   .hero-top {
     display: grid;
-    grid-template-columns: 1.12fr 0.88fr;
-    gap: 56px;
+    grid-template-columns: 1.06fr 0.94fr;
+    gap: 48px;
     align-items: center;
   }
-  .hero-top .hero-figure { margin: 0; }
+  .hero-top .hero-figure { margin: 0 -8px 0 0; }
   .hero-copy .hero-eyebrow { margin-bottom: 28px; }
   .hero-copy .hero-title { font-size: clamp(40px, 6.6vw, 108px); }
   .hero-copy .hero-sub { max-width: 46ch; }
