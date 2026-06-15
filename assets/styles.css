@@ -553,11 +553,16 @@ em.italic-serif {
 }
 .logo-wall .cell:hover { border-color: rgba(14,14,16,0.25); }
 .logo-wall .cell img {
-  max-height: 46px;
+  max-height: 44px;
   max-width: 100%;
   width: auto;
   object-fit: contain;
+  opacity: 0.88;
+  transition: opacity 0.25s var(--ease);
 }
+/* round/badge marks carry a touch more height to balance the wordmarks */
+.logo-wall .cell.mark img { max-height: 62px; }
+.logo-wall .cell:hover img { opacity: 1; }
 .logo-wall .name {
   font-family: var(--font-display);
   font-weight: 400;
