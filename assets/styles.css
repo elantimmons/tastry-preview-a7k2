@@ -397,6 +397,15 @@ em.italic-serif {
   position: relative;
 }
 .usecase:last-child { border-right: 0; }
+.usecase .uc-img {
+  height: 92px;
+  width: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: left center;
+  margin-bottom: 2px;
+}
 .usecase .num {
   font-family: var(--font-mono);
   font-size: 11px;
