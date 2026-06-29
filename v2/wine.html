@@ -62,6 +62,7 @@
   .case p { font-size: 15px; color: var(--ink-2); max-width: 38ch; }
   .case .visual { padding: 12px 0 8px; }
   .case .visual svg { width: 100%; height: auto; max-height: 110px; }
+  .case .visual img { height: 132px; width: auto; max-width: 100%; display: block; margin: 0 auto; }
   .case .result { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
   @media (max-width: 800px) {
     .cases { grid-template-columns: 1fr; }
@@ -260,36 +261,31 @@
         <div class="visual" aria-hidden="true">
           <svg viewBox="0 0 280 110">
             <!-- target on left -->
-            <g>
-              <circle cx="34" cy="44" r="22" fill="none" stroke="#0E0E10" stroke-width="1.1"/>
-              <circle cx="34" cy="44" r="14" fill="none" stroke="#0E0E10" stroke-width="1.1"/>
-              <circle cx="34" cy="44" r="6"  fill="#0E0E10"/>
-              <text x="34" y="90" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#6B6258">TARGET</text>
-            </g>
-            <!-- 9 missed dots -->
+            <circle cx="40" cy="40" r="22" fill="none" stroke="#0E0E10" stroke-width="1.1"/>
+            <circle cx="40" cy="40" r="14" fill="none" stroke="#0E0E10" stroke-width="1.1"/>
+            <circle cx="40" cy="40" r="6"  fill="#0E0E10"/>
+            <text x="40" y="92" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#6B6258">TARGET</text>
+            <!-- 9 missed dots, scattered off target -->
             <g fill="#6B6258" opacity="0.5">
-              <circle cx="92"  cy="20" r="3"/>
-              <circle cx="108" cy="26" r="3"/>
-              <circle cx="126" cy="22" r="3"/>
-              <circle cx="142" cy="34" r="3"/>
-              <circle cx="100" cy="42" r="3"/>
-              <circle cx="124" cy="46" r="3"/>
-              <circle cx="146" cy="58" r="3"/>
-              <circle cx="104" cy="64" r="3"/>
-              <circle cx="130" cy="64" r="3"/>
+              <circle cx="100" cy="22" r="3"/>
+              <circle cx="118" cy="28" r="3"/>
+              <circle cx="135" cy="24" r="3"/>
+              <circle cx="108" cy="40" r="3"/>
+              <circle cx="128" cy="44" r="3"/>
+              <circle cx="144" cy="38" r="3"/>
+              <circle cx="102" cy="56" r="3"/>
+              <circle cx="122" cy="58" r="3"/>
+              <circle cx="138" cy="54" r="3"/>
             </g>
-            <text x="100" y="90" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#6B6258">9 ATTEMPTS &middot; MISSED</text>
+            <text x="122" y="92" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#6B6258">9 MISSES</text>
             <!-- arrow -->
-            <line x1="170" y1="44" x2="200" y2="44" stroke="#7A2E1F" stroke-width="1"/>
-            <polygon points="194,40 200,44 194,48" fill="#7A2E1F"/>
+            <line x1="172" y1="40" x2="202" y2="40" stroke="#7A2E1F" stroke-width="1"/>
+            <polygon points="196,36 202,40 196,44" fill="#7A2E1F"/>
             <!-- Tastry match on right -->
-            <g>
-              <circle cx="242" cy="44" r="22" fill="none" stroke="#7A2E1F" stroke-width="1.3"/>
-              <circle cx="242" cy="44" r="14" fill="none" stroke="#7A2E1F" stroke-width="1.3"/>
-              <circle cx="242" cy="44" r="6"  fill="#7A2E1F"/>
-              <text x="242" y="90" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#7A2E1F">FIRST TRY</text>
-            </g>
-            <text x="0" y="108" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B6258" letter-spacing="1.2">18 MONTHS → 2 WEEKS</text>
+            <circle cx="240" cy="40" r="22" fill="none" stroke="#7A2E1F" stroke-width="1.3"/>
+            <circle cx="240" cy="40" r="14" fill="none" stroke="#7A2E1F" stroke-width="1.3"/>
+            <circle cx="240" cy="40" r="6"  fill="#7A2E1F"/>
+            <text x="240" y="92" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#7A2E1F">FIRST TRY</text>
           </svg>
         </div>
         <p>
@@ -306,32 +302,8 @@
       <div class="case">
         <div class="num">CASE 04 &middot; Whitespace</div>
         <h3>Finding the audience already waiting.</h3>
-        <div class="visual" aria-hidden="true">
-          <svg viewBox="0 0 280 110">
-            <!-- abstract region grid -->
-            <g fill="none" stroke="#0E0E10" opacity="0.25" stroke-width="0.7">
-              <rect x="6"   y="10" width="60" height="36"/>
-              <rect x="68"  y="10" width="60" height="36"/>
-              <rect x="130" y="10" width="60" height="36"/>
-              <rect x="192" y="10" width="80" height="36"/>
-              <rect x="6"   y="48" width="84" height="40"/>
-              <rect x="92"  y="48" width="54" height="40"/>
-              <rect x="148" y="48" width="62" height="40"/>
-              <rect x="212" y="48" width="60" height="40"/>
-            </g>
-            <!-- hotspots (predicted preference density) -->
-            <circle cx="30"  cy="28" r="10" fill="#7A2E1F" opacity="0.32"/>
-            <circle cx="30"  cy="28" r="4"  fill="#7A2E1F"/>
-            <circle cx="160" cy="30" r="12" fill="#7A2E1F" opacity="0.42"/>
-            <circle cx="160" cy="30" r="5"  fill="#7A2E1F"/>
-            <circle cx="232" cy="22" r="9"  fill="#7A2E1F" opacity="0.3"/>
-            <circle cx="232" cy="22" r="3"  fill="#7A2E1F"/>
-            <circle cx="120" cy="68" r="14" fill="#7A2E1F" opacity="0.5"/>
-            <circle cx="120" cy="68" r="5"  fill="#7A2E1F"/>
-            <circle cx="240" cy="70" r="10" fill="#7A2E1F" opacity="0.36"/>
-            <circle cx="240" cy="70" r="4"  fill="#7A2E1F"/>
-            <text x="0" y="105" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B6258" letter-spacing="1.2">PREDICTED PREFERENCE DENSITY BY REGION</text>
-          </svg>
+        <div class="visual">
+          <img src="assets/graphics/wid-strategy.webp" alt="A US map with a region pinpointed: predicted preference density mapped across the country." />
         </div>
         <p>
           A wine brand wanted to know where in the United States its existing products
