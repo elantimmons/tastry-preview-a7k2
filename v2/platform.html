@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Platform. Tastry.</title>
+<meta name="description" content="Strategic intelligence, product development, timeline compression, assortment planning, and consumer targeting. One model, every stage of the product cycle." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,350;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" />
+<link rel="icon" type="image/svg+xml" href="assets/tastry-icon.svg" />
+
+<style>
+  .uc {
+    padding-top: clamp(80px, 9vw, 140px);
+    padding-bottom: clamp(80px, 9vw, 140px);
+    border-bottom: 1px solid var(--line);
+    scroll-margin-top: 80px;
+  }
+  .uc.alt { background: var(--paper-2); }
+  .uc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .uc-grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+  .uc-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .uc-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(38px, 5.4vw, 76px);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin-top: 20px;
+    max-width: 14ch;
+  }
+  .uc-title em { font-style: italic; font-weight: 350; }
+  .uc-lede {
+    margin-top: 28px;
+    font-size: clamp(17px, 1.4vw, 19px);
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 52ch;
+  }
+  .uc-visual {
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background: var(--surface);
+    padding: 28px;
+    aspect-ratio: 5 / 4;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .uc-visual.dark { background: var(--ink); color: var(--paper); }
+  .uc-caption {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 14px;
+  }
+  .uc-bullets { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .uc-bullets li {
+    list-style: none;
+    padding-left: 32px;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 48ch;
+  }
+  .uc-bullets li::before {
+    content: ""; position: absolute; left: 0; top: 12px;
+    width: 16px; height: 1px; background: var(--accent);
+  }
+  .uc-bullets li strong { font-weight: 600; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; display: block; color: var(--ink); margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="Tastry home">
+      <span class="t-logo-mark" aria-hidden="true"></span>
+      <span class="t-logo-wordmark" aria-hidden="true"></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="science.html">Science</a>
+      <a class="nav-link active" href="platform.html">Platform</a>
+      <a class="nav-link" href="wine.html">Wine Origin</a>
+      <a class="nav-link nav-hide-mobile" href="company.html">Company</a>
+      <a class="btn btn-accent btn-arrow" href="company.html#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" style="padding-bottom: clamp(40px, 6vw, 80px);">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:28px;">Platform &middot; every stage of the product cycle</div>
+    <h1 class="hero-title">
+      Four ways<br/>
+      <span class="italic">to find the answer</span><br/>
+      before the market does.
+    </h1>
+    <p class="hero-sub">
+      Tastry replaces the trial-and-error inside every stage of consumer product
+      development. From forecasting demand to engineering the formulation to
+      targeting the audience that is most likely to love it.
+    </p>
+  </div>
+
+  <div class="container" style="margin-top:80px;">
+    <div class="data-row reveal">
+      <div class="cell"><span class="v">01</span><span class="l">Strategic intelligence</span></div>
+      <div class="cell"><span class="v">02</span><span class="l">Assortment planning</span></div>
+      <div class="cell"><span class="v">03</span><span class="l">Product development</span></div>
+      <div class="cell"><span class="v">04</span><span class="l">Consumer targeting</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 STRATEGIC INTELLIGENCE ============ -->
+<section id="strategic-intelligence" class="uc">
+  <div class="container">
+    <div class="uc-grid">
+      <div class="reveal">
+        <div class="uc-num">01 &middot; Strategic intelligence</div>
+        <h2 class="uc-title">See the <em>market</em><br/>before you brief it.</h2>
+        <p class="uc-lede">
+          Most product portfolios start as a hunch and get refined by the time
+          the hunch is too expensive to walk back. Tastry inverts that.
+          We forecast opportunity at the store, region, and demographic level
+          using real chemistry-to-preference signal, before a brief
+          is written, a recipe is drafted, or a single panelist is booked.
+        </p>
+        <ul class="uc-bullets">
+          <li><strong>Demand forecasting</strong>Project category-level demand by SKU and geography, grounded in preference signal rather than sell-through.</li>
+          <li><strong>Whitespace detection</strong>Surface unmet pockets of preference that no current product addresses.</li>
+          <li><strong>Portfolio simulation</strong>Stress-test what happens if you launch, kill, or reformulate a SKU before you actually do.</li>
+        </ul>
+      </div>
+
+      <div class="reveal">
+        <img src="assets/graphics/strategic-intelligence.webp" alt="Predicted palate match to a sample across U.S. regions, 67 to 95 percent." style="width:100%; height:auto; display:block; border-radius: var(--r-lg);"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 ASSORTMENT PLANNING ============ -->
+<section id="assortment-planning" class="uc alt">
+  <div class="container">
+    <div class="uc-grid" style="grid-template-columns: 1.05fr 1fr;">
+      <div class="reveal">
+        <img src="assets/graphics/assortment-planning.webp" alt="Two products overlap in preference space, leaving an unaddressed opportunity." style="width:100%; height:auto; display:block; border-radius: var(--r-lg);"/>
+      </div>
+
+      <div class="reveal">
+        <div class="uc-num">02 &middot; Assortment planning</div>
+        <h2 class="uc-title">Find the gap.<br/>Design <em>for</em> it.</h2>
+        <p class="uc-lede">
+          Every portfolio overlaps with itself somewhere and misses preference space
+          somewhere else. Tastry maps where your products actually compete,
+          and where they leave audience on the table for a competitor to take.
+        </p>
+        <ul class="uc-bullets">
+          <li><strong>Overlap analysis</strong>Quantify cannibalization between SKUs by preference, not by category code.</li>
+          <li><strong>Gap discovery</strong>Surface pockets of unaddressed preference inside an addressable audience.</li>
+          <li><strong>Brief generation</strong>Translate a gap directly into a chemistry-grounded target profile for R&amp;D.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 PRODUCT DEVELOPMENT ============ -->
+<section id="product-development" class="uc alt">
+  <div class="container">
+    <div class="uc-grid" style="grid-template-columns: 1.05fr 1fr;">
+      <div class="reveal">
+        <img src="assets/graphics/product-development.webp" alt="A designed recipe lands on the in-market target while other recipes scatter in concentration variance." style="width:100%; height:auto; display:block; border-radius: var(--r-lg);"/>
+      </div>
+
+      <div class="reveal">
+        <div class="uc-num">03 &middot; Product development</div>
+        <h2 class="uc-title">Design the recipe<br/><em>in the model.</em></h2>
+        <p class="uc-lede">
+          Iterate on a digital twin of the product against a digital twin of the consumer.
+          Run millions of candidate formulations in minutes. Find the one with the highest
+          density of love inside your target audience. Build only that one in a lab.
+        </p>
+        <ul class="uc-bullets">
+          <li><strong>Predictive formulation</strong>Generate and score candidate recipes against a chemistry-trained preference model.</li>
+          <li><strong>Reformulation under constraint</strong>Substitute sugar, alcohol, allergens, or cost-driven ingredients without losing the consumer.</li>
+          <li><strong>Reverse engineering</strong>Match a target flavor profile from a competitor or a target ingredient list. In days, not years.</li>
+        </ul>
+        <p class="page-label" style="margin-top:36px;">A global flavor house spent 18 months and 9 attempts to match a customer's target. We matched it on the first try in 2 weeks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 CONSUMER TARGETING ============ -->
+<section id="consumer-targeting" class="uc">
+  <div class="container">
+    <div class="uc-grid">
+      <div class="reveal">
+        <div class="uc-num">04 &middot; Consumer targeting</div>
+        <h2 class="uc-title">Match the brand<br/>to the <em>right humans.</em></h2>
+        <p class="uc-lede">
+          Demographics are a weak proxy for preference. Two thirty-something women in
+          the same zip code can have radically different chemistry-level palates.
+          Tastry targets at the level where preference actually lives, so brands stop
+          marketing to the population and start marketing to the people who will love them.
+        </p>
+        <ul class="uc-bullets">
+          <li><strong>Preference-graded audiences</strong>Segment by predicted depth of preference, not by lifestyle clusters.</li>
+          <li><strong>Channel-aware activation</strong>Match shelf, region, and channel to the audience most likely to convert.</li>
+          <li><strong>Lift forecasting</strong>Predict the expected lift of a campaign before media is bought.</li>
+        </ul>
+      </div>
+
+      <div class="reveal">
+        <img src="assets/graphics/consumer-targeting.webp" alt="Consumers matched to a product by predicted preference: 95, 82, and 76 percent match." style="width:100%; height:auto; display:block; border-radius: var(--r-lg);"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
+<section class="section">
+  <div class="container container-narrow">
+    <div class="reveal">
+      <span class="eyebrow">In one model</span>
+      <h2 style="margin-top:24px; font-size: clamp(36px, 5vw, 64px);">
+        One platform.<br/>Every stage of the cycle.<br/>
+        <em class="italic-serif">Predict, then build, then sell.</em>
+      </h2>
+      <div style="margin-top:48px; display:flex; gap:14px; flex-wrap:wrap;">
+        <a class="btn btn-primary btn-arrow" href="company.html#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="science.html">Read the science</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" aria-label="Tastry">
+          <span class="t-logo-mark" aria-hidden="true"></span>
+          <span class="t-logo-wordmark" aria-hidden="true"></span>
+        </a>
+        <p style="margin-top:16px; max-width: 38ch; color: var(--muted); font-size:14px;">
+          The first-principles AI platform for human taste, smell, and texture preference.
+        </p>
+      </div>
+      <div>
+        <h5>Read</h5>
+        <ul>
+          <li><a href="science.html">Science</a></li>
+          <li><a href="platform.html">Platform</a></li>
+          <li><a href="wine.html">Wine origin</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="company.html">Team &amp; mission</a></li>
+          <li><a href="company.html#contact">Contact</a></li>
+          <li><a href="https://www.linkedin.com/company/tastry" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Talk</h5>
+        <ul>
+          <li><a href="mailto:hello@tastry.com">hello@tastry.com</a></li>
+          <li><span style="color:var(--muted);">3592 Broad Street<br/>San Luis Obispo, CA 93401</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-meta">&copy; <span id="year"></span> &middot; Tastry, Inc. &middot; All rights reserved</div>
+      
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Tastry. AI infrastructure for predictive consumer product development.</title>
+<meta name="description" content="Tastry is the first-principles AI model for human taste, smell, and texture preference. We predict what consumers will love before it is made." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,350;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" />
+<link rel="icon" type="image/svg+xml" href="assets/tastry-icon.svg" />
+
+<style>
+  /* Hero stage visual: compressed-cycle recreation (slide 5 source) */
+  .hero-stage-visual {
+    width: 100%;
+    aspect-ratio: 1.15 / 1;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background: var(--surface);
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-stage-visual svg { width: 100%; height: 100%; display: block; }
+
+  /* Word-vs-molecule diagram from science deck */
+  .wm-diagram { width: 100%; aspect-ratio: 5 / 4; }
+
+  /* "I like cherry but not this wine" callout */
+  .verdict {
+    border: 1px solid var(--ink);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .verdict .side {
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    justify-content: center;
+  }
+  .verdict .l { background: var(--paper); }
+  .verdict .r { background: var(--ink); color: var(--paper); }
+  .verdict .label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .verdict .r .label { color: rgba(244,240,234,0.6); }
+  .verdict .quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 350;
+    font-size: clamp(26px, 3vw, 36px);
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+  }
+  .verdict .r .quote .punch { color: var(--accent-bright); }
+  @media (max-width: 760px) {
+    .verdict { grid-template-columns: 1fr; }
+    .verdict .l { border-bottom: 1px solid var(--line); }
+  }
+
+  /* Recipe-match story (slide 8) */
+  .recipe-story { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+  .recipe-story .step {
+    padding: 36px 28px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 320px;
+  }
+  .recipe-story .step:last-child { border-right: 0; background: var(--ink); color: var(--paper); }
+  .recipe-story .step .stepnum {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .recipe-story .step:last-child .stepnum { color: rgba(244,240,234,0.6); }
+  .recipe-story .step h3 {
+    font-family: var(--font-display);
+    font-weight: 350;
+    font-size: clamp(22px, 2.4vw, 30px);
+    letter-spacing: -0.015em;
+    line-height: 1.12;
+  }
+  .recipe-story .step .visual { margin-bottom: 18px; }
+  .recipe-story .step:last-child .visual { border-top-color: rgba(244,240,234,0.18); }
+  .recipe-story .step .visual svg { width: 48px; height: 48px; display: block; }
+  .recipe-story .step p { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+  .recipe-story .step:last-child p { color: rgba(244,240,234,0.78); }
+  @media (max-width: 900px) {
+    .recipe-story { grid-template-columns: 1fr; }
+    .recipe-story .step { border-right: 0; border-bottom: 1px solid var(--line); }
+    .recipe-story .step:last-child { border-bottom: 0; }
+  }
+
+  /* Accuracy chart */
+  #accuracy-chart { width: 100%; height: auto; }
+  .acc-pill {
+    position: absolute;
+    top: 47%; left: 52%;
+    transform: translate(-50%, -50%);
+    background: var(--surface);
+    border: 1px solid var(--ink);
+    border-radius: var(--r-pill);
+    padding: 8px 18px;
+    font-family: var(--font-display);
+    font-weight: 350;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    box-shadow: 0 10px 26px -12px rgba(14,14,16,0.4);
+    white-space: nowrap;
+  }
+  .acc-pill b { color: var(--accent); font-weight: 400; }
+
+  /* Pillars (slide 4) */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--ink); }
+  .pillar {
+    padding: 36px 28px 32px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 360px;
+  }
+  .pillar:last-child { border-right: 0; }
+  .pillar .num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; }
+  .pillar h3 { font-family: var(--font-display); font-weight: 350; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.015em; line-height: 1.12; }
+  .pillar p { font-size: 15px; color: var(--ink-2); line-height: 1.55; }
+  .pillar .icon { margin-bottom: 18px; opacity: 0.92; }
+  @media (max-width: 900px) {
+    .pillars { grid-template-columns: 1fr; }
+    .pillar { border-right: 0; border-bottom: 1px solid var(--line); }
+    .pillar:last-child { border-bottom: 0; }
+  }
+
+  /* ---- Hero signature graphic ---- */
+  .hero-figure {
+    position: relative;
+    width: 100%;
+  }
+  /* soft warm halo so the illustration reads as intentional, not floating */
+  .hero-figure::before {
+    content: "";
+    position: absolute;
+    inset: -8% -6% -4% -10%;
+    z-index: 0;
+    background: radial-gradient(56% 52% at 47% 40%,
+      rgba(217,113,79,0.18),
+      rgba(122,46,31,0.06) 46%,
+      transparent 72%);
+    pointer-events: none;
+  }
+  .hero-figure img { position: relative; z-index: 1; width: 100%; height: auto; display: block; }
+  .hero-figure svg { width: 100%; height: 100%; display: block; }
+  .hero-figure figcaption {
+    position: absolute; left: 24px; bottom: 18px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* curve draw-on */
+  .hf-curve {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 760;
+    stroke-dashoffset: 760;
+    animation: hf-draw 2.2s var(--ease) 0.4s forwards;
+  }
+  .hf-fill { opacity: 0; animation: hf-fade 1.4s var(--ease) 1.6s forwards; }
+  .hf-peak { transform-box: fill-box; transform-origin: center; animation: hf-pulse 3.2s ease-in-out 2.4s infinite; }
+  .hf-accent-node { animation: hf-node 4s ease-in-out infinite; }
+  .hf-accent-node:nth-of-type(2) { animation-delay: 0.8s; }
+  .hf-accent-node:nth-of-type(3) { animation-delay: 1.6s; }
+  .hf-signal { stroke-dasharray: 3 5; opacity: 0; animation: hf-fade 1.2s var(--ease) 1.2s forwards; }
+
+  @keyframes hf-draw { to { stroke-dashoffset: 0; } }
+  @keyframes hf-fade { to { opacity: 1; } }
+  @keyframes hf-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+  @keyframes hf-node {
+    0%, 100% { opacity: 0.95; }
+    50% { opacity: 0.4; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hf-curve { stroke-dashoffset: 0; animation: none; }
+    .hf-fill, .hf-signal { opacity: 1; animation: none; }
+    .hf-peak, .hf-accent-node { animation: none; }
+  }
+
+  /* Hero top: headline copy on the left, signature graphic on the right (above the fold) */
+  .hero-top {
+    display: grid;
+    grid-template-columns: 1.06fr 0.94fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-top .hero-figure { margin: 0 -8px 0 0; }
+  .hero-copy .hero-eyebrow { margin-bottom: 28px; }
+  .hero-copy .hero-title { font-size: clamp(40px, 6.6vw, 108px); }
+  .hero-copy .hero-sub { max-width: 46ch; }
+  @media (max-width: 980px) {
+    .hero-top { grid-template-columns: 1fr; gap: 40px; }
+    .hero-copy .hero-title { font-size: clamp(48px, 12vw, 96px); }
+    .hero-top .hero-figure { max-width: 520px; }
+  }
+
+  /* Hero actions: one primary CTA paired with the video link */
+  .hero-actions { gap: 26px; align-items: center; }
+  .hero-actions .video-trigger { margin-top: 0; }
+
+  /* Statement band below the fold-top: pill + lead + secondary action */
+  .hero-statement {
+    margin-top: clamp(48px, 6vw, 72px);
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+  }
+  .hero-statement-row {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 48px;
+  }
+  .hero-statement-row .lead { margin: 0; max-width: 60ch; }
+  .hero-statement-row .btn { flex-shrink: 0; }
+  @media (max-width: 760px) {
+    .hero-statement-row { flex-direction: column; align-items: flex-start; gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="Tastry. Home.">
+      <span class="t-logo-mark" aria-hidden="true"></span>
+      <span class="t-logo-wordmark" aria-hidden="true"></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link active" href="index.html">Home</a>
+      <a class="nav-link" href="science.html">Science</a>
+      <a class="nav-link" href="platform.html">Platform</a>
+      <a class="nav-link" href="wine.html">Wine Origin</a>
+      <a class="nav-link nav-hide-mobile" href="company.html">Company</a>
+      <a class="btn btn-accent btn-arrow" href="company.html#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-top">
+      <div class="hero-copy">
+        <div class="hero-eyebrow eyebrow">AI infrastructure for predictive consumer product development</div>
+        <h1 class="hero-title">
+          We taught AI<br />
+          <span class="italic">how to taste.</span>
+        </h1>
+        <p class="hero-sub">
+          Tastry is the first-principles model for human taste, smell, and texture preference.
+          We translate the chemistry inside a product into the preference it will create,
+          before a single batch is ever made.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-arrow" href="platform.html">See what it does</a>
+          <button class="video-trigger" type="button" data-video="https://play.vidyard.com/zKGHfvuaSdNB8kpycR3hzN.html" aria-haspopup="dialog" aria-label="Play video: Watch how we started in wine">
+            <span class="vt-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="9,7 18,12 9,17"/></svg>
+            </span>
+            <span class="vt-label">
+              <span class="vt-title">Watch how we started in wine</span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- SIGNATURE HERO GRAPHIC: the model, trained on human taste and smell -->
+      <figure class="hero-figure reveal" aria-label="A person smelling a flower: Tastry's AI model for taste and smell, trained" style="margin:0;">
+        <img src="assets/graphics/hero.webp" alt="A person smelling a flower beside a callout reading AI Model, Taste and Smell, Trained." style="width:100%; height:auto; display:block;"/>
+      </figure>
+    </div>
+
+    <div class="hero-statement">
+      <div class="pill"><span class="dot"></span>Origins in wine. Now scaling into ready-to-drink, carbonated soft drinks, energy drinks, spirits, and more.</div>
+      <div class="hero-statement-row">
+        <p class="lead">
+          Consumer companies have spent decades guessing what people want.
+          We built the model that knows. From chemistry, not from words.
+        </p>
+        <a class="btn btn-ghost btn-arrow" href="science.html">Read the science</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE: categories ============ -->
+<section class="section-sm" style="padding-top:0;">
+  <div class="container">
+    <div class="page-label" style="margin-bottom:18px;">Where chemistry meets preference</div>
+    <div class="marquee" aria-hidden="true">
+      <div class="track">
+        <span class="item">Wine</span><span class="item italic">&middot;</span>
+        <span class="item">Ready-to-drink</span><span class="item italic">&middot;</span>
+        <span class="item">Functional beverages</span><span class="item italic">&middot;</span>
+        <span class="item">Non-alcoholic</span><span class="item italic">&middot;</span>
+        <span class="item">Spirits</span><span class="item italic">&middot;</span>
+        <span class="item">Coffee</span><span class="item italic">&middot;</span>
+        <span class="item">Tea</span><span class="item italic">&middot;</span>
+        <span class="item">Energy</span><span class="item italic">&middot;</span>
+        <span class="item">Juices</span><span class="item italic">&middot;</span>
+        <!-- duplicate for seamless loop -->
+        <span class="item">Wine</span><span class="item italic">&middot;</span>
+        <span class="item">Ready-to-drink</span><span class="item italic">&middot;</span>
+        <span class="item">Functional beverages</span><span class="item italic">&middot;</span>
+        <span class="item">Non-alcoholic</span><span class="item italic">&middot;</span>
+        <span class="item">Spirits</span><span class="item italic">&middot;</span>
+        <span class="item">Coffee</span><span class="item italic">&middot;</span>
+        <span class="item">Tea</span><span class="item italic">&middot;</span>
+        <span class="item">Energy</span><span class="item italic">&middot;</span>
+        <span class="item">Juices</span><span class="item italic">&middot;</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE PROBLEM ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="meta">
+        <span class="eyebrow">01. The problem</span>
+      </div>
+      <div>
+        <h2>Product development<br/>is still <em class="italic-serif">trial and error.</em></h2>
+        <p class="lead" style="margin-top:28px;">
+          For every product on a shelf, there are five that failed quietly. Reformulations that lost
+          consumers. Line extensions that missed. Innovation cycles that took eighteen months and
+          ended in a focus-group shrug. The cost is structural. Teams iterate physically, validate
+          after the fact, and discover what consumers actually wanted long after the budget is spent.
+        </p>
+      </div>
+    </div>
+
+    <!-- The problem — finalized graphic -->
+    <div class="reveal" style="margin-top: 8px;">
+      <img src="assets/graphics/problem.webp" alt="The old way: an 18 to 24 month trial-and-error loop of brand concept, R&amp;D, prototype iterations, consumer testing, and reformulation. The Tastry way: chemistry and suppliers go straight into R&amp;D, collapsing the cycle." style="width:100%; height:auto; display:block;"/>
+    </div>
+
+    <!-- The cost of the problem, in three numbers -->
+    <div class="reveal" style="margin-top: 64px;">
+      <p class="page-label" style="margin-bottom: 18px;">The cost of the broken cycle</p>
+      <div class="statstrip">
+        <div class="item">
+          <div class="num">$1T</div>
+          <div class="lab">Spent annually launching consumer products</div>
+        </div>
+        <div class="item">
+          <div class="num">85%</div>
+          <div class="lab">Of new product launches fail</div>
+        </div>
+        <div class="item">
+          <div class="num">18 to 24 mo</div>
+          <div class="lab">Industry-standard time to market</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE INSIGHT ============ -->
+<section class="section" style="background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="meta">
+        <span class="eyebrow">02. First principles</span>
+      </div>
+      <div>
+        <h2>Preference lives in <em class="italic-serif">chemistry,</em><br/>not in words.</h2>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="reveal prose">
+        <p style="font-size:19px; line-height:1.55;">
+          For decades, the industry has tried to predict what people want by mapping language
+          (fruity, smooth, clean) back to ingredients. That mapping does not hold up.
+          A consumer who says they like cherry will reject a wine engineered to taste like cherry.
+          The descriptor is the echo. The chemistry is the cause.
+        </p>
+        <p>
+          Tastry's model is built from the molecule up. We capture the full symphony of chemistry
+          in a product in our proprietary in-house lab, then connect that chemistry directly
+          to consumer preference. The output is a prediction of how a real audience will
+          feel about a product that does not exist yet.
+        </p>
+        <p>
+          The result is something the industry has wanted for a century. A direct, causal
+          link from a product's chemistry to a consumer's preference.
+          <span class="hl">Words do not predict it. Chemistry does.</span>
+        </p>
+      </div>
+
+      <!-- First principles — finalized graphic -->
+      <div class="reveal">
+        <img src="assets/graphics/first-principles.webp" alt="One molecule, three descriptors: benzaldehyde reads as cherry, marzipan, or nutty. Language is a poor proxy for preference." style="width:100%; height:auto; display:block;"/>
+      </div>
+    </div>
+
+    <!-- "I like cherry but I don't like this wine" callout (science deck slide 4) -->
+    <div class="reveal verdict" style="margin-top:80px;">
+      <div class="side l">
+        <span class="label">What the consumer says</span>
+        <div class="quote">I like cherry.</div>
+      </div>
+      <div class="side r">
+        <span class="label">What the consumer does</span>
+        <div class="quote"><span class="punch">But I do not like</span> this wine.</div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:48px;">
+      <a class="btn btn-ghost btn-arrow" href="science.html">Read the science</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE MODEL (slide 4 recreation) ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="meta">
+        <span class="eyebrow">03. The model</span>
+      </div>
+      <div>
+        <h2>Digital twins of<br/>chemistry and consumers.</h2>
+        <p class="lead" style="margin-top:24px;">
+          The most advanced AI solution that creates digital twins of consumers and chemistry,
+          built to design and deconstruct products and ingredients that consumers will love.
+        </p>
+      </div>
+    </div>
+
+    <div class="reveal pillars">
+      <div class="pillar">
+        <svg class="icon" viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="#0E0E10" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="24" y1="24" x2="13" y2="14"/>
+          <line x1="24" y1="24" x2="36" y2="15"/>
+          <line x1="24" y1="24" x2="18" y2="37"/>
+          <line x1="24" y1="24" x2="38" y2="33"/>
+          <circle cx="13" cy="14" r="3"/>
+          <circle cx="36" cy="15" r="3"/>
+          <circle cx="18" cy="37" r="3"/>
+          <circle cx="38" cy="33" r="3" stroke="#7A2E1F"/>
+          <circle cx="24" cy="24" r="3.6" fill="#0E0E10" stroke="none"/>
+        </svg>
+        <div class="num">PILLAR 01</div>
+        <h3>Proprietary chemistry dataset</h3>
+        <p>Every product captured as the full symphony of chemistry, not a sampled summary. The dataset is built category by category, geography by geography, and owned by Tastry.</p>
+      </div>
+      <div class="pillar">
+        <svg class="icon" viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="#0E0E10" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="19" cy="17" r="6"/>
+          <path d="M9 37 v-2 a10 10 0 0 1 20 0 v2"/>
+          <circle cx="30" cy="21" r="6" stroke="#7A2E1F"/>
+          <path d="M20 41 v-2 a10 10 0 0 1 20 0 v2" stroke="#7A2E1F"/>
+        </svg>
+        <div class="num">PILLAR 02</div>
+        <h3>Consumer digital twins</h3>
+        <p>Real human preference, modeled. Each twin learns from sensory and behavioral signal so we can predict what a population will feel about a product that does not exist yet.</p>
+      </div>
+      <div class="pillar">
+        <svg class="icon" viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="#0E0E10" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="24" cy="20" r="12"/>
+          <path d="M15 33 h18 l-3 5 h-12 z"/>
+          <path d="M18 16 a7 7 0 0 1 6 -4" stroke="#7A2E1F"/>
+        </svg>
+        <div class="num">PILLAR 03</div>
+        <h3>Future-proofed formulations</h3>
+        <p>Reformulate against cost, regulatory pressure, or supply changes without losing the consumer. The model knows which substitutions preserve preference and which destroy it.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:36px; display:flex; align-items:center; gap:32px; flex-wrap:wrap;">
+      <a class="btn btn-ghost btn-arrow" href="platform.html">See the platform</a>
+      <p class="page-label" style="margin:0;">U.S. Patent No. 11,847,684. Issued in the United States, China, Japan, and Canada.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ USE CASES (slide 9 recreation, 4 columns) ============ -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="meta">
+        <span class="eyebrow">04. What it does</span>
+      </div>
+      <div>
+        <h2>Consumer-centric insight,<br/>from first concept<br/>to shelf.</h2>
+        <p class="lead" style="margin-top:24px;">
+          Tastry does not replace one tool. It replaces the guesswork inside every stage of the
+          development cycle, from forecasting demand to engineering the formulation to targeting
+          the audience most likely to love it.
+        </p>
+      </div>
+    </div>
+
+    <div class="reveal usecases" style="grid-template-columns: repeat(4, 1fr);">
+      <a href="platform.html#strategic-intelligence" class="usecase">
+        <img class="uc-img" src="assets/graphics/wid-strategy.webp" alt="A US map with a single location pinpointed, representing nationwide opportunity forecasting." />
+        <div class="num">01. STRATEGY</div>
+        <h3>Strategic intelligence</h3>
+        <p>Forecast store, local, regional, and nationwide opportunity in real time, before a brief is written.</p>
+        <span class="mono" style="font-size:11px; color:var(--accent); letter-spacing:0.12em; text-transform:uppercase;">Read more &nbsp;»</span>
+      </a>
+      <a href="platform.html#assortment-planning" class="usecase">
+        <img class="uc-img" src="assets/graphics/wid-planning.webp" alt="Two overlapping circles with a separate dashed circle, representing SKU overlap and an unmet market gap." />
+        <div class="num">02. PLANNING</div>
+        <h3>Assortment planning</h3>
+        <p>Identify gaps in the market. Quantify overlap between SKUs. Brief the next launch with intent.</p>
+        <span class="mono" style="font-size:11px; color:var(--accent); letter-spacing:0.12em; text-transform:uppercase;">Read more &nbsp;»</span>
+      </a>
+      <a href="platform.html#product-development" class="usecase">
+        <img class="uc-img" src="assets/graphics/wid-rd.webp" alt="A radar sweep locking onto a single target, representing a winning formulation found among many candidates." />
+        <div class="num">03. R&amp;D</div>
+        <h3>Product development</h3>
+        <p>Recipes engineered using real-time chemistry and preference data. A winning formulation in weeks, not years.</p>
+        <span class="mono" style="font-size:11px; color:var(--accent); letter-spacing:0.12em; text-transform:uppercase;">Read more &nbsp;»</span>
+      </a>
+      <a href="platform.html#consumer-targeting" class="usecase">
+        <img class="uc-img" src="assets/graphics/wid-targeting.webp" alt="A crowd of people with the highest-value individuals highlighted in accent color." />
+        <div class="num">04. TARGETING</div>
+        <h3>Consumer targeting</h3>
+        <p>Match brands to their highest-value customers. Segment by predicted depth of preference, not by lifestyle.</p>
+        <span class="mono" style="font-size:11px; color:var(--accent); letter-spacing:0.12em; text-transform:uppercase;">Read more &nbsp;»</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF (slide 7 + slide 8 recreation) ============ -->
+<section class="section" style="background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="meta">
+        <span class="eyebrow">05. Proof</span>
+      </div>
+      <div>
+        <h2>The model has<br/>already been<br/>graded.</h2>
+        <p class="lead" style="margin-top:24px;">
+          Across all products tested with consumers in double-blind panels, Tastry's predicted
+          preference scores matched actual consumer scores at 93%.
+        </p>
+      </div>
+    </div>
+
+    <div class="split">
+      <!-- The proof — finalized graphic -->
+      <div class="reveal">
+        <img src="assets/graphics/proof.webp" alt="Tastry AI predicts how consumers will score a wine before it is launched: predicted and actual scores track at 93% accuracy across all wines tested." style="width:100%; height:auto; display:block;"/>
+      </div>
+
+      <div class="reveal">
+        <div class="pullquote">
+          <span class="marker">&ldquo;</span>This is simply <em class="italic-serif">amazing</em> data and information.
+          To the general public, my guess is that any of the Tastry blends would be very well received.<span class="marker">&rdquo;</span>
+        </div>
+        <div class="attribution">
+          Josh Baker. Winemaker, Phase 2 Cellars
+        </div>
+      </div>
+    </div>
+
+    <!-- 9 vs 1 RECIPE STORY: faithful recreation of pitch slide 8 -->
+    <div class="reveal" style="margin-top:120px;">
+      <div class="section-head" style="margin-bottom: 36px;">
+        <div class="meta"><span class="eyebrow">The recipe nobody else could match</span></div>
+        <div>
+          <h2>Tastry delivered a custom flavor in <em class="italic-serif">two weeks</em><br/>that multi-billion-dollar companies<br/>failed to match in 18 months.</h2>
+        </div>
+      </div>
+
+      <div class="recipe-story">
+        <div class="step">
+          <div class="visual">
+            <!-- the target -->
+            <svg viewBox="0 0 48 48" fill="none" stroke="#0E0E10" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="24" cy="24" r="15"/>
+              <circle cx="24" cy="24" r="8.5"/>
+              <circle cx="24" cy="24" r="3" stroke="#7A2E1F"/>
+            </svg>
+          </div>
+          <span class="stepnum">01. The brief</span>
+          <h3>A global CPG customer's target flavor.</h3>
+          <p>A single, specific flavor profile. The brief sent to the best flavor houses in the world.</p>
+        </div>
+
+        <div class="step">
+          <div class="visual">
+            <!-- nine attempts, none on target -->
+            <svg viewBox="0 0 48 48" fill="none" stroke="#0E0E10" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="24" cy="24" r="15" opacity="0.5"/>
+              <circle cx="24" cy="24" r="8.5" opacity="0.5"/>
+              <g fill="#0E0E10" stroke="none">
+                <circle cx="13" cy="15" r="1.7"/>
+                <circle cx="20" cy="10" r="1.7"/>
+                <circle cx="31" cy="11" r="1.7"/>
+                <circle cx="37" cy="18" r="1.7"/>
+                <circle cx="38" cy="29" r="1.7"/>
+                <circle cx="32" cy="37" r="1.7"/>
+                <circle cx="21" cy="38" r="1.7"/>
+                <circle cx="11" cy="32" r="1.7"/>
+                <circle cx="10" cy="22" r="1.7"/>
+              </g>
+            </svg>
+          </div>
+          <span class="stepnum">02. 18 months. 9 attempts.</span>
+          <h3>The global flavor houses missed every single time.</h3>
+          <p>Three of the largest flavor houses on earth. Nine attempts over eighteen months. None succeeded.</p>
+        </div>
+
+        <div class="step">
+          <div class="visual">
+            <!-- bullseye: matched, first try (on dark) -->
+            <svg viewBox="0 0 48 48" fill="none" stroke="#F4F0EA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="24" cy="24" r="15"/>
+              <circle cx="24" cy="24" r="8.5"/>
+              <circle cx="24" cy="24" r="4" fill="#D9714F" stroke="none"/>
+            </svg>
+          </div>
+          <span class="stepnum">03. Tastry. 2 weeks.</span>
+          <h3>Matched the target on the first try.</h3>
+          <p>One pass through the model. From chemistry alone, with no language descriptors involved. Two weeks from brief to match.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ORIGIN STORY TEASER ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="meta">
+        <span class="eyebrow">06. Where we started</span>
+      </div>
+      <div>
+        <h2>We started with the<br/>hardest sensory category<br/>in the world.</h2>
+      </div>
+    </div>
+
+    <div class="origin reveal">
+      <div class="left">
+        <div>
+          <span class="pill" style="background:transparent; border-color:rgba(244,240,234,0.25); color:rgba(244,240,234,0.78);">
+            <span class="dot" style="background: var(--paper);"></span>The origin
+          </span>
+          <h3 style="margin-top:18px;">Why wine. And why every CPG company is next.</h3>
+          <p style="margin-top:16px;">
+            Wine is the most chemically complex consumer product on earth.
+            Hundreds of thousands of chemistry signals, every bottle different, preference impossible to predict by language.
+            If the model could crack wine, it could crack anything. It did. Now it is coming for the rest of CPG.
+          </p>
+        </div>
+        <div>
+          <a class="btn btn-ghost btn-arrow" style="border-color:rgba(244,240,234,0.4); color:var(--paper);" href="wine.html">See the wine work</a>
+        </div>
+      </div>
+      <div class="right" aria-hidden="true">
+        <span class="badge">Proven in wine</span>
+        <svg viewBox="0 0 400 360" style="position:absolute; right:32px; bottom:32px; width:75%; height:auto; opacity:0.95;">
+          <g fill="none" stroke="#F4F0EA" stroke-width="1.2" opacity="0.85">
+            <path d="M 120 40 C 120 130, 100 200, 160 220 L 240 220 C 300 200, 280 130, 280 40 Z"/>
+            <line x1="200" y1="220" x2="200" y2="310"/>
+            <line x1="160" y1="320" x2="240" y2="320"/>
+            <path d="M 132 100 C 138 170, 130 200, 180 215 L 220 215 C 270 200, 262 170, 268 100 Z" fill="#F4F0EA" opacity="0.18" stroke="none"/>
+            <g stroke="#F4F0EA" stroke-width="0.7" opacity="0.85">
+              <line x1="160" y1="120" x2="200" y2="100"/>
+              <line x1="200" y1="100" x2="240" y2="120"/>
+              <line x1="160" y1="120" x2="180" y2="160"/>
+              <line x1="240" y1="120" x2="220" y2="160"/>
+              <line x1="180" y1="160" x2="220" y2="160"/>
+              <line x1="200" y1="100" x2="200" y2="170"/>
+            </g>
+            <g fill="#F4F0EA">
+              <circle cx="160" cy="120" r="3"/>
+              <circle cx="200" cy="100" r="3"/>
+              <circle cx="240" cy="120" r="3"/>
+              <circle cx="180" cy="160" r="3"/>
+              <circle cx="220" cy="160" r="3"/>
+              <circle cx="200" cy="170" r="3"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" aria-label="Tastry">
+          <span class="t-logo-mark" aria-hidden="true"></span>
+          <span class="t-logo-wordmark" aria-hidden="true"></span>
+        </a>
+        <p style="margin-top:16px; max-width: 38ch; color: var(--muted); font-size:14px;">
+          The first-principles AI platform for human taste, smell, and texture preference.
+        </p>
+      </div>
+      <div>
+        <h5>Read</h5>
+        <ul>
+          <li><a href="science.html">Science</a></li>
+          <li><a href="platform.html">Platform</a></li>
+          <li><a href="wine.html">Wine origin</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="company.html">Team and mission</a></li>
+          <li><a href="company.html#contact">Contact</a></li>
+          <li><a href="https://www.linkedin.com/company/tastry" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Talk</h5>
+        <ul>
+          <li><a href="mailto:hello@tastry.com">hello@tastry.com</a></li>
+          <li><span style="color:var(--muted);">3592 Broad Street<br/>San Luis Obispo, CA 93401</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-meta">&copy; <span id="year"></span> &middot; Tastry, Inc. &middot; All rights reserved</div>
+      
+    </div>
+  </div>
+</footer>
+
+<!-- ============ VIDEO MODAL ============ -->
+<div class="video-modal" id="video-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video player">
+  <div class="video-modal-backdrop" data-close></div>
+  <div class="video-modal-inner">
+    <button class="video-modal-close" type="button" data-close aria-label="Close video">&times;</button>
+    <div class="video-frame" id="video-frame"></div>
+  </div>
+</div>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
