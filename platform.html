@@ -26,8 +26,10 @@
     gap: 80px;
     align-items: start;
   }
+  /* image-first sections: image column slightly wider */
+  .uc-grid.uc-grid-flip { grid-template-columns: 1.05fr 1fr; }
   @media (max-width: 900px) {
-    .uc-grid { grid-template-columns: 1fr; gap: 36px; }
+    .uc-grid, .uc-grid.uc-grid-flip { grid-template-columns: 1fr; gap: 36px; }
   }
   .uc-num {
     font-family: var(--font-mono);
@@ -98,14 +100,21 @@
       <span class="t-logo-mark" aria-hidden="true"></span>
       <span class="t-logo-wordmark" aria-hidden="true"></span>
     </a>
-    <nav class="nav-links" aria-label="Primary">
+    <nav class="nav-links" id="primary-menu" aria-label="Primary">
       <a class="nav-link" href="index.html">Home</a>
       <a class="nav-link" href="science.html">Science</a>
       <a class="nav-link active" href="platform.html">Platform</a>
       <a class="nav-link" href="wine.html">Wine Origin</a>
-      <a class="nav-link nav-hide-mobile" href="company.html">Company</a>
-      <a class="btn btn-accent btn-arrow" href="company.html#contact">Get in touch</a>
+      <a class="nav-link" href="company.html">Company</a>
+      <a class="btn btn-accent btn-arrow nav-menu-cta" href="company.html#contact">Get in touch</a>
     </nav>
+    <div class="nav-mobile">
+      <a class="btn btn-accent nav-bar-cta" href="company.html#contact">Get in touch</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -166,7 +175,7 @@
 <!-- ============ 02 ASSORTMENT PLANNING ============ -->
 <section id="assortment-planning" class="uc alt">
   <div class="container">
-    <div class="uc-grid" style="grid-template-columns: 1.05fr 1fr;">
+    <div class="uc-grid uc-grid-flip">
       <div class="reveal">
         <img src="assets/graphics/assortment-planning.webp" alt="Two products overlap in preference space, leaving an unaddressed opportunity." style="width:100%; height:auto; display:block; border-radius: var(--r-lg);"/>
       </div>
@@ -192,7 +201,7 @@
 <!-- ============ 03 PRODUCT DEVELOPMENT ============ -->
 <section id="product-development" class="uc alt">
   <div class="container">
-    <div class="uc-grid" style="grid-template-columns: 1.05fr 1fr;">
+    <div class="uc-grid uc-grid-flip">
       <div class="reveal">
         <img src="assets/graphics/product-development.webp" alt="A designed recipe lands on the in-market target while other recipes scatter in concentration variance." style="width:100%; height:auto; display:block; border-radius: var(--r-lg);"/>
       </div>

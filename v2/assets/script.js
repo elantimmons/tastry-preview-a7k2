@@ -1,6 +1,33 @@
 /* Tastry — small set of progressive enhancements */
 
 (function () {
+  // Mobile nav (hamburger) toggle
+  const nav = document.querySelector('.nav');
+  const navToggle = document.querySelector('.nav-toggle');
+  if (nav && navToggle) {
+    const setMenu = (open) => {
+      nav.classList.toggle('menu-open', open);
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    navToggle.addEventListener('click', () =>
+      setMenu(!nav.classList.contains('menu-open'))
+    );
+    // Close on outside click, Escape, link tap, or leaving the mobile breakpoint
+    document.addEventListener('click', (e) => {
+      if (nav.classList.contains('menu-open') && !nav.contains(e.target)) setMenu(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setMenu(false);
+    });
+    nav.querySelectorAll('.nav-links a').forEach((a) =>
+      a.addEventListener('click', () => setMenu(false))
+    );
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 760) setMenu(false);
+    });
+  }
+
   // Reveal on scroll
   const els = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && els.length) {

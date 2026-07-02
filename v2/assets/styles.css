@@ -210,9 +210,70 @@ em.italic-serif {
   content: ""; position: absolute; left: 0; right: 0; bottom: -22px;
   height: 1px; background: var(--ink);
 }
+
+/* Mobile-only nav controls (CTA pill + hamburger). Hidden on desktop. */
+.nav-mobile { display: none; }
+.nav-toggle { display: none; }
+
 @media (max-width: 760px) {
-  .nav-links { gap: 18px; }
-  .nav-link.nav-hide-mobile { display: none; }
+  .nav-mobile { display: flex; align-items: center; gap: 6px; }
+  .nav .nav-mobile .nav-bar-cta { padding: 9px 15px; font-size: 13px; white-space: nowrap; }
+
+  .nav-toggle {
+    display: grid;
+    place-items: center;
+    width: 44px; height: 44px;
+    margin-right: -10px; /* optically align icon with container edge */
+    color: var(--ink);
+  }
+  .nav-toggle-bar {
+    display: block;
+    grid-area: 1 / 1;
+    width: 20px; height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: transform 0.25s var(--ease);
+  }
+  .nav-toggle-bar:first-child { transform: translateY(-3.5px); }
+  .nav-toggle-bar:last-child  { transform: translateY(3.5px); }
+  .menu-open .nav-toggle-bar:first-child { transform: rotate(45deg); }
+  .menu-open .nav-toggle-bar:last-child  { transform: rotate(-45deg); }
+
+  /* The link row becomes a slide-down panel under the header bar */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 6px var(--pad-x) 22px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 30px 40px -30px rgba(14, 14, 16, 0.35);
+    max-height: calc(100dvh - 68px);
+    overflow-y: auto;
+  }
+  .menu-open .nav-links { display: flex; animation: menu-drop 0.3s var(--ease); }
+  @keyframes menu-drop {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .menu-open .nav-links { animation: none; }
+  }
+
+  .nav-links .nav-link {
+    font-size: 17px;
+    padding: 15px 0;
+    opacity: 1;
+    border-bottom: 1px solid var(--line-2);
+  }
+  .nav-links .nav-link.active { color: var(--accent); }
+  .nav-links .nav-link.active::after { display: none; }
+
+  /* The CTA inside the panel becomes a full-width block */
+  .nav-links .nav-menu-cta { margin-top: 18px; justify-content: center; padding: 14px 22px; }
 }
 
 /* -------- Buttons -------- */
@@ -389,6 +450,9 @@ em.italic-serif {
   grid-template-columns: repeat(5, 1fr);
   border-top: 1px solid var(--ink);
 }
+/* 4-item variant (home page). Declared before the media queries below so it
+   still collapses to 2 / 1 columns on smaller screens. */
+.usecases.usecases-4 { grid-template-columns: repeat(4, 1fr); }
 .usecase {
   padding: 36px 24px 32px;
   border-right: 1px solid var(--line);
@@ -420,12 +484,12 @@ em.italic-serif {
 }
 .usecase p { color: var(--muted); font-size: 14px; line-height: 1.5; }
 @media (max-width: 1000px) {
-  .usecases { grid-template-columns: repeat(2, 1fr); }
+  .usecases, .usecases.usecases-4 { grid-template-columns: repeat(2, 1fr); }
   .usecase { border-bottom: 1px solid var(--line); }
   .usecase:nth-child(even) { border-right: 0; }
 }
 @media (max-width: 560px) {
-  .usecases { grid-template-columns: 1fr; }
+  .usecases, .usecases.usecases-4 { grid-template-columns: 1fr; }
   .usecase { border-right: 0; }
 }
 

@@ -258,14 +258,21 @@
       <span class="t-logo-mark" aria-hidden="true"></span>
       <span class="t-logo-wordmark" aria-hidden="true"></span>
     </a>
-    <nav class="nav-links" aria-label="Primary">
+    <nav class="nav-links" id="primary-menu" aria-label="Primary">
       <a class="nav-link active" href="index.html">Home</a>
       <a class="nav-link" href="science.html">Science</a>
       <a class="nav-link" href="platform.html">Platform</a>
       <a class="nav-link" href="wine.html">Wine Origin</a>
-      <a class="nav-link nav-hide-mobile" href="company.html">Company</a>
-      <a class="btn btn-accent btn-arrow" href="company.html#contact">Get in touch</a>
+      <a class="nav-link" href="company.html">Company</a>
+      <a class="btn btn-accent btn-arrow nav-menu-cta" href="company.html#contact">Get in touch</a>
     </nav>
+    <div class="nav-mobile">
+      <a class="btn btn-accent nav-bar-cta" href="company.html#contact">Get in touch</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -529,7 +536,7 @@
       </div>
     </div>
 
-    <div class="reveal usecases" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="reveal usecases usecases-4">
       <a href="platform.html#strategic-intelligence" class="usecase">
         <img class="uc-img" src="assets/graphics/wid-strategy.webp" alt="A US map with a single location pinpointed, representing nationwide opportunity forecasting." />
         <div class="num">01. STRATEGY</div>
