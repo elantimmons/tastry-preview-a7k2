@@ -57,6 +57,9 @@
   .person.hiring {
     background: var(--paper-2);
     justify-content: center;
+    /* fill the remainder of the row so the grid never shows an empty slot */
+    grid-column: span 2;
+    border-right: 0;
   }
   .person.hiring .photo-placeholder {
     width: 210px;
@@ -78,6 +81,7 @@
   @media (max-width: 560px) {
     .team { grid-template-columns: 1fr; }
     .person, .person:nth-child(3n), .person:nth-child(2n) { border-right: 0; }
+    .person.hiring { grid-column: auto; }
   }
 
   .mission {
