@@ -30,6 +30,8 @@
   .uc-grid.uc-grid-flip { grid-template-columns: 1.05fr 1fr; }
   @media (max-width: 900px) {
     .uc-grid, .uc-grid.uc-grid-flip { grid-template-columns: 1fr; gap: 36px; }
+    /* stacked view: each section's image sits below its text */
+    .uc-grid-flip > div:first-child { order: 2; }
   }
   .uc-num {
     font-family: var(--font-mono);

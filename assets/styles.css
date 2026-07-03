@@ -215,7 +215,8 @@ em.italic-serif {
 .nav-mobile { display: none; }
 .nav-toggle { display: none; }
 
-@media (max-width: 760px) {
+/* 860px covers the tablet band where the full link row no longer fits cleanly */
+@media (max-width: 860px) {
   .nav-mobile { display: flex; align-items: center; gap: 6px; }
   .nav .nav-mobile .nav-bar-cta { padding: 9px 15px; font-size: 13px; white-space: nowrap; }
 

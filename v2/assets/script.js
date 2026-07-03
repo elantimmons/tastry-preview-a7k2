@@ -24,7 +24,7 @@
       a.addEventListener('click', () => setMenu(false))
     );
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 760) setMenu(false);
+      if (window.innerWidth > 860) setMenu(false);
     });
   }
 
