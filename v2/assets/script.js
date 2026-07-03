@@ -74,39 +74,4 @@
   const y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
-  // Video modal
-  const vModal = document.getElementById('video-modal');
-  const vFrame = document.getElementById('video-frame');
-  const vTriggers = document.querySelectorAll('[data-video]');
-
-  function openVideo(url) {
-    if (!vModal || !vFrame) return;
-    const sep = url.indexOf('?') > -1 ? '&' : '?';
-    vFrame.innerHTML =
-      '<iframe src="' + url + sep + 'autoplay=1" ' +
-      'allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
-    vModal.classList.add('open');
-    vModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeVideo() {
-    if (!vModal || !vFrame) return;
-    vModal.classList.remove('open');
-    vModal.setAttribute('aria-hidden', 'true');
-    vFrame.innerHTML = ''; // stop playback
-    document.body.style.overflow = '';
-  }
-
-  vTriggers.forEach((t) =>
-    t.addEventListener('click', () => openVideo(t.getAttribute('data-video')))
-  );
-  if (vModal) {
-    vModal.querySelectorAll('[data-close]').forEach((el) =>
-      el.addEventListener('click', closeVideo)
-    );
-  }
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeVideo();
-  });
 })();
