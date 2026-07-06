@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Wine. Tastry origin.</title>
+<meta name="description" content="Tastry started in wine, the most chemically complex consumer category on earth. The proof that the model works." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,350;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" />
+<link rel="icon" type="image/svg+xml" href="assets/tastry-icon.svg" />
+
+<style>
+  .wine-hero {
+    background: var(--accent-deep);
+    color: #F7F4EC;
+    padding-top: clamp(80px, 10vw, 140px);
+    padding-bottom: clamp(80px, 10vw, 140px);
+    position: relative;
+    overflow: hidden;
+  }
+  .wine-hero .eyebrow { color: rgba(247,244,236,0.75); }
+  .wine-hero .eyebrow::before { background: #F7F4EC; opacity: 0.55; }
+  .wine-hero h1 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(40px, 6vw, 100px);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    max-width: 12ch;
+  }
+  .wine-hero h1 em { font-style: italic; font-weight: 350; color: var(--accent-2); }
+  .wine-hero .lead { color: rgba(247,244,236,0.85); margin-top: 28px; max-width: 46ch; }
+
+  .wine-hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .wine-hero-figure { position: relative; }
+  .wine-hero-figure img { width: 100%; height: auto; display: block; border-radius: var(--r-lg); border: 1px solid rgba(247,244,236,0.18); }
+  @media (max-width: 900px) {
+    .wine-hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .wine-hero-figure { max-width: 460px; }
+  }
+
+  /* Case grid */
+  .cases { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); }
+  .case {
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 40px;
+    display: flex; flex-direction: column; gap: 20px;
+    background: var(--paper);
+  }
+  .case:nth-child(even) { border-right: 0; background: var(--paper-2); }
+  .case .num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; }
+  .case h3 { font-family: var(--font-display); font-size: clamp(24px, 2.6vw, 32px); letter-spacing: -0.015em; line-height: 1.1; }
+  .case p { font-size: 15px; color: var(--ink-2); max-width: 38ch; }
+  .case .visual { padding: 12px 0 8px; }
+  .case .visual svg { width: 100%; height: auto; max-height: 110px; }
+  .case .visual img { height: 132px; width: auto; max-width: 100%; display: block; margin: 0 auto; }
+  .case .result { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  @media (max-width: 800px) {
+    .cases { grid-template-columns: 1fr; }
+    .case, .case:nth-child(even) { border-right: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="Tastry home">
+      <span class="t-logo-mark" aria-hidden="true"></span>
+      <span class="t-logo-wordmark" aria-hidden="true"></span>
+    </a>
+    <nav class="nav-links" id="primary-menu" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="science.html">Science</a>
+      <a class="nav-link" href="platform.html">Platform</a>
+      <a class="nav-link active" href="wine.html">Wine Origin</a>
+      <a class="nav-link" href="company.html">Company</a>
+      <a class="btn btn-accent btn-arrow nav-menu-cta" href="company.html#contact">Get in touch</a>
+    </nav>
+    <div class="nav-mobile">
+      <a class="btn btn-accent nav-bar-cta" href="company.html#contact">Get in touch</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="wine-hero">
+  <div class="container">
+    <div class="wine-hero-grid">
+      <div class="wine-hero-copy">
+        <div class="eyebrow" style="margin-bottom:32px;">Origin</div>
+        <h1>The proof<br/>begins<br/><em>in the glass.</em></h1>
+        <p class="lead">
+          We started where the chemistry is hardest. Wine has hundreds of thousands of chemistry signals, every bottle
+          is different, and language fails to describe what people actually feel. If the model
+          could learn preference here, it could learn it anywhere. It did. This page is the proof.
+        </p>
+        <div style="margin-top:44px; display:flex; gap:14px; flex-wrap:wrap;">
+          <a class="btn btn-ghost btn-arrow" href="#cases" style="border-color: rgba(247,244,236,0.5); color: #F7F4EC;">See the case work</a>
+        </div>
+      </div>
+      <div class="wine-hero-figure reveal">
+        <img src="assets/graphics/wine-origins-header.webp" alt="A wine glass beside two overlapping circles and molecular structures: the chemistry of preference, captured in wine." />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE STARTING POINT ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="meta"><span class="eyebrow">Why wine first</span></div>
+      <div>
+        <h2>The hardest sensory<br/>category in the world.</h2>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="reveal prose">
+        <p style="font-size:19px;">
+          Wine is the canonical proof problem for sensory AI. Every bottle is a one-off
+          chemistry, hundreds of thousands of chemistry signals interact in non-obvious ways, descriptors vary
+          by region and language, and the people who drink it disagree publicly about
+          what's good. If a model can predict preference in wine, it can predict it
+          anywhere.
+        </p>
+        <p>
+          We chose the hard problem on purpose. We built the proprietary chemistry dataset.
+          We ran double-blind preference panels at scale. We trained the first model to
+          link the chemistry of a wine to the score a population of consumers would give it.
+        </p>
+        <p>
+          The model worked. Then it kept working. On smoke-tainted vintages, on
+          recipe matching, on consistency across years, on whitespace inside a category.
+          What follows is the work we did to earn the right to do this in every other CPG category.
+        </p>
+      </div>
+
+      <div class="reveal">
+        <div class="data-row">
+          <div class="cell"><span class="v">100K+</span><span class="l">Chemistry signals captured per wine</span></div>
+          <div class="cell"><span class="v">10K+</span><span class="l">Unique wines analyzed</span></div>
+        </div>
+        <div class="data-row" style="border-top:0;">
+          <div class="cell"><span class="v">93%</span><span class="l">Predicted-to-actual score match</span></div>
+          <div class="cell"><span class="v">48h</span><span class="l">From sample to predicted score</span></div>
+        </div>
+        <div style="margin-top:36px;">
+          <p class="pullquote">
+            <span style="color: var(--accent);">"</span>The interplay between data and winemaking is super interesting. Any of the Tastry blends would be very well received.<span style="color: var(--accent);">"</span>
+          </p>
+          <div class="attribution">Josh Baker &middot; Winemaker, Phase 2 Cellars</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASES ============ -->
+<section id="cases" class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="meta"><span class="eyebrow">Case work</span></div>
+      <div>
+        <h2>Four wine problems<br/>the model solved.</h2>
+      </div>
+    </div>
+
+    <div class="cases reveal">
+      <div class="case">
+        <div class="num">CASE 01 &middot; Recipe match</div>
+        <h3>Computational blending.</h3>
+        <div class="visual" aria-hidden="true">
+          <svg viewBox="0 0 280 110">
+            <!-- three component flasks -->
+            <g fill="none" stroke="#F1EDE2" stroke-width="1.1">
+              <path d="M 12 18 v 12 q -6 4 -6 14 v 38 h 24 v -38 q 0 -10 -6 -14 v -12 z"/>
+              <path d="M 48 18 v 12 q -6 4 -6 14 v 38 h 24 v -38 q 0 -10 -6 -14 v -12 z"/>
+              <path d="M 84 18 v 12 q -6 4 -6 14 v 38 h 24 v -38 q 0 -10 -6 -14 v -12 z"/>
+            </g>
+            <path d="M 8 60 q 10 -3 22 0 v 22 h -22 z" fill="#C9A9EE" opacity="0.4"/>
+            <path d="M 44 60 q 10 -3 22 0 v 22 h -22 z" fill="#C9A9EE" opacity="0.55"/>
+            <path d="M 80 60 q 10 -3 22 0 v 22 h -22 z" fill="#C9A9EE" opacity="0.7"/>
+            <!-- arrow -->
+            <line x1="124" y1="50" x2="172" y2="50" stroke="#F1EDE2" stroke-width="1"/>
+            <polygon points="166,45 172,50 166,55" fill="#F1EDE2"/>
+            <!-- final blend -->
+            <path d="M 198 12 v 14 q -8 6 -8 18 v 38 h 32 v -38 q 0 -12 -8 -18 v -14 z" fill="none" stroke="#F1EDE2" stroke-width="1.3"/>
+            <path d="M 194 60 q 14 -4 30 0 v 22 h -30 z" fill="#C9A9EE" opacity="0.85"/>
+            <text x="0" y="105" font-family="JetBrains Mono, monospace" font-size="9" fill="#A79EB4" letter-spacing="1.2">COMPONENTS → ENGINEERED BLEND</text>
+          </svg>
+        </div>
+        <p>
+          A high-volume winemaker needed to grow a new label from year-one success to year-two
+          scale without breaking the flavor profile. Tastry analyzed the year-one production
+          and the available blenders, then ran computational blends against the target.
+        </p>
+        <p>
+          The winemaking team agreed the AI had found the correct blend on the first pass.
+        </p>
+        <div class="result">Vintage matched &middot; production scaled &middot; 0 sensory drift</div>
+      </div>
+
+      <div class="case">
+        <div class="num">CASE 02 &middot; Smoke taint</div>
+        <h3>Saving a smoke-exposed vintage.</h3>
+        <div class="visual" aria-hidden="true">
+          <svg viewBox="0 0 280 110">
+            <!-- smoke clouds in -->
+            <g fill="#F1EDE2" opacity="0.2">
+              <circle cx="20" cy="38" r="10"/>
+              <circle cx="34" cy="30" r="12"/>
+              <circle cx="48" cy="38" r="10"/>
+              <circle cx="30" cy="52" r="9"/>
+              <circle cx="52" cy="52" r="7"/>
+            </g>
+            <!-- arrow in -->
+            <line x1="76" y1="46" x2="106" y2="46" stroke="#F1EDE2" stroke-width="1"/>
+            <polygon points="100,42 106,46 100,50" fill="#F1EDE2"/>
+            <!-- analytical / tannin recipe box -->
+            <rect x="118" y="22" width="44" height="48" fill="none" stroke="#C9A9EE" stroke-width="1.2"/>
+            <g stroke="#C9A9EE" stroke-width="0.7" opacity="0.7">
+              <line x1="126" y1="32" x2="154" y2="32"/>
+              <line x1="126" y1="40" x2="148" y2="40"/>
+              <line x1="126" y1="48" x2="156" y2="48"/>
+              <line x1="126" y1="56" x2="146" y2="56"/>
+              <line x1="126" y1="64" x2="152" y2="64"/>
+            </g>
+            <!-- arrow out -->
+            <line x1="172" y1="46" x2="202" y2="46" stroke="#F1EDE2" stroke-width="1"/>
+            <polygon points="196,42 202,46 196,50" fill="#F1EDE2"/>
+            <!-- clean wine bottle -->
+            <path d="M 222 16 v 10 q -6 4 -6 14 v 34 h 24 v -34 q 0 -10 -6 -14 v -10 z" fill="none" stroke="#F1EDE2" stroke-width="1.2"/>
+            <path d="M 218 50 q 11 -3 22 0 v 22 h -22 z" fill="#C9A9EE" opacity="0.8"/>
+            <text x="0" y="105" font-family="JetBrains Mono, monospace" font-size="9" fill="#A79EB4" letter-spacing="1.2">EXPOSED &middot; TANNIN RECIPE &middot; MITIGATED</text>
+          </svg>
+        </div>
+        <p>
+          A winery suffered smoke exposure to 100% of fruit across five varietals and two
+          blends. Tastry analyzed post-secondary wine and identified tannin recipes to
+          ameliorate the smoke compounds.
+        </p>
+        <p>
+          The winemaker applied the recommended tannin solutions. Negative characteristics
+          eliminated. Six months later, in barrel, the mitigation held.
+        </p>
+        <div class="result">$27,000 saved on a single vintage &middot; reputation preserved</div>
+      </div>
+
+      <div class="case">
+        <div class="num">CASE 03 &middot; Style fingerprinting</div>
+        <h3>Growing an icon without<br/>changing its taste.</h3>
+        <div class="visual" aria-hidden="true">
+          <svg viewBox="0 0 320 120">
+            <!-- style blueprint, built from 10 vintages -->
+            <rect x="26" y="24" width="40" height="50" rx="4" fill="none" stroke="#F1EDE2" stroke-width="1.3"/>
+            <line x1="33" y1="36" x2="59" y2="36" stroke="#C9A9EE" stroke-width="1.3"/>
+            <line x1="33" y1="45" x2="59" y2="45" stroke="#F1EDE2" stroke-width="1" opacity="0.55"/>
+            <line x1="33" y1="54" x2="59" y2="54" stroke="#F1EDE2" stroke-width="1" opacity="0.55"/>
+            <line x1="33" y1="63" x2="51" y2="63" stroke="#F1EDE2" stroke-width="1" opacity="0.55"/>
+            <text x="46" y="94" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="0.6" fill="#A79EB4">STYLE BLUEPRINT</text>
+            <!-- arrow -->
+            <line x1="80" y1="49" x2="138" y2="49" stroke="#C9A9EE" stroke-width="1"/>
+            <polygon points="132,45 138,49 132,53" fill="#C9A9EE"/>
+            <!-- bidder samples, one match -->
+            <g fill="none" stroke="#A79EB4" stroke-width="1.2" opacity="0.55">
+              <circle cx="168" cy="28" r="6"/><circle cx="192" cy="28" r="6"/><circle cx="216" cy="28" r="6"/>
+              <circle cx="168" cy="49" r="6"/><circle cx="216" cy="49" r="6"/>
+              <circle cx="168" cy="70" r="6"/><circle cx="192" cy="70" r="6"/><circle cx="216" cy="70" r="6"/>
+            </g>
+            <circle cx="192" cy="49" r="6" fill="#C9A9EE"/>
+            <circle cx="192" cy="49" r="11" fill="none" stroke="#C9A9EE" stroke-width="1" opacity="0.5"/>
+            <text x="192" y="94" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="0.6" fill="#C9A9EE">THE ONLY MATCH</text>
+          </svg>
+        </div>
+        <p>
+          A globally recognized Napa Cabernet, 200,000 cases at $150 a bottle, needed 20% more
+          production without drifting from its signature style. Other approaches to source
+          qualifying bulk wine had failed.
+        </p>
+        <p>
+          Tastry fingerprinted ten vintages of the wine into a style blueprint, then screened
+          every bidder's sample for stylistic accuracy and appeal, and identified the only
+          source that met the brand's standard.
+        </p>
+        <div class="result">$4.5M one-year impact</div>
+      </div>
+
+      <div class="case">
+        <div class="num">CASE 04 &middot; Whitespace</div>
+        <h3>Finding the audience already waiting.</h3>
+        <div class="visual">
+          <img src="assets/graphics/wid-strategy.webp" alt="A US map with a region pinpointed: predicted preference density mapped across the country." />
+        </div>
+        <p>
+          A wine brand wanted to know where in the United States its existing products
+          had the highest density of love. Tastry mapped predicted preference at the
+          retailer and zip-code level.
+        </p>
+        <p>
+          Distribution shifted, shelf placement followed, retail sell-through climbed
+          without changing the product.
+        </p>
+        <div class="result">Targeted distribution &middot; meaningful sell-through lift</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
+<section class="section" style="padding-top:0;">
+  <div class="container container-narrow">
+    <div class="reveal" style="border-top: 1px solid var(--line); padding-top: 80px;">
+      <span class="eyebrow">Where it goes from here</span>
+      <h2 style="margin-top:24px; font-size: clamp(36px, 5vw, 64px);">
+        Wine taught the model<br/>how to taste. <em class="italic-serif">Everything else</em><br/>is downstream.
+      </h2>
+      <div style="margin-top:48px; display:flex; gap:14px; flex-wrap:wrap;">
+        <a class="btn btn-primary btn-arrow" href="platform.html">See the platform</a>
+        <a class="btn btn-ghost" href="company.html#contact">Talk to the team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" aria-label="Tastry">
+          <span class="t-logo-mark" aria-hidden="true"></span>
+          <span class="t-logo-wordmark" aria-hidden="true"></span>
+        </a>
+        <p style="margin-top:16px; max-width: 38ch; color: var(--muted); font-size:14px;">
+          The first-principles AI platform for human taste, smell, and texture preference.
+        </p>
+      </div>
+      <div>
+        <h5>Read</h5>
+        <ul>
+          <li><a href="science.html">Science</a></li>
+          <li><a href="platform.html">Platform</a></li>
+          <li><a href="wine.html">Wine origin</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="company.html">Team &amp; mission</a></li>
+          <li><a href="company.html#contact">Contact</a></li>
+          <li><a href="https://www.linkedin.com/company/tastry" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Talk</h5>
+        <ul>
+          <li><a href="mailto:hello@tastry.com">hello@tastry.com</a></li>
+          <li><span style="color:var(--muted);">3485 Sacramento Dr, Ste D<br/>San Luis Obispo, CA 93401</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-meta">&copy; <span id="year"></span> &middot; Tastry, Inc. &middot; All rights reserved</div>
+      
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
