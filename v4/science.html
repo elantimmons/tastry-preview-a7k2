@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#F4F0EA" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Science. Tastry.</title>
+<meta name="description" content="The first-principles model for human taste, smell, and texture preference. Why words don't predict preference. Why chemistry does." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,350;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" />
+<link rel="icon" type="image/svg+xml" href="assets/tastry-icon-lilac-deep.svg" />
+
+<style>
+  /* Page-specific */
+  .hero-science {
+    padding-top: clamp(60px, 8vw, 120px);
+    padding-bottom: clamp(60px, 8vw, 100px);
+  }
+  .hero-science h1 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(40px, 5.2vw, 88px);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    max-width: 13ch;
+  }
+  .hero-science h1 em { font-style: italic; font-weight: 350; }
+  .hero-science .lead { margin-top: 28px; max-width: 46ch; font-size: clamp(17px, 1.4vw, 20px); }
+  .hero-science-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 52px; align-items: center; }
+  .hero-science-figure svg { width: 100%; height: auto; display: block; }
+  @media (max-width: 900px) { .hero-science-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* Pop-vs-distinctive chart */
+  .pvd { width: 100%; aspect-ratio: 4 / 3; }
+  /* Symphony of chemistry diagram */
+  .symph { width: 100%; aspect-ratio: 16 / 9; }
+  /* Disjoint preferences scatter */
+  .scatter { width: 100%; aspect-ratio: 4 / 3; }
+
+  .chemistry-vs-words {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--ink);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+  }
+  .chemistry-vs-words > div { padding: 36px; }
+  .chemistry-vs-words .a { background: var(--paper); border-right: 1px solid var(--line); }
+  .chemistry-vs-words .b { background: var(--ink); color: var(--paper); }
+  .chemistry-vs-words h4 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--muted);
+    margin: 0 0 18px;
+  }
+  .chemistry-vs-words .b h4 { color: rgba(244,240,234,0.6); }
+  .chemistry-vs-words h3 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(24px, 2.8vw, 36px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  @media (max-width: 800px) {
+    .chemistry-vs-words { grid-template-columns: 1fr; }
+    .chemistry-vs-words .a { border-right: 0; border-bottom: 1px solid var(--line); }
+  }
+
+  /* "One pass" three-stage flow */
+  .one-pass {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  .one-pass .stage {
+    padding: 36px 30px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 420px;
+    background: var(--paper);
+  }
+  .one-pass .stage:last-child { border-right: 0; }
+  .one-pass .stage .stagenum {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .one-pass .stage h3 {
+    font-family: var(--font-display);
+    font-weight: 350;
+    font-size: clamp(22px, 2.4vw, 28px);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+  .one-pass .stage p {
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.55;
+    max-width: 36ch;
+  }
+  .one-pass .stage .visual {
+    order: -1;
+    margin-bottom: 22px;
+  }
+  .one-pass .stage .visual svg { width: 100%; height: auto; max-height: 180px; }
+  .one-pass .stage .visual img { width: 100%; height: auto; display: block; }
+  @media (max-width: 900px) {
+    .one-pass { grid-template-columns: 1fr; }
+    .one-pass .stage { border-right: 0; border-bottom: 1px solid var(--line); min-height: auto; }
+    .one-pass .stage:last-child { border-bottom: 0; }
+  }
+
+  /* Moat pillars (4-up grid) */
+  .moat-pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  .moat-pillar {
+    padding: 36px 32px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: var(--paper);
+  }
+  .moat-pillar:nth-child(2n) { border-right: 0; }
+  .moat-pillar:nth-last-child(-n+2) { border-bottom: 0; }
+  .moat-pillar .num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .moat-pillar h3 {
+    font-family: var(--font-display);
+    font-weight: 350;
+    font-size: clamp(22px, 2.4vw, 28px);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+  .moat-pillar p {
+    color: var(--ink-2);
+    font-size: 15px;
+    line-height: 1.55;
+    max-width: 50ch;
+  }
+  @media (max-width: 900px) {
+    .moat-pillars { grid-template-columns: 1fr; }
+    .moat-pillar { border-right: 0; }
+    .moat-pillar:nth-last-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .moat-pillar:last-child { border-bottom: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="Tastry home">
+      <span class="t-logo-mark" aria-hidden="true"></span>
+      <span class="t-logo-wordmark" aria-hidden="true"></span>
+    </a>
+    <nav class="nav-links" id="primary-menu" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link active" href="science.html">Science</a>
+      <a class="nav-link" href="platform.html">Platform</a>
+      <a class="nav-link" href="wine.html">Wine Origin</a>
+      <a class="nav-link" href="company.html">Company</a>
+      <a class="btn btn-accent btn-arrow nav-menu-cta" href="company.html#contact">Get in touch</a>
+    </nav>
+    <div class="nav-mobile">
+      <a class="btn btn-accent nav-bar-cta" href="company.html#contact">Get in touch</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero-science">
+  <div class="container">
+    <div class="hero-science-grid">
+      <div>
+        <div class="eyebrow" style="margin-bottom:32px;">Science &middot; the first principles</div>
+        <h1>The causal link<br/>between <em>chemistry</em><br/>and desire.</h1>
+        <p class="lead">
+          Tastry's model isn't a sentiment classifier or a recommendation engine.
+          It is a chemistry-first model of human preference. The first system
+          to learn how molecules become feelings, and then use that knowledge to
+          predict what consumers will love before a product exists.
+        </p>
+      </div>
+      <div class="hero-science-figure reveal">
+        <svg viewBox="0 0 560 480" role="img" aria-label="A molecule resolving into a curve of predicted preference">
+          <defs>
+            <linearGradient id="shfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5E4788" stop-opacity="0.20"/><stop offset="100%" stop-color="#5E4788" stop-opacity="0"/></linearGradient>
+          </defs>
+          <line x1="322" y1="362" x2="552" y2="362" stroke="#161219" opacity="0.22"/>
+          <g stroke="#161219" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 86.9 228.0 L 125.0 206.0 L 163.1 228.0 L 201.2 206.0 L 239.3 228.0 L 239.3 272.0 L 201.2 294.0 L 163.1 272.0 L 125.0 294.0 L 86.9 272.0 Z"/><path d="M 163.1 228.0 L 163.1 272.0"/><line x1="98.8" y1="229.2" x2="120.1" y2="216.9"/><line x1="151.2" y1="270.8" x2="129.9" y2="283.1"/><line x1="206.1" y1="216.9" x2="227.4" y2="229.2"/><line x1="227.4" y1="270.8" x2="206.1" y2="283.1"/><line x1="150.0" y1="170.0" x2="125.0" y2="206.0"/><line x1="150.0" y1="170.0" x2="118.0" y2="144.0"/><line x1="150.0" y1="170.0" x2="182.0" y2="142.0"/><line x1="86.9" y1="228.0" x2="50.0" y2="212.0"/><line x1="125.0" y1="294.0" x2="125.0" y2="334.0"/><line x1="239.3" y1="228.0" x2="278.0" y2="210.0"/>
+          </g>
+          <circle cx="118.0" cy="144.0" r="7" fill="#F4F0EA"/><circle cx="118.0" cy="144.0" r="7" fill="none" stroke="#161219" stroke-width="2.6"/><circle cx="182.0" cy="142.0" r="7" fill="#F4F0EA"/><circle cx="182.0" cy="142.0" r="7" fill="none" stroke="#161219" stroke-width="2.6"/><circle cx="50.0" cy="212.0" r="7" fill="#F4F0EA"/><circle cx="50.0" cy="212.0" r="7" fill="none" stroke="#161219" stroke-width="2.6"/><circle cx="125.0" cy="334.0" r="7" fill="#F4F0EA"/><circle cx="125.0" cy="334.0" r="7" fill="none" stroke="#161219" stroke-width="2.6"/><circle cx="278.0" cy="210.0" r="7" fill="#F4F0EA"/><circle cx="278.0" cy="210.0" r="7" fill="none" stroke="#161219" stroke-width="2.6"/>
+          <circle cx="255.0" cy="261.1" r="1.5" fill="#161219" opacity="0.22"/><circle cx="258.6" cy="259.7" r="1.6" fill="#161219" opacity="0.23"/><circle cx="262.3" cy="262.9" r="1.6" fill="#161219" opacity="0.25"/><circle cx="265.9" cy="251.4" r="1.7" fill="#161219" opacity="0.26"/><circle cx="269.5" cy="248.8" r="1.7" fill="#161219" opacity="0.27"/><circle cx="273.2" cy="247.0" r="1.8" fill="#161219" opacity="0.29"/><circle cx="276.8" cy="236.6" r="1.9" fill="#161219" opacity="0.30"/><circle cx="280.4" cy="239.4" r="1.9" fill="#161219" opacity="0.31"/><circle cx="284.1" cy="238.5" r="2.0" fill="#161219" opacity="0.33"/><circle cx="287.7" cy="238.4" r="2.0" fill="#161219" opacity="0.34"/><circle cx="291.3" cy="223.0" r="2.1" fill="#161219" opacity="0.35"/><circle cx="295.0" cy="224.0" r="2.2" fill="#161219" opacity="0.37"/><circle cx="298.6" cy="217.6" r="2.2" fill="#161219" opacity="0.38"/><circle cx="302.2" cy="228.0" r="2.3" fill="#161219" opacity="0.39"/><circle cx="305.9" cy="223.5" r="2.4" fill="#161219" opacity="0.41"/><circle cx="309.5" cy="209.5" r="2.4" fill="#161219" opacity="0.42"/><circle cx="313.1" cy="224.4" r="2.5" fill="#161219" opacity="0.43"/><circle cx="316.8" cy="222.1" r="2.5" fill="#161219" opacity="0.45"/><circle cx="320.4" cy="214.7" r="2.6" fill="#5E4788" opacity="0.46"/><circle cx="324.0" cy="212.3" r="2.7" fill="#5E4788" opacity="0.47"/><circle cx="327.7" cy="202.5" r="2.7" fill="#5E4788" opacity="0.49"/><circle cx="331.3" cy="198.6" r="2.8" fill="#5E4788" opacity="0.50"/><circle cx="335.0" cy="206.6" r="2.8" fill="#5E4788" opacity="0.52"/><circle cx="338.6" cy="197.1" r="2.9" fill="#5E4788" opacity="0.53"/><circle cx="342.2" cy="198.6" r="3.0" fill="#5E4788" opacity="0.54"/><circle cx="345.9" cy="198.7" r="3.0" fill="#5E4788" opacity="0.56"/><circle cx="349.5" cy="194.3" r="3.1" fill="#5E4788" opacity="0.57"/><circle cx="353.1" cy="201.6" r="3.1" fill="#5E4788" opacity="0.58"/><circle cx="356.8" cy="200.9" r="3.2" fill="#5E4788" opacity="0.60"/><circle cx="360.4" cy="207.9" r="3.3" fill="#5E4788" opacity="0.61"/><circle cx="364.0" cy="202.0" r="3.3" fill="#5E4788" opacity="0.62"/><circle cx="367.7" cy="204.2" r="3.4" fill="#5E4788" opacity="0.64"/><circle cx="371.3" cy="201.7" r="3.5" fill="#5E4788" opacity="0.65"/><circle cx="374.9" cy="204.9" r="3.5" fill="#5E4788" opacity="0.66"/><circle cx="378.6" cy="201.5" r="3.6" fill="#5E4788" opacity="0.68"/><circle cx="382.2" cy="198.7" r="3.6" fill="#5E4788" opacity="0.69"/><circle cx="385.8" cy="212.1" r="3.7" fill="#5E4788" opacity="0.70"/><circle cx="389.5" cy="212.5" r="3.8" fill="#5E4788" opacity="0.72"/><circle cx="393.1" cy="210.3" r="3.8" fill="#5E4788" opacity="0.73"/><circle cx="396.7" cy="208.5" r="3.9" fill="#5E4788" opacity="0.74"/><circle cx="400.4" cy="202.1" r="3.9" fill="#5E4788" opacity="0.76"/><circle cx="404.0" cy="201.1" r="4.0" fill="#5E4788" opacity="0.77"/>
+          <path d="M 330 362 C 382 362, 406 150, 454 150 C 502 150, 518 362, 542 362 Z" fill="url(#shfill)"/>
+          <path d="M 330 362 C 382 362, 406 150, 454 150 C 502 150, 518 362, 542 362" fill="none" stroke="#5E4788" stroke-width="2.8"/>
+          <line x1="454" y1="150" x2="454" y2="362" stroke="#5E4788" stroke-width="0.8" stroke-dasharray="2 4" opacity="0.5"/>
+          <circle cx="454" cy="150" r="5.5" fill="#5E4788"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE RESEARCH QUESTION ============ -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="reveal">
+      <div class="chemistry-vs-words">
+        <div class="a">
+          <h4>The classical approach</h4>
+          <h3>Map <em class="italic-serif">words</em> to ingredients.<br/>Hope they predict preference.</h3>
+          <p style="margin-top:18px; color: var(--muted); max-width: 36ch;">
+            A century of CPG R&amp;D has worked by collecting descriptors (fruity,
+            smooth, clean), then trying to engineer ingredients that match
+            the language. The problem: language is downstream of feeling. A consumer
+            who says they like cherry will reject a wine engineered to taste like cherry.
+          </p>
+          <p class="page-label" style="margin-top:24px;">Validated inference 01. Words do not predict preference.</p>
+        </div>
+        <div class="b">
+          <h4>The Tastry approach</h4>
+          <h3>Model the <em class="italic-serif">chemistry</em>.<br/>Let preference fall out.</h3>
+          <p style="margin-top:18px; color: rgba(244,240,234,0.78); max-width: 36ch;">
+            Tastry captures the full symphony of chemistry inside a product in our
+            proprietary in-house lab, then learns the emergent interactions that drive
+            what humans actually feel. No descriptors. No survey loops. The chemistry is
+            the cause, so we model the cause, not the echo.
+          </p>
+          <p class="page-label" style="margin-top:24px; color: rgba(244,240,234,0.6);">Validated inference 02. Traditional chemistry alone is not enough either. Emergence matters.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRINCIPLES ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="meta"><span class="eyebrow">First principles</span></div>
+      <div>
+        <h2>Five ideas the<br/>industry missed.</h2>
+      </div>
+    </div>
+
+    <div class="principles">
+      <div class="item reveal">
+        <div class="n">01</div>
+        <h3>Humans don't experience chemistry the way instruments do.</h3>
+        <p>Analytical instruments report concentrations of individual analytes. A human nose doesn't. Preference is the <em class="italic-serif">interaction</em> of countless compounds at once. Without modeling the interaction, the chemistry is just inventory.</p>
+      </div>
+      <div class="item reveal">
+        <div class="n">02</div>
+        <h3>One word can mean many molecules. One molecule can mean many words.</h3>
+        <p>Benzaldehyde is "cherry" to one person, "marzipan" to another, "nutty" to a third. Mapping a descriptor to an analyte is a one-to-many problem in both directions. It's the wrong unit of analysis.</p>
+      </div>
+      <div class="item reveal">
+        <div class="n">03</div>
+        <h3>People dislike what they dislike more than they like what they like.</h3>
+        <p>Aversion is sharper signal than affection. A model that only learns from likes systematically over-recommends products that consumers tolerate but never love. Tastry's training set captures negative preference with equal weight, which is why the prediction holds.</p>
+      </div>
+      <div class="item reveal">
+        <div class="n">04</div>
+        <h3>"Popular" and "preferred" are not the same product.</h3>
+        <p>Optimizing for broad popularity creates the bland middle: products everyone tolerates and no one loves. Tastry models the popularity-versus-distinctiveness trade-off explicitly, so brands can choose the curve they want to live on instead of accidentally living on the worst one.</p>
+      </div>
+      <div class="item reveal">
+        <div class="n">05</div>
+        <h3>Individual molecules don't exist in nature.</h3>
+        <p>Outside a lab vial, no compound is ever experienced on its own. Every product is a dense mixture, and a molecule's effect depends entirely on the hundreds of others around it. Studying analytes one at a time describes a world that doesn't exist. Tastry models the full mixture, the way a consumer actually meets it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POPULARITY vs DISTINCTIVENESS CHART ============ -->
+<section class="section" style="background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="meta"><span class="eyebrow">The trade-off</span></div>
+      <div>
+        <h2>Popular isn't the<br/>same as <em class="italic-serif">likable.</em></h2>
+        <p class="lead" style="margin-top:24px;">
+          Brands tend to chase the highest possible average score. That instinct produces
+          products with broad mild appeal and no committed fans. Real preference lives further
+          out, in formulations that some people love deeply, even if not everyone agrees.
+        </p>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="reveal diagram-wrap">
+        <svg class="pvd" viewBox="0 0 600 450" role="img" aria-label="A chart with two trend lines fit to scattered data. Predicted preference peaks among distinctive products and declines as products become broadly popular; market popularity rises toward the mainstream. The most-loved products sit apart from the bland, popular middle.">
+          <defs>
+            <linearGradient id="pvd-area" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#5E4788" stop-opacity="0.14"/>
+              <stop offset="100%" stop-color="#5E4788" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- horizontal gridlines -->
+          <g stroke="#161219" stroke-width="1" opacity="0.06">
+            <line x1="68" y1="291" x2="568" y2="291"/>
+            <line x1="68" y1="210" x2="568" y2="210"/>
+            <line x1="68" y1="129" x2="568" y2="129"/>
+          </g>
+
+          <!-- shaded area under the predicted-preference curve -->
+          <path d="M 68 300 C 138 284, 205 192, 248 190 C 291 188, 356 236, 418 282 C 480 320, 530 332, 568 336 L 568 372 L 68 372 Z" fill="url(#pvd-area)"/>
+
+          <!-- axes -->
+          <g stroke="#161219" opacity="0.4" stroke-width="1">
+            <line x1="68" y1="48" x2="68" y2="372"/>
+            <line x1="68" y1="372" x2="568" y2="372"/>
+          </g>
+          <!-- tick marks -->
+          <g stroke="#161219" opacity="0.3" stroke-width="1">
+            <line x1="63" y1="129" x2="68" y2="129"/>
+            <line x1="63" y1="210" x2="68" y2="210"/>
+            <line x1="63" y1="291" x2="68" y2="291"/>
+            <line x1="193" y1="372" x2="193" y2="377"/>
+            <line x1="318" y1="372" x2="318" y2="377"/>
+            <line x1="443" y1="372" x2="443" y2="377"/>
+          </g>
+
+          <!-- popularity data points -->
+          <g fill="#6E6580" opacity="0.32">
+            <circle cx="112" cy="348" r="2.3"/><circle cx="180" cy="330" r="2.3"/><circle cx="250" cy="312" r="2.3"/><circle cx="320" cy="294" r="2.3"/><circle cx="390" cy="278" r="2.3"/><circle cx="458" cy="264" r="2.3"/><circle cx="520" cy="256" r="2.3"/><circle cx="556" cy="253" r="2.3"/>
+          </g>
+          <!-- preference data points -->
+          <g fill="#5E4788" opacity="0.5">
+            <circle cx="96" cy="294" r="2.6"/><circle cx="140" cy="268" r="2.6"/><circle cx="184" cy="232" r="2.6"/><circle cx="224" cy="196" r="2.6"/><circle cx="258" cy="184" r="2.6"/><circle cx="298" cy="202" r="2.6"/><circle cx="340" cy="220" r="2.6"/><circle cx="382" cy="262" r="2.6"/><circle cx="424" cy="284" r="2.6"/><circle cx="466" cy="316" r="2.6"/><circle cx="506" cy="322" r="2.6"/><circle cx="544" cy="336" r="2.6"/>
+          </g>
+
+          <!-- popularity trend (dashed) -->
+          <path d="M 68 356 C 158 340, 240 314, 322 294 C 404 274, 474 260, 568 254" fill="none" stroke="#6E6580" stroke-width="1.6" stroke-dasharray="5 5" stroke-linecap="round"/>
+          <!-- preference trend (solid) -->
+          <path d="M 68 300 C 138 284, 205 192, 248 190 C 291 188, 356 236, 418 282 C 480 320, 530 332, 568 336" fill="none" stroke="#5E4788" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <!-- legend -->
+          <g font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.6" fill="#6E6580">
+            <line x1="80" y1="62" x2="112" y2="62" stroke="#5E4788" stroke-width="2.6" stroke-linecap="round"/>
+            <text x="120" y="65.5">PREDICTED PREFERENCE</text>
+            <line x1="80" y1="82" x2="112" y2="82" stroke="#6E6580" stroke-width="1.6" stroke-dasharray="5 5" stroke-linecap="round"/>
+            <text x="120" y="85.5">MARKET POPULARITY</text>
+          </g>
+
+          <!-- "where the lovers live" callout (preference peak) -->
+          <circle cx="250" cy="190" r="9" fill="none" stroke="#5E4788" stroke-width="1" opacity="0.4"/>
+          <circle cx="250" cy="190" r="5" fill="#5E4788"/>
+          <line x1="250" y1="179" x2="250" y2="165" stroke="#5E4788" stroke-width="1" opacity="0.7"/>
+          <text x="250" y="144" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="15" fill="#161219">Where the lovers live</text>
+          <text x="250" y="160" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="0.8" fill="#6E6580">DEEP, NARROW APPEAL</text>
+
+          <!-- "the bland middle" callout -->
+          <circle cx="470" cy="259" r="5" fill="#161219" opacity="0.6"/>
+          <line x1="470" y1="254" x2="486" y2="178" stroke="#161219" stroke-width="1" opacity="0.35"/>
+          <text x="436" y="156" font-family="Fraunces, serif" font-style="italic" font-size="15" fill="#161219">The bland middle</text>
+          <text x="436" y="173" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="0.8" fill="#6E6580">WIDE BUT SHALLOW</text>
+
+          <!-- axis labels -->
+          <g font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.8" fill="#6E6580">
+            <text x="60" y="52" text-anchor="end">HIGH</text>
+            <text x="60" y="375" text-anchor="end">LOW</text>
+            <text x="68" y="394">LOW</text>
+            <text x="568" y="394" text-anchor="end">HIGH</text>
+            <text x="318" y="414" text-anchor="middle" letter-spacing="1.2">POPULATION, %</text>
+          </g>
+          <text x="26" y="210" text-anchor="middle" transform="rotate(-90,26,210)" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="1.2" fill="#6E6580">PREFERENCE STRENGTH</text>
+        </svg>
+        <div class="diagram-caption">Popularity and preference are two different curves. Most products land on the wrong one.</div>
+      </div>
+
+      <div class="reveal prose">
+        <p style="font-size:19px;">
+          A "9 out of 10" from one consumer and a "9 out of 10" from another can be the same
+          number for very different reasons. Tastry's model breaks that ambiguity apart. It
+          predicts <em class="italic-serif">who</em> will love a formulation, how strongly,
+          and how that pool of love overlaps with the pool of people you can actually reach.
+        </p>
+        <p>
+          For brand strategy, this changes the question. Instead of "which product has the
+          best average score?" the right question becomes "which product has the highest
+          density of love inside our addressable audience?" Those are different products,
+          and they are almost never the one a focus group picks.
+        </p>
+        <p>
+          The popularity-distinctiveness trade-off is the most expensive mistake in CPG.
+          We make it visible, so it stops being a mistake.
+        </p>
+        <div style="margin-top:32px; padding-top:28px; border-top:1px solid var(--line);">
+          <p style="font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: clamp(24px, 2.6vw, 32px); letter-spacing:-0.015em; line-height:1.15; color: var(--ink); max-width:22ch;">
+            You don't have to choose. Let us help you optimize for both.
+          </p>
+          <div style="margin-top:24px;">
+            <a class="btn btn-accent btn-arrow" href="company.html#contact">Get in touch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SYMPHONY OF CHEMISTRY ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="meta"><span class="eyebrow">Inside the model</span></div>
+      <div>
+        <h2>One pass.<br/>The whole <em class="italic-serif">symphony.</em></h2>
+        <p class="lead" style="margin-top:24px;">
+          Conventional analytical chemistry samples a product compound by compound, then
+          summarizes. Tastry does not summarize. We capture every analyte simultaneously
+          in our proprietary in-house lab, preserving the emergent interactions that human
+          perception actually responds to.
+        </p>
+      </div>
+    </div>
+
+    <div class="reveal one-pass">
+      <div class="stage">
+        <span class="stagenum">01. Capture</span>
+        <h3>Every analyte, all at once.</h3>
+        <p>Hundreds of compounds inside a single product, measured simultaneously in our proprietary in-house lab. No sampling. No summarizing.</p>
+        <div class="visual">
+          <img src="assets/graphics/itm-capture.webp" alt="A chromatogram: hundreds of compound peaks measured at once across the mass-to-charge axis." />
+        </div>
+      </div>
+
+      <div class="stage">
+        <span class="stagenum">02. Learn</span>
+        <h3>The interactions, not the inventory.</h3>
+        <p>The model learns how those compounds combine, not just what they are. Emergence is the signal traditional methods discard.</p>
+        <div class="visual">
+          <img src="assets/graphics/itm-learn.webp" alt="An interaction network of compounds with one emergent relationship highlighted at the center." />
+        </div>
+      </div>
+
+      <div class="stage">
+        <span class="stagenum">03. Predict</span>
+        <h3>The response of a real audience.</h3>
+        <p>From chemistry alone, the model outputs how a real population will feel about a product that does not yet exist.</p>
+        <div class="visual">
+          <img src="assets/graphics/itm-predict.webp" alt="A predicted preference distribution across a population, from averse to devoted." />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE MOAT ============ -->
+<section class="section" style="background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="meta"><span class="eyebrow">The moat</span></div>
+      <div>
+        <h2>Why no one else<br/>can <em class="italic-serif">build this.</em></h2>
+        <p class="lead" style="margin-top:24px;">
+          The technology is the product. The data is the moat. Tastry's defensibility is not
+          only algorithmic novelty. It is a proprietary signal nobody else has captured, protected
+          by patent in four countries, architected to scale at margins foundation models
+          cannot match, and trained first on the hardest sensory category on earth.
+        </p>
+      </div>
+    </div>
+
+    <div class="reveal moat-pillars">
+      <div class="moat-pillar">
+        <span class="num">PILLAR 01</span>
+        <h3>The dataset is built, not scraped.</h3>
+        <p>Tastry's chemistry signal is captured in-house, product by product. There is no public source. There is no shortcut. Building a comparable dataset would require an analytical chemistry lab, a sensory science discipline, and a decade of work in a single category before the model is useful in a second.</p>
+      </div>
+      <div class="moat-pillar">
+        <span class="num">PILLAR 02</span>
+        <h3>The method is patented in four countries.</h3>
+        <p>U.S. Patent No. 11,847,684. Issued in the United States, China, Japan, and Canada. The method that connects chemistry to consumer preference is legally exclusive across the four largest CPG-producing economies on earth.</p>
+      </div>
+      <div class="moat-pillar">
+        <span class="num">PILLAR 03</span>
+        <h3>The architecture is compute-light by design.</h3>
+        <p>Tastry is a first-principles model, not a foundation model. The system runs on specialized signal nobody else has captured, at margins brute-force compute cannot match. Roughly 97% gross margin at scale, and the efficiency gap widens as competitors throw more GPUs at the wrong problem.</p>
+      </div>
+      <div class="moat-pillar">
+        <span class="num">PILLAR 04</span>
+        <h3>The hardest sensory category came first.</h3>
+        <p>Wine has hundreds of thousands of chemistry signals per bottle and the most preference-driven consumer in the world. Training the model on the hardest signal first means every category after wine is structurally simpler. The moat compounds with every node we add.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="section">
+  <div class="container container-narrow">
+    <div class="reveal">
+      <span class="eyebrow">In one sentence</span>
+      <h2 style="margin-top:24px; font-size: clamp(36px, 5vw, 64px);">
+        Tastry connects the chemistry inside a product
+        to the preference inside a person,
+        <em class="italic-serif">before</em> either of them meet.
+      </h2>
+      <div style="margin-top:48px; display:flex; gap:14px; flex-wrap:wrap;">
+        <a class="btn btn-primary btn-arrow" href="platform.html">See the platform</a>
+        <a class="btn btn-ghost" href="wine.html">See the proof in wine</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" aria-label="Tastry">
+          <span class="t-logo-mark" aria-hidden="true"></span>
+          <span class="t-logo-wordmark" aria-hidden="true"></span>
+        </a>
+        <p style="margin-top:16px; max-width: 38ch; color: var(--muted); font-size:14px;">
+          The first-principles AI platform for human taste, smell, and texture preference.
+        </p>
+      </div>
+      <div>
+        <h5>Read</h5>
+        <ul>
+          <li><a href="science.html">Science</a></li>
+          <li><a href="platform.html">Platform</a></li>
+          <li><a href="wine.html">Wine origin</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="company.html">Team &amp; mission</a></li>
+          <li><a href="company.html#contact">Contact</a></li>
+          <li><a href="https://www.linkedin.com/company/tastry" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Talk</h5>
+        <ul>
+          <li><a href="mailto:hello@tastry.com">hello@tastry.com</a></li>
+          <li><span style="color:var(--muted);">3485 Sacramento Dr, Ste D<br/>San Luis Obispo, CA 93401</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-meta">&copy; <span id="year"></span> &middot; Tastry, Inc. &middot; All rights reserved</div>
+      
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
