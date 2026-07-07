@@ -1,0 +1,77 @@
+/* Tastry — small set of progressive enhancements */
+
+(function () {
+  // Mobile nav (hamburger) toggle
+  const nav = document.querySelector('.nav');
+  const navToggle = document.querySelector('.nav-toggle');
+  if (nav && navToggle) {
+    const setMenu = (open) => {
+      nav.classList.toggle('menu-open', open);
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    navToggle.addEventListener('click', () =>
+      setMenu(!nav.classList.contains('menu-open'))
+    );
+    // Close on outside click, Escape, link tap, or leaving the mobile breakpoint
+    document.addEventListener('click', (e) => {
+      if (nav.classList.contains('menu-open') && !nav.contains(e.target)) setMenu(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setMenu(false);
+    });
+    nav.querySelectorAll('.nav-links a').forEach((a) =>
+      a.addEventListener('click', () => setMenu(false))
+    );
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 860) setMenu(false);
+    });
+  }
+
+  // Reveal on scroll
+  const els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && els.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.12 }
+    );
+    els.forEach((el) => io.observe(el));
+  } else {
+    els.forEach((el) => el.classList.add('in'));
+  }
+
+  // Hero molecule -> preference curve animation
+  const stage = document.getElementById('hero-visual');
+  if (stage) {
+    const playable = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (playable) {
+      // After a short delay, switch the "phase" class so the SVG morphs.
+      setTimeout(() => stage.classList.add('phase-2'), 900);
+      setTimeout(() => stage.classList.add('phase-3'), 2200);
+    } else {
+      stage.classList.add('phase-2', 'phase-3');
+    }
+  }
+
+  // Accuracy chart: a small interactive hover that highlights individual rows
+  const chart = document.getElementById('accuracy-chart');
+  if (chart) {
+    const rows = chart.querySelectorAll('[data-row]');
+    rows.forEach((r) => {
+      r.addEventListener('mouseenter', () => r.classList.add('hot'));
+      r.addEventListener('mouseleave', () => r.classList.remove('hot'));
+    });
+  }
+
+  // Year stamp
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+})();
