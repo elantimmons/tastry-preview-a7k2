@@ -54,7 +54,7 @@
     filter: saturate(0.96);
     transition: filter 0.3s var(--ease), transform 0.4s var(--ease);
   }
-  .person:hover .photo { filter: saturate(1.05) contrast(1.03); }
+  .person:hover .photo { filter: contrast(1.03); transform: scale(1.02); }
   .person.hiring {
     background: var(--paper-2);
     justify-content: center;
@@ -212,25 +212,25 @@
 
     <div class="reveal team">
       <div class="person">
-        <img class="photo" src="assets/team/kat.jpg" alt="Katerina Axelsson" width="600" height="600"/>
+        <img loading="lazy" decoding="async" class="photo" src="assets/team/kat.jpg" alt="Katerina Axelsson" width="600" height="600"/>
         <div class="role">CEO &amp; Founder</div>
         <h3>Katerina Axelsson</h3>
         <p>Chemist turned inventor. International patent holder on the chemistry-to-preference method.</p>
       </div>
       <div class="person">
-        <img class="photo" src="assets/team/charles.jpg" alt="Charles Slocum" width="600" height="600"/>
+        <img loading="lazy" decoding="async" class="photo" src="assets/team/charles.jpg" alt="Charles Slocum" width="600" height="600"/>
         <div class="role">Chief Business Officer</div>
         <h3>Charles Slocum</h3>
         <p>25 years of enterprise business experience. Three-time founder. Runs commercial strategy and enterprise expansion.</p>
       </div>
       <div class="person">
-        <img class="photo" src="assets/team/jeff.jpg" alt="Jeff Campbell" width="600" height="600"/>
+        <img loading="lazy" decoding="async" class="photo" src="assets/team/jeff.jpg" alt="Jeff Campbell" width="600" height="600"/>
         <div class="role">VP of Growth</div>
         <h3>Jeff Campbell</h3>
         <p>Former CCO at Sales Predict (acquired by eBay), CRO at Get Satisfaction (acquired by Sprinklr), VP Global Sales at SugarCRM (acquired by Accel-KKR).</p>
       </div>
       <div class="person">
-        <img class="photo" src="assets/team/alex.jpg" alt="Alex Dekhtyar" width="600" height="600"/>
+        <img loading="lazy" decoding="async" class="photo" src="assets/team/alex.jpg" alt="Alex Dekhtyar" width="600" height="600"/>
         <div class="role">VP of AI &amp; ML</div>
         <h3>Alex Dekhtyar</h3>
         <p>PhD in Computer Science. 18 publications. Co-inventor on the core patent. Leads the ML research and modeling team.</p>
@@ -328,7 +328,7 @@
         </div>
         <div class="field field-full" style="flex-direction:row; justify-content:flex-end; align-items:center; gap:18px; margin-top:8px;">
           <span class="page-label">Real responses, usually within two business days.</span>
-          <button class="btn btn-primary btn-arrow" type="submit">Send</button>
+          <button class="btn btn-accent btn-arrow" type="submit">Send</button>
         </div>
       </form>
     </div>

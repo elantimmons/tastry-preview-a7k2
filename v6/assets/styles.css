@@ -78,6 +78,11 @@ body {
 }
 
 ::selection { background: var(--accent); color: var(--paper); }
+/* inside deep-lilac panels, invert selection so it stays visible */
+.mission ::selection,
+.chemistry-vs-words .b ::selection,
+.recipe-story .step:last-child ::selection,
+.origin .right ::selection { background: var(--paper); color: var(--accent); }
 
 /* -------- Typography -------- */
 .eyebrow {
@@ -466,7 +471,11 @@ em.italic-serif {
   display: flex; flex-direction: column; gap: 18px;
   min-height: 280px;
   position: relative;
+  transition: background 0.3s var(--ease);
 }
+.usecase:hover { background: var(--surface); }
+.usecase h3 { transition: color 0.3s var(--ease); }
+.usecase:hover h3 { color: var(--accent); }
 .usecase:last-child { border-right: 0; }
 .usecase .uc-img {
   height: 92px;

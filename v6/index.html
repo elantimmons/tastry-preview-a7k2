@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,350;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css" />
+<link rel="preload" as="image" href="assets/graphics/hero.webp" />
 <link rel="icon" type="image/svg+xml" href="assets/tastry-icon-lilac-mid.svg" />
 
 <style>
@@ -296,7 +297,7 @@
 
       <!-- SIGNATURE HERO GRAPHIC: the model, trained on human taste and smell -->
       <figure class="hero-figure reveal" aria-label="A person smelling a flower: Tastry's AI model for taste and smell, trained" style="margin:0;">
-        <img src="assets/graphics/hero.webp" alt="A person smelling a flower beside a callout reading AI Model, Taste and Smell, Trained." style="width:100%; height:auto; display:block;"/>
+        <img fetchpriority="high" width="1402" height="1122" src="assets/graphics/hero.webp" alt="A person smelling a flower beside a callout reading AI Model, Taste and Smell, Trained." style="width:100%; height:auto; display:block;"/>
       </figure>
     </div>
 
@@ -365,7 +366,7 @@
 
     <!-- The problem — finalized graphic -->
     <div class="reveal" style="margin-top: 8px;">
-      <img src="assets/graphics/problem.webp" alt="The old way: an 18 to 24 month trial-and-error loop of brand concept, R&amp;D, prototype iterations, consumer testing, and reformulation. The Tastry way: chemistry and suppliers go straight into R&amp;D, collapsing the cycle." style="width:100%; height:auto; display:block;"/>
+      <img loading="lazy" decoding="async" width="1418" height="1043" src="assets/graphics/problem.webp" alt="The old way: an 18 to 24 month trial-and-error loop of brand concept, R&amp;D, prototype iterations, consumer testing, and reformulation. The Tastry way: chemistry and suppliers go straight into R&amp;D, collapsing the cycle." style="width:100%; height:auto; display:block;"/>
     </div>
 
     <!-- The cost of the problem, in three numbers -->
@@ -424,7 +425,7 @@
 
       <!-- First principles — finalized graphic -->
       <div class="reveal">
-        <img src="assets/graphics/first-principles.webp" alt="One molecule, three descriptors: benzaldehyde reads as cherry, marzipan, or nutty. Language is a poor proxy for preference." style="width:100%; height:auto; display:block;"/>
+        <img loading="lazy" decoding="async" width="1326" height="1186" src="assets/graphics/first-principles.webp" alt="One molecule, three descriptors: benzaldehyde reads as cherry, marzipan, or nutty. Language is a poor proxy for preference." style="width:100%; height:auto; display:block;"/>
       </div>
     </div>
 
@@ -530,28 +531,28 @@
 
     <div class="reveal usecases usecases-4">
       <a href="platform.html#strategic-intelligence" class="usecase">
-        <img class="uc-img" src="assets/graphics/wid-strategy.webp" alt="A US map with a single location pinpointed, representing nationwide opportunity forecasting." />
+        <img loading="lazy" decoding="async" width="1119" height="666" class="uc-img" src="assets/graphics/wid-strategy.webp" alt="A US map with a single location pinpointed, representing nationwide opportunity forecasting." />
         <div class="num">01. STRATEGY</div>
         <h3>Strategic intelligence</h3>
         <p>Forecast store, local, regional, and nationwide opportunity in real time, before a brief is written.</p>
         <span class="mono" style="font-size:11px; color:var(--accent); letter-spacing:0.12em; text-transform:uppercase;">Read more &nbsp;»</span>
       </a>
       <a href="platform.html#assortment-planning" class="usecase">
-        <img class="uc-img" src="assets/graphics/wid-planning.webp" alt="Two overlapping circles with a separate dashed circle, representing SKU overlap and an unmet market gap." />
+        <img loading="lazy" decoding="async" width="566" height="419" class="uc-img" src="assets/graphics/wid-planning.webp" alt="Two overlapping circles with a separate dashed circle, representing SKU overlap and an unmet market gap." />
         <div class="num">02. PLANNING</div>
         <h3>Assortment planning</h3>
         <p>Identify gaps in the market. Quantify overlap between SKUs. Brief the next launch with intent.</p>
         <span class="mono" style="font-size:11px; color:var(--accent); letter-spacing:0.12em; text-transform:uppercase;">Read more &nbsp;»</span>
       </a>
       <a href="platform.html#product-development" class="usecase">
-        <img class="uc-img" src="assets/graphics/wid-rd.webp" alt="A radar sweep locking onto a single target, representing a winning formulation found among many candidates." />
+        <img loading="lazy" decoding="async" width="851" height="751" class="uc-img" src="assets/graphics/wid-rd.webp" alt="A radar sweep locking onto a single target, representing a winning formulation found among many candidates." />
         <div class="num">03. R&amp;D</div>
         <h3>Product development</h3>
         <p>Recipes engineered using real-time chemistry and preference data. A winning formulation in weeks, not years.</p>
         <span class="mono" style="font-size:11px; color:var(--accent); letter-spacing:0.12em; text-transform:uppercase;">Read more &nbsp;»</span>
       </a>
       <a href="platform.html#consumer-targeting" class="usecase">
-        <img class="uc-img" src="assets/graphics/wid-targeting.webp" alt="A crowd of people with the highest-value individuals highlighted in accent color." />
+        <img loading="lazy" decoding="async" width="1060" height="1019" class="uc-img" src="assets/graphics/wid-targeting.webp" alt="A crowd of people with the highest-value individuals highlighted in accent color." />
         <div class="num">04. TARGETING</div>
         <h3>Consumer targeting</h3>
         <p>Match brands to their highest-value customers. Segment by predicted depth of preference, not by lifestyle.</p>
@@ -580,7 +581,7 @@
     <div class="split">
       <!-- The proof — finalized graphic -->
       <div class="reveal">
-        <img src="assets/graphics/proof.webp" alt="Tastry AI predicts how consumers will score a wine before it is launched: predicted and actual scores track at 93% accuracy across all wines tested." style="width:100%; height:auto; display:block;"/>
+        <img loading="lazy" decoding="async" width="1714" height="918" src="assets/graphics/proof.webp" alt="Tastry AI predicts how consumers will score a wine before it is launched: predicted and actual scores track at 93% accuracy across all wines tested." style="width:100%; height:auto; display:block;"/>
       </div>
 
       <div class="reveal">

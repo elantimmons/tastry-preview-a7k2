@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,350;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css" />
+<link rel="preload" as="image" href="assets/graphics/wine-origins-header.webp" />
 <link rel="icon" type="image/svg+xml" href="assets/tastry-icon-lilac-mid.svg" />
 
 <style>
@@ -115,7 +116,7 @@
         </div>
       </div>
       <div class="wine-hero-figure reveal">
-        <img src="assets/graphics/wine-origins-header.webp" alt="A wine glass beside two overlapping circles and molecular structures: the chemistry of preference, captured in wine." />
+        <img fetchpriority="high" width="1200" height="1106" src="assets/graphics/wine-origins-header.webp" alt="A wine glass beside two overlapping circles and molecular structures: the chemistry of preference, captured in wine." />
       </div>
     </div>
   </div>
@@ -158,7 +159,7 @@
           <div class="cell"><span class="v">10K+</span><span class="l">Unique wines analyzed</span></div>
         </div>
         <div class="data-row" style="border-top:0;">
-          <div class="cell"><span class="v">93%</span><span class="l">Predicted-to-actual score match</span></div>
+          <div class="cell"><span class="v" style="color: var(--accent);">93%</span><span class="l">Predicted-to-actual score match</span></div>
           <div class="cell"><span class="v">48h</span><span class="l">From sample to predicted score</span></div>
         </div>
         <div style="margin-top:36px;">
@@ -306,7 +307,7 @@
         <div class="num">CASE 04 &middot; Whitespace</div>
         <h3>Finding the audience already waiting.</h3>
         <div class="visual">
-          <img src="assets/graphics/wid-strategy.webp" alt="A US map with a region pinpointed: predicted preference density mapped across the country." />
+          <img loading="lazy" decoding="async" width="1119" height="666" src="assets/graphics/wid-strategy.webp" alt="A US map with a region pinpointed: predicted preference density mapped across the country." />
         </div>
         <p>
           A wine brand wanted to know where in the United States its existing products
