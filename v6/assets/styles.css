@@ -7,8 +7,8 @@
 :root {
   /* Color */
   --paper: #F4F0EA;           /* warm cream paper, unchanged from the classic design */
-  --paper-2: #EFEAE4;
-  --paper-3: #E7E1D9;
+  --paper-2: #EFEAF2;         /* alternating band: a whisper of lavender */
+  --paper-3: #E8E2EF;
   --ink: #161219;             /* near-black with a violet cast */
   --ink-2: #241D2E;
   --muted: #6E6580;           /* captions, labels: lilac-gray */
@@ -499,6 +499,8 @@ em.italic-serif {
   line-height: 1.15;
 }
 .usecase p { color: var(--muted); font-size: 14px; line-height: 1.5; }
+.usecase { padding-bottom: 76px; }
+.usecase > .mono { position: absolute; left: 24px; bottom: 34px; }
 @media (max-width: 1000px) {
   .usecases, .usecases.usecases-4 { grid-template-columns: repeat(2, 1fr); }
   .usecase { border-bottom: 1px solid var(--line); }
@@ -676,7 +678,7 @@ em.italic-serif {
   color: var(--ink);
   opacity: 0.85;
 }
-.marquee .item.italic { font-style: italic; opacity: 0.55; }
+.marquee .item.italic { font-style: italic; color: var(--accent); opacity: 0.8; }
 @keyframes marq {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -800,7 +802,7 @@ em.italic-serif {
 
 /* -------- Inline highlight -------- */
 .hl {
-  background: linear-gradient(180deg, transparent 62%, color-mix(in srgb, var(--accent) 24%, transparent) 62%);
+  background: linear-gradient(180deg, transparent 62%, color-mix(in srgb, var(--accent-bright) 55%, transparent) 62%);
   padding: 0 0.05em;
 }
 
